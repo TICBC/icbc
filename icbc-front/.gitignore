@@ -1,0 +1,11 @@
+*~
+.*.swp
+node_modules/
+bower_components/
+.DS_Store
+.sass-cache/
+.idea/
+.tmp/
+dist/
+npm-debug.log
+kpiAPI.txt

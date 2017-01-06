@@ -1,0 +1,85 @@
+.home-module {
+	position: relative;
+ 	background: #fff;
+	width: 1024px;
+	margin: 1.5em auto 3em auto;
+	background: linear-gradient(-150deg, transparent 2.12em, #fff 0);
+	border-radius: .5em;
+	box-shadow: 0 20px 20px -20px #333;
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0; right: 0;
+		background: linear-gradient(to left bottom, transparent 50%, rgba(0,0,0,.2) 0, rgba(0,0,0,.4)) 100% 0 no-repeat;
+		width: 2.31em;
+		height: 4em;
+		transform: translateY(-1.69em) rotate(-30deg);
+		transform-origin: bottom right;
+		border-bottom-left-radius: inherit;
+		box-shadow: -.2em .2em .3em -.1em rgba(0,0,0,.15);	
+	}
+	.app-import-loading {
+		position: relative;
+		.loading-spinner {
+			top: 0;
+			font-size: inherit;
+		}
+	}
+	.select-area, .insert-area, .content-area, .titles-area {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+	.titles-area {
+		display: inline-block;
+		margin-top: 10px;
+		padding-bottom: 10px;
+		font-size: 20px;
+		color: #269;
+	}
+	.insert-area {
+		padding-top: 10px;
+		padding-bottom: 10px;
+		border-top: 2px groove #58a;
+		.title {
+			font-weight: bold;
+			display: inline-block;
+		}
+		table {
+			display: inline-block;
+			width: 500px;
+			margin-bottom: 0;
+		}
+	}
+	.select-area {
+		padding-top: 10px;
+		padding-bottom: 10px;
+		border-top: 2px groove #58a;
+		.title {
+			font-weight: bold;
+		}
+		.zai {
+			margin-left: 2em;
+
+		}
+		.form-control {
+			display: inline-block;
+			width: 150px;
+		}
+		.lichao-dropdown {
+			width: 100px;
+		}
+		.lichao-find {
+			margin-left: 1em;
+		}
+		.lichao-all {
+			margin-left: 40px;
+		}
+	}
+	.content-area {
+		position: relative;
+		padding-top: 20px;
+		padding-bottom: 20px;
+		border-top: 2px groove #58a;
+		min-height: 200px;
+	}
+}

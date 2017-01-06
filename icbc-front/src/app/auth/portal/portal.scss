@@ -1,0 +1,92 @@
+.portal-module {
+    width: 100%;
+    min-width: 1024px;
+    height: 100%;
+    min-height: 768px;
+    position: relative;
+
+    display: -webkit-flex; /* Safari */
+    display: flex;
+    justify-content: center; // 横向居中
+    align-items: center; // 纵向居中
+
+    .form-part {
+        position: relative;
+        width: 450px;
+        padding: 30px 0;
+        background: #fff;
+        border: 1px solid #269;
+        box-shadow: 20px 20px 20px -18px #000;
+        border-bottom-left-radius: 70px;
+        border-top-right-radius: 70px;
+
+        h1 {
+            margin: 0 10% 10px 15%;
+            font-size: 25px;
+            font-weight: normal;
+            color: #269;
+        }
+
+        .account, .password, .auto, .portal-btn {
+            display: block;
+            margin: 18px 10% 18px 15%;
+        }
+        .account, .password {
+            width: 80%;
+            i {
+                position: relative;
+                top: 3px;
+                left: 5px;
+                display: inline-block;
+                width: 12%;
+            }
+            input {
+                width: 80%;
+                padding: 5px;
+                border: none;
+                border-bottom: 1px solid #555;
+                display: inline-block;
+                font-size: 14px;
+                &:focus {
+                    outline: none;
+                    box-shadow: 0 10px 12px -8px #789;
+                }
+            }
+        }
+        .auto {
+            margin-bottom: 0;
+            span {
+                font-style: normal;
+                font-size: 80%;
+            }
+        }
+        .portal-errblock {
+            margin-top: 0;
+            float: right;
+            display: inline-block;
+            font-style: normal;
+            color: $errMsg;
+            font-size: 80%;
+        }
+        .portal-btn {
+            width: 72%;
+            a {
+                display: block;
+                text-align: center;
+                text-decoration: none;
+                font-style: normal;
+                color: #333;
+                padding: 7px;
+                border-radius: 5px;
+                width: 100%;
+                border: 1px solid #666;
+                transition: background .5s;
+                &:active {
+                    color: #fff;
+                    background: rgba(0,0,0,.5);
+                }
+            }
+            
+        }
+    }
+}

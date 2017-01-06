@@ -1,0 +1,23 @@
+<div class="portal-module">
+	<form class="form-part" name="loginForm">
+		<h1>请</h1>
+		<div class="account">
+			<i class="fa fa-user fa-lg" aria-hidden="true"></i><!--
+			--><input ng-model="loginAccount" type="text" placeholder="" required>
+		</div>
+		<div class="password">
+			<i class="fa fa-lock fa-lg" aria-hidden="true"></i><!--
+			--><input ng-model="loginPassword" type="password" placeholder="" required>
+		</div>
+		<div class="auto">
+			<span>自动登录</span>
+			<input class="" ng-model="isAutoLogin" type="checkbox">		
+			<div class="portal-errblock">
+				<span class="error">{{errMessage}}</span>
+			</div>
+		</div>
+		<div class="portal-btn">
+		    <a href="javascript:;" ng-click="login()" class="">登陆</a>
+		</div>
+    </form>
+</div>

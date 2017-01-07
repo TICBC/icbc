@@ -28,8 +28,13 @@ import headerDirect from './common/header/headerDirect';
 // 登陆及首页Controller
 import portalCtrl from './auth/portal/portalCtrl';
 import inCtrl from './in/inCtrl';
-import homeCtrl from './in/home/homeCtrl';
-import resultCtrl from './in/result/resultCtrl';
+//import homeCtrl from './in/home/homeCtrl';
+//import resultCtrl from './in/result/resultCtrl';
+//四部分内容
+import ActCtrl from './in/Act_certification/ActCtrl';
+import DevCtrl from './in/Device_fingerprinting/DevCtrl';
+import RisCtrl from './in/Risk_monitoring/RisCtrl';
+import TruCtrl from './in/Trust_relationships/TruCtrl';
 
 angular.module('soraka',
   ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'toaster'])
@@ -66,6 +71,11 @@ angular.module('soraka',
   // controllers 初始化
   .controller('portalCtrl', portalCtrl)
   .controller('inCtrl', inCtrl)
-  .controller('homeCtrl', homeCtrl)
-  .controller('resultCtrl', resultCtrl)
+  //.controller('homeCtrl', homeCtrl)
+  //.controller('resultCtrl', resultCtrl)
+
+  .controller('ActCtrl',ActCtrl)
+  .controller('DevCtrl',DevCtrl)
+  .controller('RisCtrl',RisCtrl)
+  .controller('TruCtrl',TruCtrl)
   ;

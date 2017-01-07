@@ -1,3 +1,42 @@
-.sidemenu {
-	background: red;
+.head>div{
+		width: 680px;
+    height: 50px;
+    margin: 0 auto;
+    margin-top: 20px;
+    border: none;
+}
+.head span{
+	display: inline-block;
+}
+.head span:nth-child(1){
+	 	color: #FF0000;
+    width: 405px;
+    height: 50px;
+    line-height:50px;
+    font-size: 32px;
+  	text-align: right;
+}
+.head span:nth-child(2){
+		color: black;
+    width: 265px;
+    height: 50px;
+    line-height::50px;
+    font-size: 28px;
+    text-align: left;
+    font-family: "楷体";
+}
+.menu {
+    width: 100%;
+    height: 46px;
+    margin-top: 2px;
+    border: 1px solid black;
+}
+.menu li{
+	  display: table-cell;
+    width: 1%;
+    width: 167px;
+    border-right: 1px solid black;
+}
+.menu li:last-child{
+	border-right: none;
 }

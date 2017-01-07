@@ -17,15 +17,25 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl: 'app/in/in.html', 
       controller: 'inCtrl'
     })
-    .state('in.home', {
-      url: '^/home',
-      templateUrl: 'app/in/home/home.html',
-      controller: 'homeCtrl'
+    .state('in.Act_certification', {
+      url: '^/Act_certification',
+      templateUrl: 'app/in/Act_certification/act.html',
+      controller: 'ActCtrl'
     })
-    .state('in.result', {
-      url: '^/result',
-      templateUrl: 'app/in/result/result.html',
-      controller: 'resultCtrl'
+    .state('in.Device_fingerprinting', {
+      url: '^/Device_fingerprinting',
+      templateUrl: 'app/in/Device_fingerprinting/dev.html',
+      controller: 'DevCtrl'
+    })
+    .state('in.Risk_monitoring', {
+      url: '^/Risk_monitoring',
+      templateUrl: 'app/in/Risk_monitoring/ris.html',
+      controller: 'RisCtrl'
+    })
+    .state('in.Trust_relationships', {
+      url: '^/Trust_relationships',
+      templateUrl: 'app/in/Trust_relationships/tru.html',
+      controller: 'TruCtrl'
     })
     ;
     

@@ -15,3 +15,14 @@
 
 ## API测试工具安装
 * 安装postman
+
+## 前端开发流程
+* index.html不要动
+* in.html对应导航栏
+* 后面可以接自己的html 比如 in.home  in.result
+** 1. 添加3个文件 .html .scss .js
+** 2. 在index.js里面将自己的js添加进去
+*** 2.1 import ** from **;
+*** 2.2 类似.controller('xxxeCtrl', xxxCtrl)
+** 3. 配置路由 修改app/config/route.js
+** 4. 给自己的模块添加一个跳转进去的地方 两种方式：在js里面通过类似$state.go("in.home"); 在html里面通过类似ui-sref="in.home"。

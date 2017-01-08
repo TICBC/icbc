@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="tiger.common.dal.persistence.mapper.ActivityMapper" >
+  <resultMap id="BaseResultMap" type="tiger.common.dal.persistence.workspace.ActivityDO" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="operator_id" property="operatorId" jdbcType="BIGINT" />
+    <result column="operation" property="operation" jdbcType="VARCHAR" />
+    <result column="object_type" property="objectType" jdbcType="VARCHAR" />
+    <result column="object_id" property="objectId" jdbcType="BIGINT" />
+    <result column="workspace_id" property="workspaceId" jdbcType="BIGINT" />
+    <result column="ext_params" property="extParams" jdbcType="VARCHAR" />
+    <result column="object_name" property="objectName" jdbcType="VARCHAR" />
+    <result column="operator_name" property="operatorName" jdbcType="VARCHAR" />
+    <result column="operator_avatar_id" property="operatorAvatarId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, create_time, update_time, operator_id, `operation`, object_type, object_id, workspace_id,
+    ext_params, object_name, operator_name, operator_avatar_id
+  </sql>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="tiger.common.dal.persistence.account.example.ActivityExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from activity
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExampleAndPage" resultMap="BaseResultMap" parameterType="tiger.common.dal.persistence.account.example.ActivityExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from activity
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="tiger.common.dal.persistence.account.example.ActivityExample" >
+    delete from activity
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <select id="countByExample" parameterType="tiger.common.dal.persistence.account.example.ActivityExample" resultType="java.lang.Integer" >
+    select count(*) from activity
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update activity
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = CURRENT_TIMESTAMP,
+      </if>
+      <if test="record.operatorId != null" >
+        operator_id = #{record.operatorId,jdbcType=BIGINT},
+      </if>
+      <if test="record.operation != null" >
+        `operation` = #{record.operation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.objectType != null" >
+        object_type = #{record.objectType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.objectId != null" >
+        object_id = #{record.objectId,jdbcType=BIGINT},
+      </if>
+      <if test="record.workspaceId != null" >
+        workspace_id = #{record.workspaceId,jdbcType=BIGINT},
+      </if>
+      <if test="record.extParams != null" >
+        ext_params = #{record.extParams,jdbcType=VARCHAR},
+      </if>
+      <if test="record.objectName != null" >
+        object_name = #{record.objectName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operatorName != null" >
+        operator_name = #{record.operatorName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.operatorAvatarId != null" >
+        operator_avatar_id = #{record.operatorAvatarId,jdbcType=BIGINT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update activity
+    set id = #{record.id,jdbcType=BIGINT},
+    create_time = #{record.createTime,jdbcType=TIMESTAMP},
+    update_time = CURRENT_TIMESTAMP,
+    operator_id = #{record.operatorId,jdbcType=BIGINT},
+    `operation` = #{record.operation,jdbcType=VARCHAR},
+    object_type = #{record.objectType,jdbcType=VARCHAR},
+    object_id = #{record.objectId,jdbcType=BIGINT},
+    workspace_id = #{record.workspaceId,jdbcType=BIGINT},
+    ext_params = #{record.extParams,jdbcType=VARCHAR},
+    object_name = #{record.objectName,jdbcType=VARCHAR},
+    operator_name = #{record.operatorName,jdbcType=VARCHAR},
+    operator_avatar_id = #{record.operatorAvatarId,jdbcType=BIGINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select
+    <include refid="Base_Column_List" />
+    from activity
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from activity
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="tiger.common.dal.persistence.workspace.ActivityDO" useGeneratedKeys="true" keyProperty="id" >
+    insert into activity (create_time, update_time, operator_id,
+    `operation`, object_type, object_id,
+    workspace_id, ext_params, object_name,
+    operator_name, operator_avatar_id)
+    values (CURRENT_TIMESTAMP,CURRENT_TIMESTAMP,#{operatorId,jdbcType=BIGINT},
+    #{operation,jdbcType=VARCHAR}, #{objectType,jdbcType=VARCHAR}, #{objectId,jdbcType=BIGINT},
+    #{workspaceId,jdbcType=BIGINT}, #{extParams,jdbcType=VARCHAR}, #{objectName,jdbcType=VARCHAR},
+    #{operatorName,jdbcType=VARCHAR}, #{operatorAvatarId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="tiger.common.dal.persistence.workspace.ActivityDO" useGeneratedKeys="true" keyProperty="id" >
+    insert into activity
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      create_time,
+      update_time,
+      operator_id,
+      `operation`,
+      object_type,
+      object_id,
+      workspace_id,
+      ext_params,
+      object_name,
+      operator_name,
+      operator_avatar_id,
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      CURRENT_TIMESTAMP,
+      CURRENT_TIMESTAMP,
+      #{operatorId,jdbcType=BIGINT},
+      #{operation,jdbcType=VARCHAR},
+      #{objectType,jdbcType=VARCHAR},
+      #{objectId,jdbcType=BIGINT},
+      #{workspaceId,jdbcType=BIGINT},
+      #{extParams,jdbcType=VARCHAR},
+      #{objectName,jdbcType=VARCHAR},
+      #{operatorName,jdbcType=VARCHAR},
+      #{operatorAvatarId,jdbcType=BIGINT},
+    </trim>
+  </insert>
+
+  <insert id="batchInsert" parameterType="tiger.common.dal.persistence.workspace.ActivityDO" useGeneratedKeys="true">
+    insert into activity
+    (create_time, update_time, operator_id,
+    `operation`, object_type, object_id, workspace_id, ext_params, object_name, operator_name, operator_avatar_id
+    )
+    values
+    <foreach separator="," collection="records" item="record">
+      (
+      CURRENT_TIMESTAMP,
+      CURRENT_TIMESTAMP,
+      #{record.operatorId,jdbcType=BIGINT},
+      #{record.operation,jdbcType=VARCHAR},
+      #{record.objectType,jdbcType=VARCHAR},
+      #{record.objectId,jdbcType=BIGINT},
+      #{record.workspaceId,jdbcType=BIGINT},
+      #{record.extParams,jdbcType=VARCHAR},
+      #{record.objectName,jdbcType=VARCHAR},
+      #{record.operatorName,jdbcType=VARCHAR},
+      #{record.operatorAvatarId,jdbcType=BIGINT}
+      )
+    </foreach>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="tiger.common.dal.persistence.workspace.ActivityDO" >
+    update activity
+    <set >
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = CURRENT_TIMESTAMP,
+      </if>
+      <if test="operatorId != null" >
+        operator_id = #{operatorId,jdbcType=BIGINT},
+      </if>
+      <if test="operation != null" >
+        `operation` = #{operation,jdbcType=VARCHAR},
+      </if>
+      <if test="objectType != null" >
+        object_type = #{objectType,jdbcType=VARCHAR},
+      </if>
+      <if test="objectId != null" >
+        object_id = #{objectId,jdbcType=BIGINT},
+      </if>
+      <if test="workspaceId != null" >
+        workspace_id = #{workspaceId,jdbcType=BIGINT},
+      </if>
+      <if test="extParams != null" >
+        ext_params = #{extParams,jdbcType=VARCHAR},
+      </if>
+      <if test="objectName != null" >
+        object_name = #{objectName,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorName != null" >
+        operator_name = #{operatorName,jdbcType=VARCHAR},
+      </if>
+      <if test="operatorAvatarId != null" >
+        operator_avatar_id = #{operatorAvatarId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="tiger.common.dal.persistence.workspace.ActivityDO" >
+    update activity
+    set create_time = #{createTime,jdbcType=TIMESTAMP},
+    update_time = CURRENT_TIMESTAMP,
+    operator_id = #{operatorId,jdbcType=BIGINT},
+    `operation` = #{operation,jdbcType=VARCHAR},
+    object_type = #{objectType,jdbcType=VARCHAR},
+    object_id = #{objectId,jdbcType=BIGINT},
+    workspace_id = #{workspaceId,jdbcType=BIGINT},
+    ext_params = #{extParams,jdbcType=VARCHAR},
+    object_name = #{objectName,jdbcType=VARCHAR},
+    operator_name = #{operatorName,jdbcType=VARCHAR},
+    operator_avatar_id = #{operatorAvatarId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <sql id="queryActivitiesCondition">
+    <where>
+      <if test="null != query.loanId">
+        object_type="LOAN" AND object_id=#{query.loanId}
+      </if>
+      <if test="null != query.workspaceId">
+        AND workspace_id = #{query.workspaceId}
+      </if>
+      <if test="null != query.operatorId">
+        AND operator_id = #{query.operatorId}
+      </if>
+    </where>
+  </sql>
+
+  <select id="countActivities" resultType="java.lang.Integer">
+    select count(1)
+    from activity
+    <include refid="queryActivitiesCondition"/>
+  </select>
+
+  <select id="queryActivities" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from activity
+    <include refid="queryActivitiesCondition"/>
+    order by create_time desc, id desc
+    limit #{offset}, #{limit}
+  </select>
+</mapper>

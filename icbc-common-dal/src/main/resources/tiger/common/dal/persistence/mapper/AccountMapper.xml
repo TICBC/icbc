@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="tiger.common.dal.persistence.mapper.AccountMapper" >
+  <resultMap id="BaseResultMap" type="tiger.common.dal.persistence.account.AccountDO" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="gender" property="gender" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="DATE" />
+    <result column="icon_id" property="iconId" jdbcType="BIGINT" />
+    <result column="ext_params" property="extParams" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="self_introduction" property="selfIntroduction" jdbcType="VARCHAR" />
+    <result column="account" property="account" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="is_verify" property="isVerify" jdbcType="BIT" />
+    <result column="alipay" property="alipay" jdbcType="VARCHAR" />
+    <result column="nickname" property="nickname" jdbcType="VARCHAR" />
+    <result column="wechat" property="wechat" jdbcType="VARCHAR" />
+    <result column="timezone" property="timezone" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, create_time, update_time, user_name, `password`, gender, birthday, icon_id, ext_params,
+    mobile, self_introduction, account, email, is_verify, alipay, nickname, wechat, timezone
+  </sql>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="tiger.common.dal.persistence.account.example.AccountExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from account
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExampleAndPage" resultMap="BaseResultMap" parameterType="tiger.common.dal.persistence.account.example.AccountExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from account
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="tiger.common.dal.persistence.account.example.AccountExample" >
+    delete from account
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <select id="countByExample" parameterType="tiger.common.dal.persistence.account.example.AccountExample" resultType="java.lang.Integer" >
+    select count(*) from account
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update account
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = CURRENT_TIMESTAMP,
+      </if>
+      <if test="record.userName != null" >
+        user_name = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.password != null" >
+        `password` = #{record.password,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gender != null" >
+        gender = #{record.gender,jdbcType=VARCHAR},
+      </if>
+      <if test="record.birthday != null" >
+        birthday = #{record.birthday,jdbcType=DATE},
+      </if>
+      <if test="record.iconId != null" >
+        icon_id = #{record.iconId,jdbcType=BIGINT},
+      </if>
+      <if test="record.extParams != null" >
+        ext_params = #{record.extParams,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mobile != null" >
+        mobile = #{record.mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="record.selfIntroduction != null" >
+        self_introduction = #{record.selfIntroduction,jdbcType=VARCHAR},
+      </if>
+      <if test="record.account != null" >
+        account = #{record.account,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null" >
+        email = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isVerify != null" >
+        is_verify = #{record.isVerify,jdbcType=BIT},
+      </if>
+      <if test="record.alipay != null" >
+        alipay = #{record.alipay,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nickname != null" >
+        nickname = #{record.nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wechat != null" >
+        wechat = #{record.wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.timezone != null" >
+        timezone = #{record.timezone,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update account
+    set id = #{record.id,jdbcType=BIGINT},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = CURRENT_TIMESTAMP,
+      user_name = #{record.userName,jdbcType=VARCHAR},
+      `password` = #{record.password,jdbcType=VARCHAR},
+      gender = #{record.gender,jdbcType=VARCHAR},
+      birthday = #{record.birthday,jdbcType=DATE},
+      icon_id = #{record.iconId,jdbcType=BIGINT},
+      ext_params = #{record.extParams,jdbcType=VARCHAR},
+      mobile = #{record.mobile,jdbcType=VARCHAR},
+      self_introduction = #{record.selfIntroduction,jdbcType=VARCHAR},
+      account = #{record.account,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR},
+      is_verify = #{record.isVerify,jdbcType=BIT},
+      alipay = #{record.alipay,jdbcType=VARCHAR},
+      nickname = #{record.nickname,jdbcType=VARCHAR},
+      wechat = #{record.wechat,jdbcType=VARCHAR},
+      timezone = #{record.timezone,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select
+    <include refid="Base_Column_List" />
+    from account
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from account
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="tiger.common.dal.persistence.account.AccountDO" useGeneratedKeys="true" keyProperty="id" >
+    insert into account (create_time, update_time, user_name,
+      `password`, gender, birthday,
+      icon_id, ext_params, mobile,
+      self_introduction, account, email,
+      is_verify, alipay, nickname,
+      wechat, timezone)
+    values (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, #{userName,jdbcType=VARCHAR},
+      #{password,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, #{birthday,jdbcType=DATE},
+      #{iconId,jdbcType=BIGINT}, #{extParams,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR},
+      #{selfIntroduction,jdbcType=VARCHAR}, #{account,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR},
+      #{isVerify,jdbcType=BIT}, #{alipay,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR},
+      #{wechat,jdbcType=VARCHAR}, #{timezone,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="tiger.common.dal.persistence.account.AccountDO" useGeneratedKeys="true" keyProperty="id" >
+    insert into account
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      create_time,
+      update_time,
+      user_name,
+      `password`,
+      gender,
+      birthday,
+      icon_id,
+      ext_params,
+      mobile,
+      self_introduction,
+      account,
+      email,
+      is_verify,
+      alipay,
+      nickname,
+      wechat,
+      timezone,
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      CURRENT_TIMESTAMP,
+      CURRENT_TIMESTAMP,
+      #{userName,jdbcType=VARCHAR},
+      #{password,jdbcType=VARCHAR},
+      #{gender,jdbcType=VARCHAR},
+      #{birthday,jdbcType=DATE},
+      #{iconId,jdbcType=BIGINT},
+      #{extParams,jdbcType=VARCHAR},
+      #{mobile,jdbcType=VARCHAR},
+      #{selfIntroduction,jdbcType=VARCHAR},
+      #{account,jdbcType=VARCHAR},
+      #{email,jdbcType=VARCHAR},
+      #{isVerify,jdbcType=BIT},
+      #{alipay,jdbcType=VARCHAR},
+      #{nickname,jdbcType=VARCHAR},
+      #{wechat,jdbcType=VARCHAR},
+      #{timezone,jdbcType=VARCHAR},
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="tiger.common.dal.persistence.account.AccountDO" >
+    update account
+    <set >
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = CURRENT_TIMESTAMP,
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        gender = #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=DATE},
+      </if>
+      <if test="iconId != null" >
+        icon_id = #{iconId,jdbcType=BIGINT},
+      </if>
+      <if test="extParams != null" >
+        ext_params = #{extParams,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="selfIntroduction != null" >
+        self_introduction = #{selfIntroduction,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null" >
+        account = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="isVerify != null" >
+        is_verify = #{isVerify,jdbcType=BIT},
+      </if>
+      <if test="alipay != null" >
+        alipay = #{alipay,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null" >
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null" >
+        wechat = #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="timezone != null" >
+        timezone = #{timezone,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="tiger.common.dal.persistence.account.AccountDO" >
+    update account
+    set create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = CURRENT_TIMESTAMP,
+      user_name = #{userName,jdbcType=VARCHAR},
+      `password` = #{password,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=DATE},
+      icon_id = #{iconId,jdbcType=BIGINT},
+      ext_params = #{extParams,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      self_introduction = #{selfIntroduction,jdbcType=VARCHAR},
+      account = #{account,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      is_verify = #{isVerify,jdbcType=BIT},
+      alipay = #{alipay,jdbcType=VARCHAR},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      wechat = #{wechat,jdbcType=VARCHAR},
+      timezone = #{timezone,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <!-- 分页查询客户-->
+  <sql id="queryAccountCondition">
+    <where>
+      1=1
+      <if test="query.ids != null and query.ids.size() > 0">
+        AND id in
+        <foreach collection="query.ids" item="id" open="(" separator="," close=")">
+          #{id}
+        </foreach>
+      </if>
+    </where>
+  </sql>
+  <!--  当前是按名字模糊查询  -->
+  <sql id="queryFuzzyAccount">
+    <where>
+      1=1
+      <if test="query.accountIds != null and query.accountIds.size() > 0 ">
+        AND id in
+        <foreach collection="query.accountIds" item="accountId" open="(" separator="," close=")">
+          #{accountId}
+        </foreach>
+      </if>
+      <if test="null != query.name">
+        AND user_name LIKE #{query.name} '%'
+      </if>
+    </where>
+  </sql>
+  <select id="countAccount" resultType="java.lang.Integer">
+    select count(1)
+    from account t
+    <include refid="queryAccountCondition"/>
+  </select>
+
+  <!-- 分页获取用户 通过传入name以及state -->
+  <select id="countCourseUsers" resultType="java.lang.Integer">
+    select count(1)
+    from account
+    <include refid="queryFuzzyAccount"/>
+  </select>
+  <select id="queryCourseUsers" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from account
+    <include refid="queryFuzzyAccount"/>
+    limit #{offset},#{limit}
+  </select>
+  
+
+  <!-- 不分页获取用户-->
+  <select id="queryAllAccount" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from account t
+    <include refid="queryAccountCondition"/>
+  </select>
+
+  <select id="queryAccount" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from account t
+    <include refid="queryAccountCondition"/>
+    limit #{offset},#{limit}
+  </select>
+
+  <select id="fuzzySearchByName" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from account t
+    where
+      <if test="stringArray != null and stringArray.length > 0">
+        <foreach collection="stringArray" item="namePart" separator="and">
+          t.user_name like #{namePart}
+        </foreach>
+      </if>
+  </select>
+</mapper>

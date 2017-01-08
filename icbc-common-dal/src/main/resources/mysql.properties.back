@@ -1,0 +1,11 @@
+c3p0.driverClassName=com.mysql.jdbc.Driver
+c3p0.url=jdbc:mysql://xx.xx.xx.xx:3306/xx?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf-8
+c3p0.username=xxxxx
+c3p0.password=xxxxx
+c3p0.MaxPoolSize=5
+c3p0.MinPoolSize=5
+c3p0.MaxIdleTime=28800
+
+# redis configuration
+redis.host=localhost
+redis.port=6379

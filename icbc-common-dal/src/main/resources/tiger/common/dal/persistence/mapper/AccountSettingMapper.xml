@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="tiger.common.dal.persistence.mapper.AccountSettingMapper">
+  <resultMap id="BaseResultMap" type="tiger.common.dal.persistence.account.AccountSettingDO">
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="account_id" property="accountId" jdbcType="BIGINT" />
+    <result column="biz_type" property="bizType" jdbcType="VARCHAR" />
+    <result column="subject_id" property="subjectId" jdbcType="BIGINT" />
+    <result column="setting_type" property="settingType" jdbcType="VARCHAR" />
+    <result column="setting_value" property="settingValue" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="workspace_id" property="workspaceId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, account_id, biz_type, subject_id, setting_type, setting_value, create_time, update_time,
+    workspace_id
+  </sql>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" suffix=")" prefixOverrides="and">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" suffix=")" prefixOverrides="and">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap"
+          parameterType="tiger.common.dal.persistence.account.example.AccountSettingExample">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from account_setting
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExampleAndPage" resultMap="BaseResultMap"
+          parameterType="tiger.common.dal.persistence.account.example.AccountSettingExample">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from account_setting
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="tiger.common.dal.persistence.account.example.AccountSettingExample">
+    delete from account_setting
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <select id="countByExample" parameterType="tiger.common.dal.persistence.account.example.AccountSettingExample"
+          resultType="java.lang.Integer">
+    select count(*) from account_setting
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update account_setting
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.accountId != null">
+        account_id = #{record.accountId,jdbcType=BIGINT},
+      </if>
+      <if test="record.bizType != null">
+        biz_type = #{record.bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.subjectId != null">
+        subject_id = #{record.subjectId,jdbcType=BIGINT},
+      </if>
+      <if test="record.settingType != null">
+        setting_type = #{record.settingType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.settingValue != null">
+        setting_value = #{record.settingValue,jdbcType=VARCHAR},
+      </if>
+      update_time = CURRENT_TIMESTAMP,
+      <if test="record.workspaceId != null" >
+        workspace_id = #{record.workspaceId,jdbcType=BIGINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update account_setting
+    set id = #{record.id,jdbcType=BIGINT},
+    account_id = #{record.accountId,jdbcType=BIGINT},
+    biz_type = #{record.bizType,jdbcType=VARCHAR},
+    subject_id = #{record.subjectId,jdbcType=BIGINT},
+    setting_type = #{record.settingType,jdbcType=VARCHAR},
+    setting_value = #{record.settingValue,jdbcType=VARCHAR},
+    update_time = CURRENT_TIMESTAMP,
+    workspace_id = #{record.workspaceId,jdbcType=BIGINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+    select
+    <include refid="Base_Column_List" />
+    from account_setting
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from account_setting
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="tiger.common.dal.persistence.account.AccountSettingDO" useGeneratedKeys="true"
+          keyProperty="id">
+    insert into account_setting (account_id, biz_type, subject_id,
+    setting_type, setting_value, create_time, update_time,workspace_id)
+    values (#{accountId,jdbcType=BIGINT}, #{bizType,jdbcType=VARCHAR}, #{subjectId,jdbcType=BIGINT},
+    #{settingType,jdbcType=VARCHAR}, #{settingValue,jdbcType=VARCHAR}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, #{workspaceId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="tiger.common.dal.persistence.account.AccountSettingDO" useGeneratedKeys="true"
+          keyProperty="id">
+    insert into account_setting
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      account_id,
+      biz_type,
+      subject_id,
+      setting_type,
+      setting_value,
+      create_time,
+      update_time,
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{accountId,jdbcType=BIGINT},
+      #{bizType,jdbcType=VARCHAR},
+      #{subjectId,jdbcType=BIGINT},
+      #{settingType,jdbcType=VARCHAR},
+      #{settingValue,jdbcType=VARCHAR},
+      CURRENT_TIMESTAMP,
+      CURRENT_TIMESTAMP,
+      #{workspaceId,jdbcType=BIGINT},
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="tiger.common.dal.persistence.account.AccountSettingDO">
+    update account_setting
+    <set>
+      <if test="accountId != null">
+        account_id = #{accountId,jdbcType=BIGINT},
+      </if>
+      <if test="bizType != null">
+        biz_type = #{bizType,jdbcType=VARCHAR},
+      </if>
+      <if test="subjectId != null">
+        subject_id = #{subjectId,jdbcType=BIGINT},
+      </if>
+      <if test="settingType != null">
+        setting_type = #{settingType,jdbcType=VARCHAR},
+      </if>
+      <if test="settingValue != null">
+        setting_value = #{settingValue,jdbcType=VARCHAR},
+      </if>
+      update_time = CURRENT_TIMESTAMP,
+      <if test="workspaceId != null" >
+        workspace_id = #{workspaceId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="tiger.common.dal.persistence.account.AccountSettingDO">
+    update account_setting
+    set account_id = #{accountId,jdbcType=BIGINT},
+    biz_type = #{bizType,jdbcType=VARCHAR},
+    subject_id = #{subjectId,jdbcType=BIGINT},
+    setting_type = #{settingType,jdbcType=VARCHAR},
+    setting_value = #{settingValue,jdbcType=VARCHAR},
+    update_time = CURRENT_TIMESTAMP,
+    workspace_id = #{workspaceId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="query" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from account_setting
+    <where>
+      <if test="query.ids != null and query.ids.size() > 0">
+        id in
+        <foreach collection="query.ids" item="id" open="(" separator="," close=")">
+          #{id}
+        </foreach>
+      </if>
+      <if test="query.bizType != null">
+        and biz_type = #{query.bizType}
+      </if>
+      <if test="query.subjectIds != null and query.subjectIds.size() > 0">
+        and subject_id in
+        <foreach collection="query.subjectIds" item="subjectId" open="(" separator="," close=")">
+          #{subjectId}
+        </foreach>
+      </if>
+      <if test="query.settingType != null">
+        and setting_type = #{query.settingType}
+      </if>
+      <if test="query.workspaceId != null">
+        and workspace_id = #{query.workspaceId}
+      </if>
+    </where>
+  </select>
+</mapper>

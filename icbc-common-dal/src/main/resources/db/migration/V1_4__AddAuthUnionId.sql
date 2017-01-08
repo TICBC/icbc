@@ -1,0 +1,1 @@
+ALTER TABLE account_bind ADD COLUMN union_id VARCHAR(256);

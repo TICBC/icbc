@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="tiger.common.dal.persistence.mapper.WorkspaceMapper">
+    <resultMap id="BaseResultMap" type="tiger.common.dal.persistence.workspace.WorkspaceDO">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="owner_id" property="ownerId" jdbcType="BIGINT"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="is_verified" property="isVerified" jdbcType="BIT"/>
+        <result column="type" property="type" jdbcType="VARCHAR"/>
+        <result column="ext_params" property="extParams" jdbcType="VARCHAR"/>
+    </resultMap>
+    <resultMap id="ResultMapWithBLOBs" type="tiger.common.dal.persistence.workspace.WorkspaceDO" extends="BaseResultMap">
+        <result column="description" property="description" jdbcType="LONGVARCHAR"/>
+    </resultMap>
+
+    <resultMap id="AccountUserResultMap" type="tiger.common.dal.persistence.workspace.WorkspaceAccountDTO">
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="role" property="role" jdbcType="VARCHAR"/>
+        <result column="account_id" property="accountId" jdbcType="BIGINT"/>
+        <result column="workspace_id" property="workspaceId" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, owner_id, create_time, update_time, `name`, is_verified, `type`, ext_params
+    </sql>
+    <sql id="Blob_Column_List">
+        description
+    </sql>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs"
+            parameterType="tiger.common.dal.persistence.workspace.example.WorkspaceExample">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from workspace
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByExample" resultMap="BaseResultMap"
+            parameterType="tiger.common.dal.persistence.workspace.example.WorkspaceExample">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from workspace
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByExampleWithBLOBsAndPage" resultMap="ResultMapWithBLOBs"
+            parameterType="tiger.common.dal.persistence.workspace.example.WorkspaceExample">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from workspace
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByExampleAndPage" resultMap="BaseResultMap"
+            parameterType="tiger.common.dal.persistence.workspace.example.WorkspaceExample">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from workspace
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <delete id="deleteByExample" parameterType="tiger.common.dal.persistence.workspace.example.WorkspaceExample">
+        delete from workspace
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <select id="countByExample" parameterType="tiger.common.dal.persistence.workspace.example.WorkspaceExample"
+            resultType="java.lang.Integer">
+        select count(*) from workspace
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update workspace
+        <set>
+            <if test="record.id != null">
+                id = #{record.id,jdbcType=BIGINT},
+            </if>
+            <if test="record.ownerId != null">
+                owner_id = #{record.ownerId,jdbcType=BIGINT},
+            </if>
+            <if test="record.createTime != null">
+                create_time = #{record.createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="record.updateTime != null">
+                update_time = CURRENT_TIMESTAMP,
+            </if>
+            <if test="record.name != null">
+                `name` = #{record.name,jdbcType=VARCHAR},
+            </if>
+            <if test="record.isVerified != null">
+                is_verified = #{record.isVerified,jdbcType=BIT},
+            </if>
+            <if test="record.type != null">
+                `type` = #{record.type,jdbcType=VARCHAR},
+            </if>
+            <if test="record.extParams != null">
+                ext_params = #{record.extParams,jdbcType=VARCHAR},
+            </if>
+            <if test="record.description != null">
+                description = #{record.description,jdbcType=LONGVARCHAR},
+            </if>
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExampleWithBLOBs" parameterType="map">
+        update workspace
+        set id = #{record.id,jdbcType=BIGINT},
+        owner_id = #{record.ownerId,jdbcType=BIGINT},
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+        update_time = CURRENT_TIMESTAMP,
+        `name` = #{record.name,jdbcType=VARCHAR},
+        is_verified = #{record.isVerified,jdbcType=BIT},
+        `type` = #{record.type,jdbcType=VARCHAR},
+        ext_params = #{record.extParams,jdbcType=VARCHAR},
+        description = #{record.description,jdbcType=LONGVARCHAR}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update workspace
+        set id = #{record.id,jdbcType=BIGINT},
+        owner_id = #{record.ownerId,jdbcType=BIGINT},
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+        update_time = CURRENT_TIMESTAMP,
+        `name` = #{record.name,jdbcType=VARCHAR},
+        is_verified = #{record.isVerified,jdbcType=BIT},
+        `type` = #{record.type,jdbcType=VARCHAR},
+        ext_params = #{record.extParams,jdbcType=VARCHAR}
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Blob_Column_List"/>
+        from workspace
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from workspace
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" parameterType="tiger.common.dal.persistence.workspace.WorkspaceDO" useGeneratedKeys="true"
+            keyProperty="id">
+        insert into workspace (owner_id, create_time, update_time,
+        `name`, is_verified, `type`,
+        ext_params, description)
+        values (#{ownerId,jdbcType=BIGINT}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP,
+        #{name,jdbcType=VARCHAR}, #{isVerified,jdbcType=BIT}, #{type,jdbcType=VARCHAR},
+        #{extParams,jdbcType=VARCHAR}, #{description,jdbcType=LONGVARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="tiger.common.dal.persistence.workspace.WorkspaceDO" useGeneratedKeys="true"
+            keyProperty="id">
+        insert into workspace
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            owner_id,
+            create_time,
+            update_time,
+            `name`,
+            is_verified,
+            `type`,
+            ext_params,
+            description,
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            #{ownerId,jdbcType=BIGINT},
+            CURRENT_TIMESTAMP,
+            CURRENT_TIMESTAMP,
+            #{name,jdbcType=VARCHAR},
+            #{isVerified,jdbcType=BIT},
+            #{type,jdbcType=VARCHAR},
+            #{extParams,jdbcType=VARCHAR},
+            #{description,jdbcType=LONGVARCHAR},
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="tiger.common.dal.persistence.workspace.WorkspaceDO">
+        update workspace
+        <set>
+            <if test="ownerId != null">
+                owner_id = #{ownerId,jdbcType=BIGINT},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                update_time = CURRENT_TIMESTAMP,
+            </if>
+            <if test="name != null">
+                `name` = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="isVerified != null">
+                is_verified = #{isVerified,jdbcType=BIT},
+            </if>
+            <if test="type != null">
+                `type` = #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="extParams != null">
+                ext_params = #{extParams,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                description = #{description,jdbcType=LONGVARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKeyWithBLOBs" parameterType="tiger.common.dal.persistence.workspace.WorkspaceDO">
+        update workspace
+        set owner_id = #{ownerId,jdbcType=BIGINT},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+        update_time = CURRENT_TIMESTAMP,
+        `name` = #{name,jdbcType=VARCHAR},
+        is_verified = #{isVerified,jdbcType=BIT},
+        `type` = #{type,jdbcType=VARCHAR},
+        ext_params = #{extParams,jdbcType=VARCHAR},
+        description = #{description,jdbcType=LONGVARCHAR}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="tiger.common.dal.persistence.workspace.WorkspaceDO">
+        update workspace
+        set owner_id = #{ownerId,jdbcType=BIGINT},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+        update_time = CURRENT_TIMESTAMP,
+        `name` = #{name,jdbcType=VARCHAR},
+        is_verified = #{isVerified,jdbcType=BIT},
+        `type` = #{type,jdbcType=VARCHAR},
+        ext_params = #{extParams,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+    <!-- 删除workspace中所有的用户-->
+    <delete id="removeAllUser">
+        delete from workspace_account
+        where
+        `workspace_id` = #{workspaceId, jdbcType=BIGINT}
+    </delete>
+
+    <!-- 删除workspace中的用户-->
+    <delete id="removeUser">
+        delete from workspace_account
+        where
+        `workspace_id` = #{workspaceId, jdbcType=BIGINT}
+        and
+        `account_id` = #{accountId, jdbcType=BIGINT}
+    </delete>
+
+    <!-- 批量加入一组用户信息 -->
+    <insert id="addUserAndRoles" parameterType="java.util.List">
+        insert into workspace_account(workspace_id, account_id, `role`, create_time)
+        values
+        <foreach collection="WorkspaceAccountDTOs" item="item" separator=",">
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                #{item.workspaceId,jdbcType=BIGINT},
+                #{item.accountId,jdbcType=BIGINT},
+                #{item.role,jdbcType=VARCHAR},
+                CURRENT_TIMESTAMP
+            </trim>
+        </foreach>
+    </insert>
+
+    <!-- 获取用户角色列表-->
+    <select id="getUserWorkSpaceRoles" resultMap="AccountUserResultMap">
+        select workspace_id, account_id, `role`, create_time
+        from
+        workspace_account
+        where
+        `workspace_id` = #{workspaceId, jdbcType=BIGINT}
+        and
+        `account_id` = #{accountId, jdbcType=BIGINT}
+    </select>
+
+    <!-- 获取用户所有团队的角色列表 -->
+    <select id="getAllUserWorkSpaceRoles" resultMap="AccountUserResultMap">
+        select workspace_id, account_id, `role`, create_time
+        from
+            workspace_account
+        where
+            `account_id` = #{accountId, jdbcType=BIGINT}
+    </select>
+
+
+    <!-- 获取workspace下所有用户和权限 -->
+    <select id="getWorkSpaceUsers" resultMap="AccountUserResultMap">
+        select workspace_id, account_id, `role`, create_time
+        from
+        workspace_account
+        where
+        `workspace_id` = #{workspaceId, jdbcType=BIGINT}
+    </select>
+
+    <!-- 获取学生的 workspace -->
+    <select id="getWorkspacesByAccountId" resultMap="ResultMapWithBLOBs">
+        select <include refid="Base_Column_List" />, <include refid="Blob_Column_List" />
+        from workspace
+        where id in (
+            select workspace_id
+            from workspace_account
+            where account_id = #{accountId, jdbcType=BIGINT}
+        );
+    </select>
+
+    <!-- 去重后的 workspace_id -->
+    <select id="getWorkspaceIdsByAccountId" resultType="java.lang.Long">
+        select
+            distinct workspace_id
+        from
+            workspace_account
+        where
+            account_id = #{accountId, jdbcType=BIGINT}
+    </select>
+
+    <delete id="removeUserRoles">
+        delete from workspace_account
+        where `workspace_id` = #{workspaceId, jdbcType=BIGINT}
+        and `account_id` = #{accountId, jdbcType=BIGINT}
+        and `role` in
+        <foreach collection="roles" item="role" open="(" separator="," close=")">
+            #{role, jdbcType=VARCHAR}
+        </foreach>
+    </delete>
+
+    <!--获取workspaceIds工作空间下的成员计数-->
+    <select id="countWorkspaceMembers" resultType="tiger.common.dal.persistence.system.CountDTO">
+        select workspace_id as `id`, count(workspace_id) as `count`
+        from workspace_account
+        where workspace_id in (
+        <foreach collection="workspaceIds" item="id" separator=",">
+            #{id, jdbcType=BIGINT}
+        </foreach>
+        )
+        group by workspace_id
+    </select>
+</mapper>

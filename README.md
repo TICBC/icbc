@@ -26,3 +26,9 @@
 *** 2.2 类似.controller('xxxeCtrl', xxxCtrl)
 ** 3. 配置路由 修改app/config/route.js
 ** 4. 给自己的模块添加一个跳转进去的地方 两种方式：在js里面通过类似$state.go("in.home"); 在html里面通过类似ui-sref="in.home"。
+
+## 后端开发流程
+* 安装JDK
+* 下载Intellij IDEA Ultimate版本 不要下Community版本
+* 下载gradle2.4: http://downloads.gradle.org/distributions/gradle-2.4-bin.zip
+* 打开Intellij IDEA选择import双击项目根目录的build.gradle弹出导入对话框，选中use aoto import 选择使用本地gradle确定

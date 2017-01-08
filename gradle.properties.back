@@ -1,0 +1,3 @@
+flyway.user=xxxx
+flyway.password=xxxx
+flyway.url=jdbc:mysql://xx.xx.xx.xx:3306/xxx

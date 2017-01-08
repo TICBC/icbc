@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="tiger.common.dal.persistence.mapper.InvitationCodeMapper">
+    <resultMap id="BaseResultMap" type="tiger.common.dal.persistence.account.InvitationCodeDO">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="code" property="code" jdbcType="VARCHAR"/>
+        <result column="type" property="type" jdbcType="VARCHAR"/>
+        <result column="is_expired" property="isExpired" jdbcType="TINYINT"/>
+        <result column="account_id" property="accountId" jdbcType="BIGINT"/>
+        <result column="inviter_id" property="inviterId" jdbcType="BIGINT"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, code, `type`, is_expired, account_id, inviter_id, create_time, update_time
+    </sql>
+    <sql id="Example_Where_Clause">
+        <where>
+            <foreach collection="oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <sql id="Update_By_Example_Where_Clause">
+        <where>
+            <foreach collection="example.oredCriteria" item="criteria" separator="or">
+                <if test="criteria.valid">
+                    <trim prefix="(" suffix=")" prefixOverrides="and">
+                        <foreach collection="criteria.criteria" item="criterion">
+                            <choose>
+                                <when test="criterion.noValue">
+                                    and ${criterion.condition}
+                                </when>
+                                <when test="criterion.singleValue">
+                                    and ${criterion.condition} #{criterion.value}
+                                </when>
+                                <when test="criterion.betweenValue">
+                                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                                </when>
+                                <when test="criterion.listValue">
+                                    and ${criterion.condition}
+                                    <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                             separator=",">
+                                        #{listItem}
+                                    </foreach>
+                                </when>
+                            </choose>
+                        </foreach>
+                    </trim>
+                </if>
+            </foreach>
+        </where>
+    </sql>
+    <select id="selectByExample" resultMap="BaseResultMap"
+            parameterType="tiger.common.dal.persistence.account.example.InvitationCodeExample">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from invitation_code
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <select id="selectByExampleAndPage" resultMap="BaseResultMap"
+            parameterType="tiger.common.dal.persistence.account.example.InvitationCodeExample">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="Base_Column_List"/>
+        from invitation_code
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+    <delete id="deleteByExample" parameterType="tiger.common.dal.persistence.account.example.InvitationCodeExample">
+        delete from invitation_code
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </delete>
+    <select id="countByExample" parameterType="tiger.common.dal.persistence.account.example.InvitationCodeExample"
+            resultType="java.lang.Integer">
+        select count(*) from invitation_code
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <update id="updateByExampleSelective" parameterType="map">
+        update invitation_code
+        <set>
+            <if test="record.id != null">
+                id = #{record.id,jdbcType=BIGINT},
+            </if>
+            <if test="record.code != null">
+                code = #{record.code,jdbcType=VARCHAR},
+            </if>
+            <if test="record.type != null">
+                `type` = #{record.type,jdbcType=VARCHAR},
+            </if>
+            <if test="record.isExpired != null">
+                is_expired = #{record.isExpired,jdbcType=TINYINT},
+            </if>
+            <if test="record.accountId != null">
+                account_id = #{record.accountId,jdbcType=BIGINT},
+            </if>
+            <if test="record.inviterId != null">
+                inviter_id = #{record.inviterId,jdbcType=BIGINT},
+            </if>
+            update_time = CURRENT_TIMESTAMP,
+        </set>
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <update id="updateByExample" parameterType="map">
+        update invitation_code
+        set id = #{record.id,jdbcType=BIGINT},
+        code = #{record.code,jdbcType=VARCHAR},
+        `type` = #{record.type,jdbcType=VARCHAR},
+        is_expired = #{record.isExpired,jdbcType=TINYINT},
+        account_id = #{record.accountId,jdbcType=BIGINT},
+        inviter_id = #{record.inviterId,jdbcType=BIGINT},
+        update_time =CURRENT_TIMESTAMP
+        <if test="_parameter != null">
+            <include refid="Update_By_Example_Where_Clause"/>
+        </if>
+    </update>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        from invitation_code
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from invitation_code
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" parameterType="tiger.common.dal.persistence.account.InvitationCodeDO" useGeneratedKeys="true"
+            keyProperty="id">
+        insert into invitation_code (code, `type`, is_expired,
+        account_id, inviter_id, create_time, update_time
+        )
+        values (#{code,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{isExpired,jdbcType=TINYINT},
+        #{accountId,jdbcType=BIGINT}, #{inviterId,jdbcType=BIGINT}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="tiger.common.dal.persistence.account.InvitationCodeDO" useGeneratedKeys="true"
+            keyProperty="id">
+        insert into invitation_code
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            code,
+            `type`,
+            is_expired,
+            account_id,
+            inviter_id,
+            create_time,
+            update_time,
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            #{code,jdbcType=VARCHAR},
+            #{type,jdbcType=VARCHAR},
+            #{isExpired,jdbcType=TINYINT},
+            #{accountId,jdbcType=BIGINT},
+            #{inviterId,jdbcType=BIGINT},
+            CURRENT_TIMESTAMP,
+            CURRENT_TIMESTAMP
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="tiger.common.dal.persistence.account.InvitationCodeDO">
+        update invitation_code
+        <set>
+            <if test="code != null">
+                code = #{code,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                `type` = #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="isExpired != null">
+                is_expired = #{isExpired,jdbcType=TINYINT},
+            </if>
+            <if test="accountId != null">
+                account_id = #{accountId,jdbcType=BIGINT},
+            </if>
+            <if test="inviterId != null">
+                inviter_id = #{inviterId,jdbcType=BIGINT},
+            </if>
+            update_time = CURRENT_TIMESTAMP,
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="tiger.common.dal.persistence.account.InvitationCodeDO">
+        update invitation_code
+        set code = #{code,jdbcType=VARCHAR},
+        `type` = #{type,jdbcType=VARCHAR},
+        is_expired = #{isExpired,jdbcType=TINYINT},
+        account_id = #{accountId,jdbcType=BIGINT},
+        inviter_id = #{inviterId,jdbcType=BIGINT},
+        update_time = CURRENT_TIMESTAMP
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+    <select id="selectByCode" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select *
+        from invitation_code
+        where code = #{code};
+    </select>
+
+    <insert id="batchInsert" parameterType="java.util.List" useGeneratedKeys="true">
+        insert into invitation_code (code, `type`, is_expired,
+        account_id, inviter_id, create_time, update_time
+        )
+        values
+        <foreach collection="records" item="record" separator=",">
+            (#{record.code,jdbcType=VARCHAR}, #{record.type,jdbcType=VARCHAR}, #{record.isExpired,jdbcType=TINYINT},
+            #{record.accountId,jdbcType=BIGINT}, #{record.inviterId,jdbcType=BIGINT}, CURRENT_TIMESTAMP,
+            CURRENT_TIMESTAMP
+            )
+        </foreach>
+    </insert>
+
+    <select id="getAllInvitationCodes" resultType="java.lang.String" parameterType="java.lang.Boolean">
+        select code
+        from invitation_code
+        <if test="isActive != null">
+            <choose>
+                <when test="isActive">
+                    where is_expired = 0;
+                </when>
+                <otherwise>
+                    where is_expired != 0;
+                </otherwise>
+            </choose>
+        </if>
+    </select>
+
+    <select id="getUsedInvitationCodeNumber" resultType="java.lang.Integer">
+        select count(id)
+        from invitation_code
+        where inviter_id = #{inviterId} and type = #{type};
+    </select>
+
+    <select id="getInvitationCodeList" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from invitation_code
+        where inviter_id = #{inviterId} and type = #{type};
+    </select>
+
+    <select id="getAllInvitationCodeList" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from invitation_code
+        where inviter_id = #{inviterId};
+    </select>
+</mapper>

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="tiger.common.dal.persistence.mapper.AccountBindMapper" >
+  <resultMap id="BaseResultMap" type="tiger.common.dal.persistence.account.AccountBindDO" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="account_id" property="accountId" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="account_type" property="accountType" jdbcType="VARCHAR" />
+    <result column="account_name" property="accountName" jdbcType="VARCHAR" />
+    <result column="access_token" property="accessToken" jdbcType="VARCHAR" />
+    <result column="open_id" property="openId" jdbcType="VARCHAR" />
+    <result column="icon_url" property="iconUrl" jdbcType="VARCHAR" />
+    <result column="icon_id" property="iconId" jdbcType="BIGINT" />
+    <result column="ext_params" property="extParams" jdbcType="VARCHAR" />
+    <result column="has_bind" property="hasBind" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, account_id, create_time, update_time, account_type, account_name, access_token,
+    open_id, icon_url, icon_id, ext_params, has_bind
+  </sql>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="tiger.common.dal.persistence.account.example.AccountBindExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from account_bind
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExampleAndPage" resultMap="BaseResultMap" parameterType="tiger.common.dal.persistence.account.example.AccountBindExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from account_bind
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="tiger.common.dal.persistence.account.example.AccountBindExample" >
+    delete from account_bind
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <select id="countByExample" parameterType="tiger.common.dal.persistence.account.example.AccountBindExample" resultType="java.lang.Integer" >
+    select count(*) from account_bind
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update account_bind
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.accountId != null" >
+        account_id = #{record.accountId,jdbcType=BIGINT},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = CURRENT_TIMESTAMP,
+      </if>
+      <if test="record.accountType != null" >
+        account_type = #{record.accountType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accountName != null" >
+        account_name = #{record.accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accessToken != null" >
+        access_token = #{record.accessToken,jdbcType=VARCHAR},
+      </if>
+      <if test="record.openId != null" >
+        open_id = #{record.openId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.iconUrl != null" >
+        icon_url = #{record.iconUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.iconId != null" >
+        icon_id = #{record.iconId,jdbcType=BIGINT},
+      </if>
+      <if test="record.extParams != null" >
+        ext_params = #{record.extParams,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hasBind != null" >
+        has_bind = #{record.hasBind,jdbcType=BIT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update account_bind
+    set id = #{record.id,jdbcType=BIGINT},
+    account_id = #{record.accountId,jdbcType=BIGINT},
+    create_time = #{record.createTime,jdbcType=TIMESTAMP},
+    update_time = CURRENT_TIMESTAMP,
+    account_type = #{record.accountType,jdbcType=VARCHAR},
+    account_name = #{record.accountName,jdbcType=VARCHAR},
+    access_token = #{record.accessToken,jdbcType=VARCHAR},
+    open_id = #{record.openId,jdbcType=VARCHAR},
+    icon_url = #{record.iconUrl,jdbcType=VARCHAR},
+    icon_id = #{record.iconId,jdbcType=BIGINT},
+    ext_params = #{record.extParams,jdbcType=VARCHAR},
+    has_bind = #{record.hasBind,jdbcType=BIT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select
+    <include refid="Base_Column_List" />
+    from account_bind
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from account_bind
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="tiger.common.dal.persistence.account.AccountBindDO" useGeneratedKeys="true" keyProperty="id" >
+    insert into account_bind (account_id, create_time, update_time,
+    account_type, account_name, access_token,
+    open_id, icon_url, icon_id,
+    ext_params, has_bind)
+    values (#{accountId,jdbcType=BIGINT}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP,
+    #{accountType,jdbcType=VARCHAR}, #{accountName,jdbcType=VARCHAR}, #{accessToken,jdbcType=VARCHAR},
+    #{openId,jdbcType=VARCHAR}, #{iconUrl,jdbcType=VARCHAR}, #{iconId,jdbcType=BIGINT},
+    #{extParams,jdbcType=VARCHAR}, #{hasBind,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="tiger.common.dal.persistence.account.AccountBindDO" useGeneratedKeys="true" keyProperty="id" >
+    insert into account_bind
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      account_id,
+      create_time,
+      update_time,
+      account_type,
+      account_name,
+      access_token,
+      open_id,
+      icon_url,
+      icon_id,
+      ext_params,
+      has_bind,
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      #{accountId,jdbcType=BIGINT},
+      CURRENT_TIMESTAMP,
+      CURRENT_TIMESTAMP,
+      #{accountType,jdbcType=VARCHAR},
+      #{accountName,jdbcType=VARCHAR},
+      #{accessToken,jdbcType=VARCHAR},
+      #{openId,jdbcType=VARCHAR},
+      #{iconUrl,jdbcType=VARCHAR},
+      #{iconId,jdbcType=BIGINT},
+      #{extParams,jdbcType=VARCHAR},
+      #{hasBind,jdbcType=BIT},
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="tiger.common.dal.persistence.account.AccountBindDO" >
+    update account_bind
+    <set >
+      <if test="accountId != null" >
+        account_id = #{accountId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = CURRENT_TIMESTAMP,
+      </if>
+      <if test="accountType != null" >
+        account_type = #{accountType,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null" >
+        account_name = #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="accessToken != null" >
+        access_token = #{accessToken,jdbcType=VARCHAR},
+      </if>
+      <if test="openId != null" >
+        open_id = #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="iconUrl != null" >
+        icon_url = #{iconUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="iconId != null" >
+        icon_id = #{iconId,jdbcType=BIGINT},
+      </if>
+      <if test="extParams != null" >
+        ext_params = #{extParams,jdbcType=VARCHAR},
+      </if>
+      <if test="hasBind != null" >
+        has_bind = #{hasBind,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="tiger.common.dal.persistence.account.AccountBindDO" >
+    update account_bind
+    set account_id = #{accountId,jdbcType=BIGINT},
+    create_time = #{createTime,jdbcType=TIMESTAMP},
+    update_time = CURRENT_TIMESTAMP,
+    account_type = #{accountType,jdbcType=VARCHAR},
+    account_name = #{accountName,jdbcType=VARCHAR},
+    access_token = #{accessToken,jdbcType=VARCHAR},
+    open_id = #{openId,jdbcType=VARCHAR},
+    icon_url = #{iconUrl,jdbcType=VARCHAR},
+    icon_id = #{iconId,jdbcType=BIGINT},
+    ext_params = #{extParams,jdbcType=VARCHAR},
+    has_bind = #{hasBind,jdbcType=BIT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

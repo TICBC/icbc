@@ -1,0 +1,1 @@
+ALTER TABLE `message` ADD `workspace_id` bigint(11) NULL DEFAULT NULL;

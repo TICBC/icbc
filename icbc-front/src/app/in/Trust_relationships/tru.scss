@@ -1,0 +1,26 @@
+.tru .left_tru {
+  float: left;
+  width: 10%;
+  height: 80%;
+  margin-top: 2px;
+   border: 1px solid black;
+   border-right: none;
+}
+.tru .left_tru>div:last-child{
+  border: none;
+}
+.tru .mid_tru{
+  float: left;
+  width: 65%;
+  height: 80%;
+   margin-top: 2px;
+   border: 1px solid black;
+   border-right:none;
+}
+.tru .right_tru{
+  float: left;
+  width: 25%;  
+  height:  80%;
+  margin-top: 2px;
+  border: 1px solid black;
+}

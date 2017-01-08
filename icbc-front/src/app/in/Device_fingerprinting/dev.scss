@@ -1,0 +1,26 @@
+.left_dev {
+  float: left;
+  width: 10%;
+  height: 80%;
+  margin-top: 2px;
+   border: 1px solid black;
+   border-right: none;
+}
+.left_dev>div:last-child{
+	border: none;
+}
+.mid_dev{
+  float: left;
+  width: 65%;
+  height: 80%;
+   margin-top: 2px;
+   border: 1px solid black;
+   border-right:none;
+}
+.right_dev{
+  float: left;
+  width: 25%;  
+  height:  80%;
+  margin-top: 2px;
+  border: 1px solid black;
+}

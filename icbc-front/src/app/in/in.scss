@@ -40,3 +40,15 @@
 .menu li:last-child{
 	border-right: none;
 }
+.content {
+  margin-left: 100px;
+  margin-right: 100px;
+  overflow: hidden;
+  height: 100%;
+}
+.full_content{
+  height: 80%;
+}
+html,body{
+  height: 100%;
+}

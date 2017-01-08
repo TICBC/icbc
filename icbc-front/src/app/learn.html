@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+<!-- 讲input里的值付给name 当网页加载时，AngularJS自动启动。
+在NG-app指令告诉AngularJS的<div>元素是一个AngularJS的“所有者” 的应用程序。
+在NG-model指令结合输入字段的应用程序变量的值的名称。
+在NG-bind指令绑定的innerHTML 在<p>元素的应用程序变量的名称。
+-->
+<div ng-app="">
+  <p>Name : <input type="text" ng-model="name"></p>
+  <h1>Hello {{name}}</h1>
+  <p ng-bind="name"></p>
+</div>
+<!--NG-初始化指令初始化AngularJS应用程序变量。-->
+<div ng-app="" ng-init="firstName='John'">
+
+<p>The name is <span ng-bind="firstName"></span></p>
+
+</div>
+
+<div data-ng-app="" data-ng-init="firstName='John'">
+
+<p>The name is <span data-ng-bind="firstName"></span></p>
+
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+.left_ris {
+  float: left;
+  width: 10%;
+  height: 80%;
+  margin-top: 2px;
+   border: 1px solid black;
+   border-right: none;
+}
+.left_ris>div{
+	border-bottom: 1px solid black;
+    font-size: 16px;
+    font-family: 微软雅黑;
+}
+.left_ris>div:last-child{
+	border: none;
+}
+.mid_ris{
+  float: left;
+  width: 65%;
+  height: 80%;
+   margin-top: 2px;
+   border: 1px solid black;
+   border-right:none;
+}
+.right_ris{
+  float: left;
+  width: 25%;  
+  height:  80%;
+  margin-top: 2px;
+  border: 1px solid black;
+}
+
+.current_ris {
+  background-color: #eee;
+}
+.oneline_ris {
+  display: inline-block;
+}
+
+.tab-nav li {
+  display: inline-block;
+  list-style-type: outside none none;
+}
+.tab-pane {
+  display: none;
+}
+.tab-pane li{
+  list-style: outside none none;
+}
+.tab-content .tab-pane{
+  visibility:visible
+}
+.tab-content .in {
+  display: block;
+}
+.left_ris {
+  width: 40%;
+}
+.mid_ris{
+  width: 30%;
+}
+.right_ris{
+  width: 30%;
+}

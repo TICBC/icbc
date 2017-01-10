@@ -1,10 +1,11 @@
 <div class="left_dev">
   <ul class="list-group">
-    <li id="time">&nbsp;&nbsp;<span>2017-01-08 20:17:14</span></li>
+<!--     <li id="time">&nbsp;&nbsp;<span>2017-01-08 20:17:14</span></li>
     <li class="list-group-item">设备信息</a></li>
-    <li id="ip">IP：&nbsp;&nbsp;<span>10.20.25.28</span></li>
+ -->    <li id="ip">IP：&nbsp;&nbsp;<span>10.20.25.28</span></li>
     <li id="location">地址：&nbsp;&nbsp;<span>上海市</span></li>     
   </ul>
+  <button type="button" ng-click="getAll()">登录</button>
 </div>
 <div class="mid_dev">
   <!-- 根据ip地址确定设备地理位置 -->
@@ -64,7 +65,7 @@
       '台湾省': [121.21, 23.53]
     };
 
-    var loc = document.getElementById("location");
+    // var loc = document.getElementById("location");
 
     // myHosName = loc.innerHTML;
     // var BJData = [
@@ -267,7 +268,11 @@
         <th>IP</th>
         <th>登录地点</th>
       </tr>
-      <tr>
+      <tr ng-repeat="item in items">
+        <td>{{item.equSerialNum}}</td>
+        <td>{{item.cpuNum}}</td>
+      </tr>
+<!--       <tr>
         <td>1</td>
         <td>11.11.11.11</td>
         <td>北京</td>
@@ -287,7 +292,7 @@
         <td>10.11.12.13</td>
         <td>上海</td>
       </tr>
-    </table>
+ -->    </table>
   </div>
 
 

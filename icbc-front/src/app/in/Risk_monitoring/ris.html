@@ -9,17 +9,24 @@
 				监控流程位置地图切换
 		</div>
 		<div style="position: relative;">
-			<img src="img/image.png" alt="" width="100%">
-			<img src="img/arrow.gif" alt="" style="position: absolute;left: 63px;">
+			<img src="img/image.png" alt="" width="100%" height="200px"">
+			<!-- <img src="img/arrow.gif" alt="" style="position: absolute;left: 63px;"> -->
 		</div>
+		<form>
+			<input type="text" ng-model="params.value"/>
+			<input type="submit" ng-click="getById()"/>
+		</form>
+		<button ng-click="getById()">123</button>
+		
+		<h2>{{items}}</h2>
 </div>
 <div class="mid_ris">
 		<div class="tab-wrap">
 			<div class="tab-nav ">
-				<li data-tab="tab1"><a href="javascript:void(0);">交易数据</a></li>
-				<li data-tab="tab2"><a href="javascript:void(0);">登陆数据</a></li>
-				<li data-tab="tab3"><a href="javascript:void(0);">用户数据</a></li>
-				<li data-tab="tab4"><a href="javascript:void(0);">设备信息</a></li>
+				<li data-tab="tab1" class="showTab"><a href="javascript:void(0);">交易数据</a></li>
+				<li data-tab="tab2" class="showTab"><a href="javascript:void(0);">登陆数据</a></li>
+				<li data-tab="tab3" class="showTab"><a href="javascript:void(0);">用户数据</a></li>
+				<li data-tab="tab4" class="showTab"><a href="javascript:void(0);">设备信息</a></li>
 			</div>
 			<div class="tab-content">
 				<div class="tab-pane in tab1" id="tab1">

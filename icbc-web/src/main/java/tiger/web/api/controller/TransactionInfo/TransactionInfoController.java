@@ -3,6 +3,7 @@ package tiger.web.api.controller.TransactionInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import tiger.biz.transactioninfo.support.TransactionInfoManager;
+import tiger.core.basic.BaseResult;
 import tiger.core.domain.TransactionInfo.TransactionInfoDomain;
 import tiger.web.api.constants.APIConstants;
 import tiger.web.api.controller.BaseController;
@@ -20,9 +21,10 @@ public class TransactionInfoController extends BaseController{
      * 根据id查找
      */
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public TransactionInfoDomain getTransactionInfoDomain(@RequestParam("id") Integer id){
+    public BaseResult<TransactionInfoDomain> getTransactionInfoDomain(@RequestParam("id") Integer id){
         System.out.println(transactionInfoManager.selectByPrimaryKey(id).getId());
-        return transactionInfoManager.selectByPrimaryKey(id);
+        TransactionInfoDomain transactionInfoDomain = transactionInfoManager.selectByPrimaryKey(id);
+        return new BaseResult<>(transactionInfoDomain);
         //System.out.println("shuchu ");
     }
 

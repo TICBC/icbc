@@ -37,6 +37,7 @@ import ActCtrl from './in/Act_certification/ActCtrl';
 import DevCtrl from './in/Device_fingerprinting/DevCtrl';
 import RisCtrl from './in/Risk_monitoring/RisCtrl';
 import TruCtrl from './in/Trust_relationships/TruCtrl';
+import TraCtrl from './in/Trans_monitoring/TraCtrl';
 
 //import Transaction from 'in/';
 angular.module('soraka',
@@ -83,4 +84,5 @@ angular.module('soraka',
   .controller('DevCtrl',DevCtrl)
   .controller('RisCtrl',RisCtrl)
   .controller('TruCtrl',TruCtrl)
+  .controller('TraCtrl',TraCtrl)
   ;

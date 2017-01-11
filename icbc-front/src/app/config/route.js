@@ -37,6 +37,11 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
       templateUrl: 'app/in/Trust_relationships/tru.html',
       controller: 'TruCtrl'
     })
+    .state('in.Trans_monitoring', {
+      url: '^/Trans_monitoring',
+      templateUrl: 'app/in/Trans_monitoring/tra.html',
+      controller: 'TraCtrl'
+    })
     ;
     
 

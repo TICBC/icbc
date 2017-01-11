@@ -12,6 +12,13 @@
 			<img src="img/image.png" alt="" width="100%">
 			<img src="img/arrow.gif" alt="" style="position: absolute;left: 63px;">
 		</div>
+		<form>
+			<input type="text" ng-model="params.value"/>
+			<input type="submit" ng-click="getById()"/>
+		</form>
+		<button ng-click="getById()">123</button>
+		
+		<h2>{{items}}</h2>
 </div>
 <div class="mid_ris">
 		<div class="tab-wrap">

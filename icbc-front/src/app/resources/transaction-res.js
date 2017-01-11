@@ -7,7 +7,7 @@ export default ($resource, BASE_URL) => {
 	'ngInject';
 	return {
 		
-		TransactionInfoById: (headers) => {
+		TransactionInfo: (headers) => {
 			return $resource(BASE_URL+'/TransactionInfo', {}, {
 				get: {
 					method: 'GET',

@@ -19,6 +19,7 @@ import accountRes from './resources/account-res';
 import materialsRes from './resources/materials-res';
 import resultsRes from './resources/results-res';
 import deviceRes from './resources/device-res';
+import TransactionRes from './resources/transaction-res';
 
 // directive
 import headerDirect from './common/header/headerDirect';
@@ -37,6 +38,7 @@ import DevCtrl from './in/Device_fingerprinting/DevCtrl';
 import RisCtrl from './in/Risk_monitoring/RisCtrl';
 import TruCtrl from './in/Trust_relationships/TruCtrl';
 
+//import Transaction from 'in/';
 angular.module('soraka',
   ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'toaster'])
 
@@ -63,6 +65,7 @@ angular.module('soraka',
   .factory('accountRes', accountRes)
   .factory('materialsRes', materialsRes)
   .factory('resultsRes', resultsRes)
+  .factory('TransactionRes',TransactionRes)
   .factory('deviceRes', deviceRes)
 
   // directive 初始化

@@ -1,0 +1,310 @@
+
+> bufferutil@1.2.1 install F:\icbc\icbc-front\node_modules\bufferutil
+> node-gyp rebuild
+
+
+F:\icbc\icbc-front\node_modules\bufferutil>if not defined npm_config_node_gyp (node "E:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin\\..\..\node_modules\node-gyp\bin\node-gyp.js" rebuild )  else (node "" rebuild ) 
+在此解决方案中一次生成一个项目。若要启用并行生成，请添加“/m”开关。
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.Targets(983,5): warning MSB3644: 未找到框架“.NETFramework,Version=v4.0”的引用程序集。若要解决此问题，请安装此框架版本的 SDK 或 Targeting Pack，或将应用程序的目标重新指向已装有 SDK 或 Targeting Pack 的框架版本。请注意，将从全局程序集缓存(GAC)解析程序集，并将使用这些程序集替换引用程序集。因此，程序集的目标可能未正确指向您所预期的框架。 [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+  bufferutil.cc
+  win_delay_load_hook.cc
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(345): error C2988: unrecognizable template declaration/definition [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(345): error C2059: syntax error : 'using' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(481): error C2988: unrecognizable template declaration/definition [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(481): error C2059: syntax error : 'using' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(484): error C2332: 'enum' : missing tag name [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(484): error C3306: 'v8::<unnamed-tag>': unnamed class template is not allowed [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(484): error C2236: unexpected 'class' 'v8::WeakCallbackType'. Did you forget a ';'? [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(484): error C3381: 'v8::WeakCallbackType' : assembly access specifiers are only available in code compiled with a /clr option [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(592): error C2061: syntax error : identifier 'WeakCallbackType' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(672) : see reference to class template instantiation 'v8::PersistentBase<T>' being compiled
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(667): error C2253: 'PersistentBase<T>' : pure specifier or abstract override specifier only allowed on virtual function [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(874): error C2253: 'Global<T>' : pure specifier or abstract override specifier only allowed on virtual function [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(877) : see reference to class template instantiation 'v8::Global<T>' being compiled
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(882): error C2988: unrecognizable template declaration/definition [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(882): error C2059: syntax error : 'using' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(945): error C2989: 'v8::HandleScope' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(328) : see declaration of 'v8::HandleScope'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(979): error C2989: 'v8::EscapableHandleScope' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(139) : see declaration of 'v8::EscapableHandleScope'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(1009): error C2989: 'v8::Data' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(76) : see declaration of 'v8::Data'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(1143): error C2989: 'v8::Script' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(99) : see declaration of 'v8::Script'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(1582): error C2989: 'v8::StackTrace' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(104) : see declaration of 'v8::StackTrace'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(1645): error C2989: 'v8::StackFrame' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(103) : see declaration of 'v8::StackFrame'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2060): error C2989: 'v8::Value' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(112) : see declaration of 'v8::Value'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2066): error C2989: 'v8::Primitive' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(95) : see declaration of 'v8::Primitive'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2081): error C2989: 'v8::Boolean' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(72) : see declaration of 'v8::Boolean'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2101): error C2989: 'v8::Name' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(88) : see declaration of 'v8::Name'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2104): error C2332: 'enum' : missing tag name [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2104): error C3306: 'v8::<unnamed-tag>': unnamed class template is not allowed [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2104): error C2236: unexpected 'class' 'v8::NewStringType'. Did you forget a ';'? [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2104): error C3381: 'v8::NewStringType' : assembly access specifiers are only available in code compiled with a /clr option [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2469): error C2989: 'v8::String' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(105) : see declaration of 'v8::String'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2508): error C2989: 'v8::Symbol' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(107) : see declaration of 'v8::Symbol'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2536): error C2989: 'v8::Private' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(109) : see declaration of 'v8::Private'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2550): error C2989: 'v8::Number' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(89) : see declaration of 'v8::Number'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2565): error C2989: 'v8::Integer' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(84) : see declaration of 'v8::Integer'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2579): error C2989: 'v8::Int32' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(83) : see declaration of 'v8::Int32'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2593): error C2989: 'v8::Uint32' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(110) : see declaration of 'v8::Uint32'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2645): error C2332: 'enum' : missing tag name [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2645): error C3306: 'v8::<unnamed-tag>': unnamed class template is not allowed [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2645): error C2236: unexpected 'class' 'v8::IntegrityLevel'. Did you forget a ';'? [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2645): error C3381: 'v8::IntegrityLevel' : assembly access specifiers are only available in code compiled with a /clr option [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3015): error C2989: 'v8::Object' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(91) : see declaration of 'v8::Object'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3045): error C2989: 'v8::Array' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(71) : see declaration of 'v8::Array'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3244): error C2332: 'enum' : missing tag name [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3244): error C2236: unexpected 'class' 'v8::ConstructorBehavior'. Did you forget a ';'? [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3244): error C3381: 'v8::ConstructorBehavior' : assembly access specifiers are only available in code compiled with a /clr option [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3244): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3244): error C2143: syntax error : missing ';' before '}' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3244): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3249): error C2504: 'v8::Object' : base class undefined [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3256): error C2061: syntax error : identifier 'FunctionCallback' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3258): error C2059: syntax error : ')' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3258): error C2143: syntax error : missing ')' before ';' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3260): error C2061: syntax error : identifier 'FunctionCallback' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3263): error C2535: 'v8::MaybeLocal<F> v8::Function::New(v8::Local<T>)' : member function already defined or declared [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+          with
+          [
+              F=v8::Function,
+              T=v8::Context
+          ]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3255) : see declaration of 'v8::Function::New'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3267): error C2061: syntax error : identifier 'FunctionCallback' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3267): error C2059: syntax error : ')' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3267): error C2143: syntax error : missing ')' before ';' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3277): error C2059: syntax error : 'return' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3277): error C2238: unexpected token(s) preceding ';' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3282): error C2146: syntax error : missing ';' before identifier 'Call' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3288): error C2270: 'GetName' : modifiers not allowed on nonmember functions [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3296): error C2270: 'GetInferredName' : modifiers not allowed on nonmember functions [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3302): error C2270: 'GetDebugName' : modifiers not allowed on nonmember functions [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3308): error C2270: 'GetDisplayName' : modifiers not allowed on nonmember functions [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3314): error C2270: 'GetScriptLineNumber' : modifiers not allowed on nonmember functions [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3319): error C2270: 'GetScriptColumnNumber' : modifiers not allowed on nonmember functions [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3324): error C2270: 'IsBuiltin' : modifiers not allowed on nonmember functions [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3329): error C2270: 'ScriptId' : modifiers not allowed on nonmember functions [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3335): error C2270: 'GetBoundFunction' : modifiers not allowed on nonmember functions [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3337): error C2270: 'GetScriptOrigin' : modifiers not allowed on nonmember functions [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3341): error C2059: syntax error : 'private' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3342): error C2059: syntax error : ')' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3351): error C2504: 'Object' : base class undefined [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3353): error C2504: 'Object' : base class undefined [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3359): error C2143: syntax error : missing ';' before '<' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3359): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3359): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3359): error C2238: unexpected token(s) preceding ';' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3360): error C2143: syntax error : missing ';' before '<' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3360): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3360): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3361): error C2238: unexpected token(s) preceding ';' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3366): error C2143: syntax error : missing ';' before '<' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3366): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3366): error C2238: unexpected token(s) preceding ';' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3372): error C2061: syntax error : identifier 'Local' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3374): error C2143: syntax error : missing ';' before '<' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3374): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3374): error C2238: unexpected token(s) preceding ';' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3376): error C2061: syntax error : identifier 'Local' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3378): error C2143: syntax error : missing ';' before '<' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3378): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3378): error C2238: unexpected token(s) preceding ';' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3380): error C2061: syntax error : identifier 'Value' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3384): error C2061: syntax error : identifier 'Value' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3394): error C2143: syntax error : missing ';' before '<' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3394): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3394): error C2238: unexpected token(s) preceding ';' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3397): error C2143: syntax error : missing ';' before '<' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3397): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3397): error C2238: unexpected token(s) preceding ';' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3400): error C2143: syntax error : missing ';' before '<' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3400): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3400): error C2238: unexpected token(s) preceding ';' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3401): error C2143: syntax error : missing ';' before '<' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3401): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3402): error C2238: unexpected token(s) preceding ';' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3405): error C2143: syntax error : missing ';' before '<' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3405): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3405): error C2238: unexpected token(s) preceding ';' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3406): error C2143: syntax error : missing ';' before '<' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3406): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3407): error C2238: unexpected token(s) preceding ';' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3415): error C2061: syntax error : identifier 'Value' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3419): error C2061: syntax error : identifier 'Value' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3427): error C2504: 'Object' : base class undefined [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3429): error C2143: syntax error : missing ';' before '<' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3429): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3429): error C2238: unexpected token(s) preceding ';' [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3429): fatal error C1003: error count exceeds 100; stopping compilation [F:\icbc\icbc-front\node_modules\bufferutil\build\bufferutil.vcxproj]
+
+> utf-8-validate@1.2.2 install F:\icbc\icbc-front\node_modules\utf-8-validate
+> node-gyp rebuild
+
+
+F:\icbc\icbc-front\node_modules\utf-8-validate>if not defined npm_config_node_gyp (node "E:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin\\..\..\node_modules\node-gyp\bin\node-gyp.js" rebuild )  else (node "" rebuild ) 
+在此解决方案中一次生成一个项目。若要启用并行生成，请添加“/m”开关。
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.Targets(983,5): warning MSB3644: 未找到框架“.NETFramework,Version=v4.0”的引用程序集。若要解决此问题，请安装此框架版本的 SDK 或 Targeting Pack，或将应用程序的目标重新指向已装有 SDK 或 Targeting Pack 的框架版本。请注意，将从全局程序集缓存(GAC)解析程序集，并将使用这些程序集替换引用程序集。因此，程序集的目标可能未正确指向您所预期的框架。 [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+  validation.cc
+  win_delay_load_hook.cc
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(345): error C2988: unrecognizable template declaration/definition [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(345): error C2059: syntax error : 'using' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(481): error C2988: unrecognizable template declaration/definition [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(481): error C2059: syntax error : 'using' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(484): error C2332: 'enum' : missing tag name [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(484): error C3306: 'v8::<unnamed-tag>': unnamed class template is not allowed [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(484): error C2236: unexpected 'class' 'v8::WeakCallbackType'. Did you forget a ';'? [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(484): error C3381: 'v8::WeakCallbackType' : assembly access specifiers are only available in code compiled with a /clr option [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(592): error C2061: syntax error : identifier 'WeakCallbackType' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(672) : see reference to class template instantiation 'v8::PersistentBase<T>' being compiled
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(667): error C2253: 'PersistentBase<T>' : pure specifier or abstract override specifier only allowed on virtual function [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(874): error C2253: 'Global<T>' : pure specifier or abstract override specifier only allowed on virtual function [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(877) : see reference to class template instantiation 'v8::Global<T>' being compiled
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(882): error C2988: unrecognizable template declaration/definition [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(882): error C2059: syntax error : 'using' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(945): error C2989: 'v8::HandleScope' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(328) : see declaration of 'v8::HandleScope'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(979): error C2989: 'v8::EscapableHandleScope' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(139) : see declaration of 'v8::EscapableHandleScope'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(1009): error C2989: 'v8::Data' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(76) : see declaration of 'v8::Data'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(1143): error C2989: 'v8::Script' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(99) : see declaration of 'v8::Script'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(1582): error C2989: 'v8::StackTrace' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(104) : see declaration of 'v8::StackTrace'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(1645): error C2989: 'v8::StackFrame' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(103) : see declaration of 'v8::StackFrame'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2060): error C2989: 'v8::Value' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(112) : see declaration of 'v8::Value'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2066): error C2989: 'v8::Primitive' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(95) : see declaration of 'v8::Primitive'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2081): error C2989: 'v8::Boolean' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(72) : see declaration of 'v8::Boolean'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2101): error C2989: 'v8::Name' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(88) : see declaration of 'v8::Name'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2104): error C2332: 'enum' : missing tag name [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2104): error C3306: 'v8::<unnamed-tag>': unnamed class template is not allowed [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2104): error C2236: unexpected 'class' 'v8::NewStringType'. Did you forget a ';'? [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2104): error C3381: 'v8::NewStringType' : assembly access specifiers are only available in code compiled with a /clr option [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2469): error C2989: 'v8::String' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(105) : see declaration of 'v8::String'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2508): error C2989: 'v8::Symbol' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(107) : see declaration of 'v8::Symbol'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2536): error C2989: 'v8::Private' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(109) : see declaration of 'v8::Private'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2550): error C2989: 'v8::Number' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(89) : see declaration of 'v8::Number'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2565): error C2989: 'v8::Integer' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(84) : see declaration of 'v8::Integer'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2579): error C2989: 'v8::Int32' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(83) : see declaration of 'v8::Int32'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2593): error C2989: 'v8::Uint32' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(110) : see declaration of 'v8::Uint32'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2645): error C2332: 'enum' : missing tag name [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2645): error C3306: 'v8::<unnamed-tag>': unnamed class template is not allowed [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2645): error C2236: unexpected 'class' 'v8::IntegrityLevel'. Did you forget a ';'? [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(2645): error C3381: 'v8::IntegrityLevel' : assembly access specifiers are only available in code compiled with a /clr option [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3015): error C2989: 'v8::Object' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(91) : see declaration of 'v8::Object'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3045): error C2989: 'v8::Array' : class template has already been declared as a non-class template [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(71) : see declaration of 'v8::Array'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3244): error C2332: 'enum' : missing tag name [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3244): error C2236: unexpected 'class' 'v8::ConstructorBehavior'. Did you forget a ';'? [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3244): error C3381: 'v8::ConstructorBehavior' : assembly access specifiers are only available in code compiled with a /clr option [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3244): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3244): error C2143: syntax error : missing ';' before '}' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3244): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3249): error C2504: 'v8::Object' : base class undefined [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3256): error C2061: syntax error : identifier 'FunctionCallback' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3258): error C2059: syntax error : ')' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3258): error C2143: syntax error : missing ')' before ';' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3260): error C2061: syntax error : identifier 'FunctionCallback' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3263): error C2535: 'v8::MaybeLocal<F> v8::Function::New(v8::Local<T>)' : member function already defined or declared [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+          with
+          [
+              F=v8::Function,
+              T=v8::Context
+          ]
+          C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3255) : see declaration of 'v8::Function::New'
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3267): error C2061: syntax error : identifier 'FunctionCallback' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3267): error C2059: syntax error : ')' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3267): error C2143: syntax error : missing ')' before ';' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3277): error C2059: syntax error : 'return' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3277): error C2238: unexpected token(s) preceding ';' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3282): error C2146: syntax error : missing ';' before identifier 'Call' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3288): error C2270: 'GetName' : modifiers not allowed on nonmember functions [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3296): error C2270: 'GetInferredName' : modifiers not allowed on nonmember functions [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3302): error C2270: 'GetDebugName' : modifiers not allowed on nonmember functions [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3308): error C2270: 'GetDisplayName' : modifiers not allowed on nonmember functions [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3314): error C2270: 'GetScriptLineNumber' : modifiers not allowed on nonmember functions [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3319): error C2270: 'GetScriptColumnNumber' : modifiers not allowed on nonmember functions [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3324): error C2270: 'IsBuiltin' : modifiers not allowed on nonmember functions [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3329): error C2270: 'ScriptId' : modifiers not allowed on nonmember functions [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3335): error C2270: 'GetBoundFunction' : modifiers not allowed on nonmember functions [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3337): error C2270: 'GetScriptOrigin' : modifiers not allowed on nonmember functions [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3341): error C2059: syntax error : 'private' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3342): error C2059: syntax error : ')' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3351): error C2504: 'Object' : base class undefined [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3353): error C2504: 'Object' : base class undefined [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3359): error C2143: syntax error : missing ';' before '<' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3359): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3359): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3359): error C2238: unexpected token(s) preceding ';' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3360): error C2143: syntax error : missing ';' before '<' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3360): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3360): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3361): error C2238: unexpected token(s) preceding ';' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3366): error C2143: syntax error : missing ';' before '<' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3366): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3366): error C2238: unexpected token(s) preceding ';' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3372): error C2061: syntax error : identifier 'Local' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3374): error C2143: syntax error : missing ';' before '<' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3374): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3374): error C2238: unexpected token(s) preceding ';' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3376): error C2061: syntax error : identifier 'Local' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3378): error C2143: syntax error : missing ';' before '<' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3378): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3378): error C2238: unexpected token(s) preceding ';' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3380): error C2061: syntax error : identifier 'Value' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3384): error C2061: syntax error : identifier 'Value' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3394): error C2143: syntax error : missing ';' before '<' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3394): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3394): error C2238: unexpected token(s) preceding ';' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3397): error C2143: syntax error : missing ';' before '<' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3397): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3397): error C2238: unexpected token(s) preceding ';' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3400): error C2143: syntax error : missing ';' before '<' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3400): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3400): error C2238: unexpected token(s) preceding ';' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3401): error C2143: syntax error : missing ';' before '<' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3401): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3402): error C2238: unexpected token(s) preceding ';' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3405): error C2143: syntax error : missing ';' before '<' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3405): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3405): error C2238: unexpected token(s) preceding ';' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3406): error C2143: syntax error : missing ';' before '<' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3406): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3407): error C2238: unexpected token(s) preceding ';' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3415): error C2061: syntax error : identifier 'Value' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3419): error C2061: syntax error : identifier 'Value' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3427): error C2504: 'Object' : base class undefined [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3429): error C2143: syntax error : missing ';' before '<' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3429): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3429): error C2238: unexpected token(s) preceding ';' [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]
+C:\Users\AUSA\.node-gyp\6.9.4\include\node\v8.h(3429): fatal error C1003: error count exceeds 100; stopping compilation [F:\icbc\icbc-front\node_modules\utf-8-validate\build\validation.vcxproj]

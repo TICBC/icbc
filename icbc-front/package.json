@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "web end of kpi",
   "dependencies": {
+    "echarts": "^3.3.2",
     "jquery-touchswipe": "^1.6.15"
   },
   "scripts": {

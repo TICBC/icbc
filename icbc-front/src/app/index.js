@@ -18,9 +18,9 @@ import ToasterTool  from './services/toaster-tool';
 import accountRes from './resources/account-res';
 import materialsRes from './resources/materials-res';
 import resultsRes from './resources/results-res';
-
-//new
+import deviceRes from './resources/device-res';
 import TransactionRes from './resources/transaction-res';
+
 // directive
 import headerDirect from './common/header/headerDirect';
 
@@ -66,6 +66,7 @@ angular.module('soraka',
   .factory('materialsRes', materialsRes)
   .factory('resultsRes', resultsRes)
   .factory('TransactionRes',TransactionRes)
+  .factory('deviceRes', deviceRes)
 
   // directive 初始化
   .directive('lcHeader', headerDirect)

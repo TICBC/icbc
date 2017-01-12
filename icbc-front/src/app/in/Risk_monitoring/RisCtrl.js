@@ -2,7 +2,7 @@ export default ($scope, $rootScope, qService, TransactionRes, ToasterTool, BASE_
 	'ngInject';
 	const isNull = (value) => {
     	return typeof(value) == undefined || value == null;
-};
+	};
 	$scope.getById = () => {
 		// if (isNull($scope.params.value)) {
 		// 	ToasterTool.warning("输入不能为空");
@@ -34,5 +34,26 @@ export default ($scope, $rootScope, qService, TransactionRes, ToasterTool, BASE_
 	    }).finally(() => {
 	        $rootScope.loading = false;
 	    });
+	};
+	
+	function showTab() {
+		$(".tab-nav li").click(function(){
+
+			var self = $(this), target = self.data("tab");
+			self.addClass("current").siblings(".current").removeClass("current");
+			// window.location.hash = "#" + target.substr(3);
+			// $(".tab-pane.in").removeClass("in");
+			$(this).parent().next().find(".tab-pane.in").removeClass("in");
+			//$(this).parent().parent().find(".tab-pane.in").removeClass("in");
+			$(this).parent().next().find("." + target).addClass("in");
+		});
+		// }).filter("[data-tab=tab" + window.location.hash.substr(1) + "]").click();
 	}
+	$(function()    
+	 {    
+		showTab();
+		
+	 });
+	
+	
 }

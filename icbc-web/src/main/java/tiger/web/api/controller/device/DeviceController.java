@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import tiger.biz.device.support.DeviceManager;
+import tiger.common.dal.persistence.icbc.SelectedAndroidDO;
 import tiger.core.basic.PageResult;
 import tiger.core.domain.device.EquipmentInfoDomain;
 import tiger.web.api.constants.APIConstants;
@@ -31,8 +32,19 @@ public class DeviceController extends BaseController {
      */
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     @ResponseBody
-    public PageResult<List<EquipmentInfoDomain>> getAll() {
+    public PageResult<List<SelectedAndroidDO>> getAll() {
 
         return deviceManager.getAll();
+    }
+    /**
+     * 设备信任计算的入口
+     *
+     * @return
+     */
+    @RequestMapping(value = "/auth", method = RequestMethod.POST)
+    @ResponseBody
+    public String deviceAuth(SelectedAndroidDO newdevice) {
+
+        return deviceManager.deviceAuth(newdevice);
     }
 }

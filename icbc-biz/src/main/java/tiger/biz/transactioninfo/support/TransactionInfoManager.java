@@ -10,4 +10,5 @@ import java.util.List;
  */
 public interface TransactionInfoManager {
     TransactionInfoDomain selectByPrimaryKey(Integer id);
+    List<TransactionInfoDomain> selectAll();
 }

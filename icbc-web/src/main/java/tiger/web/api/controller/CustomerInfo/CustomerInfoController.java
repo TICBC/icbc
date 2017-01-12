@@ -26,14 +26,14 @@ public class CustomerInfoController extends BaseController{
     @ResponseBody
     public BaseResult<Boolean> insertCustomerInfo(@RequestBody String[][] customerInfo,
                                                BindingResult bindingResult) {
-        System.out.println("hah");
+//        System.out.println("hah");
         return new BaseResult<>(customerInfoManager.insert(customerInfo));
     }
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     @ResponseBody
     public BaseResult<CustomerInfoDomain> getCustomerInfoById(@RequestParam("id") Integer id) {
-        System.out.println("hah");
+//        System.out.println("hah");
         return customerInfoManager.read(id);
 
     }

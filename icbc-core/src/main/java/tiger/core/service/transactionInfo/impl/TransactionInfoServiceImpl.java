@@ -30,4 +30,9 @@ public class TransactionInfoServiceImpl implements TransactionInfoService{
         return null;
     }
 
+    public List<TransactionInfoDomain> selectAll(){
+        List<TransactionInfoDO> transactionInfoDOList = transactionInfoDOMapper.selectAll();
+        return TransactionInfoConvert.conver2DDomains(transactionInfoDOList);
+    }
+
 }

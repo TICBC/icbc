@@ -19,5 +19,10 @@ public interface TransactionInfoService {
 
     TransactionInfoDomain selectByPrimaryKey(Integer id);
 
+    /**
+     * find ALL查找所有
+     */
+    List<TransactionInfoDomain> selectAll();
+
 
 }

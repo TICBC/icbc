@@ -28,4 +28,8 @@ public class TransactionInfoManagerImpl implements TransactionInfoManager{
         return transactionInfoService.selectByPrimaryKey(id);
     }
 
+    @Override
+    public List<TransactionInfoDomain> selectAll(){
+        return transactionInfoService.selectAll();
+    }
 }

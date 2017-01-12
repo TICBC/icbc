@@ -5,6 +5,8 @@ package tiger.web.api;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 import tiger.biz.TigerApplication;
 
 /**
@@ -15,6 +17,11 @@ import tiger.biz.TigerApplication;
  */
 public class APIMain extends SpringBootServletInitializer {
 
+
+    @Bean
+    RestTemplate restTemplate(){
+        return new RestTemplate();
+    }
     /**
      * API 程序入口
      *
@@ -28,4 +35,5 @@ public class APIMain extends SpringBootServletInitializer {
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(AppConfig.class, APIMain.class);
     }
+
 }

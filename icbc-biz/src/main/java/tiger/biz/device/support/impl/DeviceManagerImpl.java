@@ -7,6 +7,7 @@ import org.springframework.web.client.RestTemplate;
 import tiger.biz.device.support.DeviceManager;
 import tiger.common.dal.persistence.icbc.EquipmentInfoDO;
 import tiger.common.dal.persistence.icbc.SelectedAndroidDO;
+import tiger.common.dal.persistence.icbc.TransactionInfoDO;
 import tiger.common.dal.persistence.mapper.EquipmentInfoDOMapper;
 import tiger.core.basic.PageResult;
 import tiger.core.domain.device.EquipmentInfoDomain;
@@ -50,5 +51,19 @@ public class DeviceManagerImpl implements DeviceManager{
             return "false";
 
         return "true";
+    }
+
+
+    public String deviceInterface(TransactionInfoDO transactionInfoDO){
+        SelectedAndroidDO selectedAndroidDO = new SelectedAndroidDO();
+
+        selectedAndroidDO.setId(transactionInfoDO.getId());
+
+        RestTemplate restTemplate = new RestTemplate();
+
+        ResponseEntity<String> entity = restTemplate.postForEntity("http://localhost:8080/api/device/auth", selectedAndroidDO, String.class);
+        String result = entity.getBody();
+
+        return result;
     }
 }

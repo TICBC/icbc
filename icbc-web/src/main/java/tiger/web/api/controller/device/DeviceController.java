@@ -1,10 +1,7 @@
 package tiger.web.api.controller.device;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import tiger.biz.device.support.DeviceManager;
 import tiger.common.dal.persistence.icbc.SelectedAndroidDO;
 import tiger.core.basic.PageResult;
@@ -43,7 +40,7 @@ public class DeviceController extends BaseController {
      */
     @RequestMapping(value = "/auth", method = RequestMethod.POST)
     @ResponseBody
-    public String deviceAuth(SelectedAndroidDO newdevice) {
+    public String deviceAuth(@RequestBody SelectedAndroidDO newdevice) {
 
         return deviceManager.deviceAuth(newdevice);
     }

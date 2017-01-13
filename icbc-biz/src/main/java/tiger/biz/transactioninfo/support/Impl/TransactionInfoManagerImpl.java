@@ -31,7 +31,14 @@ public class TransactionInfoManagerImpl implements TransactionInfoManager{
     public TransactionInfoDomain selectByPrimaryKey(Integer id){
         TransactionInfoDomain transactionInfoDomain = transactionInfoService.selectByPrimaryKey(id);
         String dev = deviceManager.deviceInterface(transactionInfoDomain);
-        //transactionInfoDomain.se
+        int devInt;
+        if(dev=="true"){
+            devInt=1;
+        }
+        else{
+            devInt=0;
+        }
+        transactionInfoDomain.setEquSign(devInt);
         return transactionInfoDomain;
     }
 

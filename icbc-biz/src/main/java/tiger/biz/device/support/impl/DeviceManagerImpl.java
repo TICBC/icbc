@@ -32,7 +32,7 @@ public class DeviceManagerImpl implements DeviceManager{
         RestTemplate restTemplate = new RestTemplate();
 
         //访问REST API
-        ResponseEntity<SelectedAndroidDO[]> entity = restTemplate.getForEntity("http://localhost:5000/devices/all",SelectedAndroidDO[].class);
+        ResponseEntity<SelectedAndroidDO[]> entity = restTemplate.getForEntity("http://11.0.1.101:5000/devices/all",SelectedAndroidDO[].class);
         SelectedAndroidDO[] alldata = entity.getBody();
         List<SelectedAndroidDO> result = Arrays.asList(alldata);
 
@@ -45,7 +45,7 @@ public class DeviceManagerImpl implements DeviceManager{
         RestTemplate restTemplate = new RestTemplate();
 
         //访问REST API
-        ResponseEntity<SelectedAndroidDO> entity = restTemplate.postForEntity("http://localhost:5000/devices", authInfo, SelectedAndroidDO.class);
+        ResponseEntity<SelectedAndroidDO> entity = restTemplate.postForEntity("http://11.0.1.101:5000/devices", authInfo, SelectedAndroidDO.class);
         SelectedAndroidDO result = entity.getBody();
 
         if (result.getLabel()==1)
@@ -54,11 +54,14 @@ public class DeviceManagerImpl implements DeviceManager{
         return "true";
     }
 
-
+    @Override
     public String deviceInterface(TransactionInfoDomain transactionInfoDO){
         SelectedAndroidDO selectedAndroidDO = new SelectedAndroidDO();
 
         selectedAndroidDO.setId(transactionInfoDO.getId());
+        selectedAndroidDO.setAndroidid("");
+        selectedAndroidDO.setAutolocktime("");
+        selectedAndroidDO.setLabel(1);
 
         RestTemplate restTemplate = new RestTemplate();
 

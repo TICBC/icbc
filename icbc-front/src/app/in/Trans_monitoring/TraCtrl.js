@@ -1,4 +1,4 @@
-export default ($scope, $rootScope, qService, TransactionRes, ToasterTool, BASE_URL) => {
+export default ($scope, $rootScope, qService, TransactionRes, ToasterTool, BASE_URL,$interval) => {
 	'ngInject';
 	const isNull = (value) => {
     	return typeof(value) == undefined || value == null;
@@ -9,7 +9,7 @@ export default ($scope, $rootScope, qService, TransactionRes, ToasterTool, BASE_
 		// 	ToasterTool.warning("输入不能为空");
 		// 	return;
 		// }
-		$rootScope.loading = true;
+		$rootScope.loading = false;
 		
 		qService.httpGet(TransactionRes.ResultsAll, {}, {}).then((data) => {
 	    if (data.success) {
@@ -32,15 +32,33 @@ export default ($scope, $rootScope, qService, TransactionRes, ToasterTool, BASE_
 	    }).finally(() => {
 	        $rootScope.loading = false;
 	    });
+
 	}
 	$scope.getById = () => {
+
+	};
+	
+	
+	
+	// 定时查询ById   -- start
+	var ids = [1,2,3,4,5,6,7,8,9,10,11,12];
+	var id_cur,i=0,n=0;
+	var arrayItem = new Array();
+	$interval(function () {
+		// i = n%5;
+		
+		n++;
+		id_cur = ids[i];
+		getByIdLoop(id_cur);
+		i++;
+	}, 5000,12);
+	function getByIdLoop(id) {
 		// if (isNull($scope.params.value)) {
 		// 	ToasterTool.warning("输入不能为空");
 		// 	return;
 		// }
-		$rootScope.loading = true;
 		const params = {
-			"id": 1,
+			"id": id,
 			//"value": $scope.params.value,
 		}
 		qService.httpGet(TransactionRes.TransactionInfo, params, {}).then((data) => {
@@ -48,24 +66,34 @@ export default ($scope, $rootScope, qService, TransactionRes, ToasterTool, BASE_
 	        	//console.log("hehe");
 	        if (data.data == null) {
 	            ToasterTool.error("无结果");
-	            $scope.items = null;
+	            // $scope.items = null;
 	        } else {
 	            ToasterTool.success("查找成功");
-	            $scope.items = data.data;
+				// [data.data];
+	            arrayItem.push(data.data);
+				$scope.items= angular.copy(arrayItem);
+				console.log($scope.items);
 	            ToasterTool.success(data.data);
 	           }
 	    } else {
 	    	ToasterTool.error("无结果");
-	        $scope.items = null;
+
+	        // $scope.items = null;
 	    }
 	    }, (err) => {
 	    	ToasterTool.error("网络错误");
-	    	$scope.items = null;
+	    	// $scope.items = null;
 	    }).finally(() => {
 	        $rootScope.loading = false;
 	    });
 	};
-	$scope.getAll();
+
+	/////////// 定时查询ById  --end
+	
+	
+	
+	
+	// $scope.getAll();
 	$scope.findInMap = (item) => {
 		// alert(item);
 		//console.log(item);
@@ -87,6 +115,12 @@ export default ($scope, $rootScope, qService, TransactionRes, ToasterTool, BASE_
 		    console.log(BJData);
 			paint(BJData);
 	}
+	
+	
+	
+	
+	
+	
 	paint();
 	tongjitu();
 	function tongjitu(){
@@ -381,5 +415,7 @@ export default ($scope, $rootScope, qService, TransactionRes, ToasterTool, BASE_
 		    }
 			
 	}
+	
+	
 	
 }

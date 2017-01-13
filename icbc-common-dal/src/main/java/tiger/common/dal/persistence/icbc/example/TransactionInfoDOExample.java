@@ -2608,6 +2608,186 @@ public class TransactionInfoDOExample {
             addCriterion("Remit_Msg_Advise_Mobile_Num not between", value1, value2, "remitMsgAdviseMobileNum");
             return (Criteria) this;
         }
+
+        public Criteria andEquSignIsNull() {
+            addCriterion("Equ_Sign is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEquSignIsNotNull() {
+            addCriterion("Equ_Sign is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEquSignEqualTo(Integer value) {
+            addCriterion("Equ_Sign =", value, "equSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andEquSignNotEqualTo(Integer value) {
+            addCriterion("Equ_Sign <>", value, "equSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andEquSignGreaterThan(Integer value) {
+            addCriterion("Equ_Sign >", value, "equSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andEquSignGreaterThanOrEqualTo(Integer value) {
+            addCriterion("Equ_Sign >=", value, "equSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andEquSignLessThan(Integer value) {
+            addCriterion("Equ_Sign <", value, "equSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andEquSignLessThanOrEqualTo(Integer value) {
+            addCriterion("Equ_Sign <=", value, "equSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andEquSignIn(List<Integer> values) {
+            addCriterion("Equ_Sign in", values, "equSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andEquSignNotIn(List<Integer> values) {
+            addCriterion("Equ_Sign not in", values, "equSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andEquSignBetween(Integer value1, Integer value2) {
+            addCriterion("Equ_Sign between", value1, value2, "equSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andEquSignNotBetween(Integer value1, Integer value2) {
+            addCriterion("Equ_Sign not between", value1, value2, "equSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andActSignIsNull() {
+            addCriterion("Act_Sign is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andActSignIsNotNull() {
+            addCriterion("Act_Sign is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andActSignEqualTo(Integer value) {
+            addCriterion("Act_Sign =", value, "actSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andActSignNotEqualTo(Integer value) {
+            addCriterion("Act_Sign <>", value, "actSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andActSignGreaterThan(Integer value) {
+            addCriterion("Act_Sign >", value, "actSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andActSignGreaterThanOrEqualTo(Integer value) {
+            addCriterion("Act_Sign >=", value, "actSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andActSignLessThan(Integer value) {
+            addCriterion("Act_Sign <", value, "actSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andActSignLessThanOrEqualTo(Integer value) {
+            addCriterion("Act_Sign <=", value, "actSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andActSignIn(List<Integer> values) {
+            addCriterion("Act_Sign in", values, "actSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andActSignNotIn(List<Integer> values) {
+            addCriterion("Act_Sign not in", values, "actSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andActSignBetween(Integer value1, Integer value2) {
+            addCriterion("Act_Sign between", value1, value2, "actSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andActSignNotBetween(Integer value1, Integer value2) {
+            addCriterion("Act_Sign not between", value1, value2, "actSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andTruSignIsNull() {
+            addCriterion("Tru_Sign is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTruSignIsNotNull() {
+            addCriterion("Tru_Sign is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTruSignEqualTo(Integer value) {
+            addCriterion("Tru_Sign =", value, "truSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andTruSignNotEqualTo(Integer value) {
+            addCriterion("Tru_Sign <>", value, "truSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andTruSignGreaterThan(Integer value) {
+            addCriterion("Tru_Sign >", value, "truSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andTruSignGreaterThanOrEqualTo(Integer value) {
+            addCriterion("Tru_Sign >=", value, "truSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andTruSignLessThan(Integer value) {
+            addCriterion("Tru_Sign <", value, "truSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andTruSignLessThanOrEqualTo(Integer value) {
+            addCriterion("Tru_Sign <=", value, "truSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andTruSignIn(List<Integer> values) {
+            addCriterion("Tru_Sign in", values, "truSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andTruSignNotIn(List<Integer> values) {
+            addCriterion("Tru_Sign not in", values, "truSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andTruSignBetween(Integer value1, Integer value2) {
+            addCriterion("Tru_Sign between", value1, value2, "truSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andTruSignNotBetween(Integer value1, Integer value2) {
+            addCriterion("Tru_Sign not between", value1, value2, "truSign");
+            return (Criteria) this;
+        }
     }
 
     /**

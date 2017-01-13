@@ -23,6 +23,11 @@ public class TransactionInfoServiceImpl implements TransactionInfoService{
     }
     */
     public TransactionInfoDomain selectByPrimaryKey(Integer id){
+        /*
+        if(transactionInfoDOMapper==null){
+            System.out.println("111");
+        }
+        */
         TransactionInfoDO transDO = transactionInfoDOMapper.selectByPrimaryKey(id);
         if(null!=transDO){
             return TransactionInfoConvert.convertDOtoDomain(transDO);

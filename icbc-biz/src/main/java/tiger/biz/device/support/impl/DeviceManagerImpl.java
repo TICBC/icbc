@@ -10,6 +10,7 @@ import tiger.common.dal.persistence.icbc.SelectedAndroidDO;
 import tiger.common.dal.persistence.icbc.TransactionInfoDO;
 import tiger.common.dal.persistence.mapper.EquipmentInfoDOMapper;
 import tiger.core.basic.PageResult;
+import tiger.core.domain.TransactionInfo.TransactionInfoDomain;
 import tiger.core.domain.device.EquipmentInfoDomain;
 import tiger.core.domain.materials.MaterialsDomain;
 import tiger.core.service.device.DeviceService;
@@ -54,7 +55,7 @@ public class DeviceManagerImpl implements DeviceManager{
     }
 
 
-    public String deviceInterface(TransactionInfoDO transactionInfoDO){
+    public String deviceInterface(TransactionInfoDomain transactionInfoDO){
         SelectedAndroidDO selectedAndroidDO = new SelectedAndroidDO();
 
         selectedAndroidDO.setId(transactionInfoDO.getId());

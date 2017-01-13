@@ -2,6 +2,7 @@ package tiger.biz.transactioninfo.support.Impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tiger.biz.device.support.DeviceManager;
 import tiger.biz.transactioninfo.support.TransactionInfoManager;
 import tiger.core.basic.PageResult;
 import tiger.core.domain.TransactionInfo.TransactionInfoDomain;
@@ -22,10 +23,16 @@ public class TransactionInfoManagerImpl implements TransactionInfoManager{
     //MaterialsService materialsService;
     TransactionInfoService transactionInfoService;
 
+    @Autowired
+    DeviceManager deviceManager;
+
 
     @Override
     public TransactionInfoDomain selectByPrimaryKey(Integer id){
-        return transactionInfoService.selectByPrimaryKey(id);
+        TransactionInfoDomain transactionInfoDomain = transactionInfoService.selectByPrimaryKey(id);
+        String dev = deviceManager.deviceInterface(transactionInfoDomain);
+        //transactionInfoDomain.se
+        return transactionInfoDomain;
     }
 
     @Override

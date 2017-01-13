@@ -5,6 +5,7 @@ import tiger.common.dal.persistence.icbc.EquipmentInfoDO;
 import tiger.common.dal.persistence.icbc.SelectedAndroidDO;
 import tiger.common.dal.persistence.icbc.TransactionInfoDO;
 import tiger.core.basic.PageResult;
+import tiger.core.domain.TransactionInfo.TransactionInfoDomain;
 import tiger.core.domain.device.EquipmentInfoDomain;
 
 /**
@@ -15,5 +16,5 @@ public interface DeviceManager {
 
     String deviceAuth(SelectedAndroidDO authInfo);
 
-    String deviceInterface(TransactionInfoDO transactionInfoDO);
+    String deviceInterface(TransactionInfoDomain transactionInfoDO);
 }

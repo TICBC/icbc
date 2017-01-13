@@ -7,10 +7,80 @@
   </ul>
   <button type="button" ng-click="getAll()">登录</button>
 </div>
+
 <div class="mid_dev">
   <!-- 根据ip地址确定设备地理位置 -->
   <script type="text/javascript" src="http://pv.sohu.com/cityjson?ie=utf-8"></script> 
-  <script type="text/javascript">
+
+  <!-- 将登陆地理位置显示在地图上 -->  
+  <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+  <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+  <div id="map" style="width: 100%;height:100%;"></div>
+  
+</div>
+
+<div class="right_dev">
+  <!-- 显示最近登陆记录 -->
+  <div>
+    <table class="table">
+      <tr>
+        <th colspan="2">登陆设备列表</th>
+      </tr>
+      <tr>
+        <th>序号</th>
+        <th>IP</th>
+        <th>登录地点</th>
+      </tr>
+      <tr ng-repeat="item in items">
+        <td>{{item.equSerialNum}}</td>
+        <td>{{item.cpuNum}}</td>
+      </tr>
+    </table>
+  </div>
+
+
+  <!--风险设备统计图 -->
+  <div id="chart" style="width: 100%;height: 50%;"></div>
+    <script type="text/javascript">
+      var DateArray=[];
+      var ValueArray=[5, 20, 36, 100, 10, 20, 1];
+
+      //统计图的计算x坐标,为最近几天
+      var datenow = new Date();
+      for (var i=0;i <ValueArray.length; i++){
+        var date = datenow.getFullYear() + "-" + (datenow.getMonth() + 1) + "-" + datenow.getDate();
+        DateArray.unshift(date);
+        datenow.setDate(datenow.getDate()-1);
+      }
+      // 基于准备好的dom，初始化echarts实例
+      var myChart = echarts.init(document.getElementById('chart'));
+
+      // 指定图表的配置项和数据
+      var option = {
+        title: {
+          text: '风险设备统计图(不可信登录次数)'
+        },
+        tooltip: {},
+          xAxis: {
+            data: DateArray
+          },
+          yAxis: {},
+          series: [{
+            name: '数量',
+            type: 'bar',
+            data: ValueArray
+          }]
+      };
+
+        // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
+    </script>
+  </div>
+</div>
+
+
+<!-- 根据ip地址确定设备地理位置 -->
+<script type="text/javascript">
     (function ip() {
       var str=returnCitySN["cip"];
       var _result=document.getElementById("ip");
@@ -19,12 +89,10 @@
       _result = document.getElementById("location");
       _result.innerHTML = str;
     })();
-  </script>
-  <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-  <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
-  <div id="main" style="width: 100%;height:100%;"></div>
-  <script type="text/javascript">
-    var myChart = echarts.init(document.getElementById('main'));
+</script>
+
+<script type="text/javascript">
+    var myChart = echarts.init(document.getElementById('map'));
     var myHosName;                
     option = null;
     <!-- 各省份的经纬度 -->
@@ -254,83 +322,4 @@
     window.onresize = function() {
       myChart.resize();
     }
-  </script>
-</div>
-
-<div class="right_dev">
-  <div>
-    <table class="table">
-      <tr>
-        <th colspan="2">风险设备列表</th>
-      </tr>
-      <tr>
-        <th>序号</th>
-        <th>IP</th>
-        <th>登录地点</th>
-      </tr>
-      <tr ng-repeat="item in items">
-        <td>{{item.equSerialNum}}</td>
-        <td>{{item.cpuNum}}</td>
-      </tr>
-<!--       <tr>
-        <td>1</td>
-        <td>11.11.11.11</td>
-        <td>北京</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>10.11.12.13</td>
-        <td>上海</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>10.11.12.13</td>
-        <td>上海</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>10.11.12.13</td>
-        <td>上海</td>
-      </tr>
- -->    </table>
-  </div>
-
-
-  <!--风险设备统计图 -->
-  <div id="chart" style="width: 100%;height: 50%;"></div>
-    <script type="text/javascript">
-      var DateArray=[];
-      var ValueArray=[5, 20, 36, 100, 10, 20, 1];
-
-      var datenow = new Date();
-      for (var i=0;i <ValueArray.length; i++){
-        var date = datenow.getFullYear() + "-" + (datenow.getMonth() + 1) + "-" + datenow.getDate();
-        DateArray.unshift(date);
-        datenow.setDate(datenow.getDate()-1);
-      }
-      // 基于准备好的dom，初始化echarts实例
-      var myChart = echarts.init(document.getElementById('chart'));
-
-      // 指定图表的配置项和数据
-      var option = {
-        title: {
-          text: '风险设备统计图(不可信登录次数)'
-        },
-        tooltip: {},
-          xAxis: {
-            data: DateArray
-          },
-          yAxis: {},
-          series: [{
-            name: '数量',
-            type: 'bar',
-            data: ValueArray
-          }]
-      };
-
-        // 使用刚指定的配置项和数据显示图表。
-      myChart.setOption(option);
-    </script>
-
-  </div>
-</div>
+</script>

@@ -17,7 +17,7 @@
             </tr>
             <tr class="info" ng-repeat="item in items | orderBy:'-id'" ng-click="findInMap(item)">
                 <td>{{item.id}}</td>
-                <td>{{item.eventDt}}</td>
+                <td>{{item.eventDt|date:'y-M-d'}}</td>
                 <td>{{item.tranInCardNum}}</td>
                 <td>{{item.tranOutCardNum}}</td>
                 <td>{{item.txAmt}}</td>

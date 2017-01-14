@@ -32,6 +32,10 @@ export default ($scope, $rootScope, qService, TransactionRes, ToasterTool, BASE_
 	    }).finally(() => {
 	        $rootScope.loading = false;
 	    });
+
+	}
+	$scope.getById = () => {
+
 	};
 	
 	
@@ -53,9 +57,6 @@ export default ($scope, $rootScope, qService, TransactionRes, ToasterTool, BASE_
 		// 	ToasterTool.warning("输入不能为空");
 		// 	return;
 		// }
-		
-		
-		
 		const params = {
 			"id": id,
 			//"value": $scope.params.value,
@@ -76,6 +77,7 @@ export default ($scope, $rootScope, qService, TransactionRes, ToasterTool, BASE_
 	           }
 	    } else {
 	    	ToasterTool.error("无结果");
+
 	        // $scope.items = null;
 	    }
 	    }, (err) => {
@@ -85,6 +87,7 @@ export default ($scope, $rootScope, qService, TransactionRes, ToasterTool, BASE_
 	        $rootScope.loading = false;
 	    });
 	};
+
 	/////////// 定时查询ById  --end
 	
 	

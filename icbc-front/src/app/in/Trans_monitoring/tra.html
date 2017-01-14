@@ -14,6 +14,7 @@
                 <td>转入卡号</td>
                 <td>转出卡号</td>
                 <td>交易金额</td>
+                <td>设备认证</td>
             </tr>
             <tr class="info" ng-repeat="item in items | orderBy:'-id'" ng-click="findInMap(item)">
                 <td>{{item.id}}</td>
@@ -21,6 +22,7 @@
                 <td>{{item.tranInCardNum}}</td>
                 <td>{{item.tranOutCardNum}}</td>
                 <td>{{item.txAmt}}</td>
+                <td>{{item.equSign}}</td>
             </tr>
         </table>
 	</div>

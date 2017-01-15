@@ -44,4 +44,16 @@ public class DeviceController extends BaseController {
 
         return deviceManager.deviceAuth(newdevice);
     }
+
+    /**
+     * 获取所有的设备信息(本地数据库)
+     *
+     * @return
+     */
+    @RequestMapping(value = "/allequ", method = RequestMethod.GET)
+    @ResponseBody
+    public PageResult<List<EquipmentInfoDomain>> getAllEqu() {
+
+        return deviceManager.getAllEqu();
+    }
 }

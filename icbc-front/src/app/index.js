@@ -23,6 +23,7 @@ import TransactionRes from './resources/transaction-res';
 
 import customerInfoRes from './resources/customerInfo-res';
 import trustRes from './resources/trust-res';
+import loginRes from './resources/login-res';
 
 // directive
 import headerDirect from './common/header/headerDirect';
@@ -75,6 +76,7 @@ angular.module('soraka',
 
   .factory('TransactionRes',TransactionRes)
   .factory('deviceRes', deviceRes)
+  .factory('loginRes', loginRes)
 
 
   // directive 初始化

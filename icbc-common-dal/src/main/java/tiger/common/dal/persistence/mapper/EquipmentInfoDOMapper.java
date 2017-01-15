@@ -7,7 +7,7 @@ import tiger.common.dal.persistence.icbc.EquipmentInfoDOExample;
 
 public interface EquipmentInfoDOMapper {
     /**
-     * 获得所有的materials
+     * 获得所有的设备信息
      * @return
      */
     List<EquipmentInfoDO> selectAll();

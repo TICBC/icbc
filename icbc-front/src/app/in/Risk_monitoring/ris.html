@@ -9,7 +9,7 @@
 				监控流程位置地图切换
 		</div>
 		<div style="position: relative;">
-			<img src="img/image.png" alt="" width="100%" height="450px"">
+			<img src="img/image.png" alt="" width="100%" height="450px">
 			<!-- <img src="img/arrow.gif" alt="" style="position: absolute;left: 63px;"> -->
 		</div>
 		<!-- <form>
@@ -30,50 +30,82 @@
 			</div>
 			<div class="tab-content">
 				<div class="tab-pane in tab1" id="tab1">
-					<li>交易数据list</li>
-					<li>交易数据list</li>
-					<li>交易数据list</li>
-					<li>交易数据list</li>
-					<li>交易数据list</li>
-					<li>交易数据list</li>
-					<li>交易数据list</li>
-					<li>交易数据list</li>
-					<li>交易数据list</li>
-					<li>交易数据list</li>
-					<li>交易数据list</li>
-					<li>交易数据list</li>
-					<li>交易数据list</li>
-					<li>交易数据list</li>
+					<table>
+						<thead>
+							<tr>
+								<td>转出地址</td>
+								<td>转入地址</td>
+								<td>交易时间</td>
+								<td>受教育程度</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat='item in transactionItems|limitTo:16'>
+								<td>{{item.tranOutAcctZoneNum}}</td>
+								<td>{{item.tranInAcctZoneNum}}</td>
+								<td>{{item.eventDt|date:'y-MM-dd '}}</td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 				<div class="tab-pane tab2" id="tab2">
-					<li>登陆数据list</li>
-					<li>登陆数据list</li>
-					<li>登陆数据list</li>
-					<li>登陆数据list</li>
-					<li>登陆数据list</li>
-					<li>登陆数据list</li>
-					<li>登陆数据list</li>
-					<li>登陆数据list</li>
+					<table>
+						<thead>
+							<tr>
+								<td>地址</td>
+								<td>IP</td>
+								<td>安卓标识</td>
+								
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat='item in LoginItems|limitTo:16'>
+								<td>{{item.webbankRgstZoneNum}}</td>
+								<td>{{item.custIp}}</td>
+								<td>{{item.androidSysPadInd}}</td>
+								
+							</tr>
+						</tbody>
+					</table>
 				</div>
-				<div class="tab-pane tab3" id="tab3">
-					<li>用户数据list</li>
-					<li>用户数据list</li>
-					<li>用户数据list</li>
-					<li>用户数据list</li>
-					<li>用户数据list</li>
-					<li>用户数据list</li>
-					<li>用户数据list</li>
-					<li>用户数据list</li>
-					<li>用户数据list</li>
-					<li>用户数据list</li>
+				<div class="tab-pane tab3 " id="tab3" >
+					<table>
+						<thead>
+							<tr>
+								<td>性别</td>
+								<td>手机</td>
+								<td>住址</td>
+								<td>受教育程度</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat='item in CustomerItems|limitTo:16'>
+								<td>{{item.genderCd}}</td>
+								<td>{{item.mobile}}</td>
+								<td>{{item.homeAddr}}</td>
+								<td>{{item.eduDegreeCd}}</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 				<div class="tab-pane tab4" id="tab4">
-					<li>设备信息list</li>
-					<li>设备信息list</li>
-					<li>设备信息list</li>
-					<li>设备信息list</li>
-					<li>设备信息list</li>
-					<li>设备信息list</li>
+					<table>
+						<thead>
+							<tr>
+								<td>设备串号</td>
+								<td>厂商信息</td>
+								<!-- <td>系统版本</td> -->
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat='item in Deviceitems|limitTo:16'>
+								<td>{{item.equSerialNum}}</td>
+								<td>{{item.factoryInfo}}</td>
+								<!-- <td>{{item.osVersions}}</td> -->
+							</tr>
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>

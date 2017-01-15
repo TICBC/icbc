@@ -10,7 +10,14 @@ export default ($resource, BASE_URL) => {
 				}
 			});
 		},
-		
+		DeviceAllEqu: (headers) => {
+			return $resource(BASE_URL+'/device/allequ', {}, {
+				get: {
+					method: 'GET',
+					headers: headers,
+				}
+			});
+		},
 		// Device: (headers) => {
 		// 	return $resource(BASE_URL+'/materials', {}, {
 		// 		post: {

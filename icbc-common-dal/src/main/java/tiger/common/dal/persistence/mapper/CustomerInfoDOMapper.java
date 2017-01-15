@@ -93,4 +93,10 @@ public interface CustomerInfoDOMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(CustomerInfoDO record);
+
+    /**
+     * 获得所有的客户信息
+     * @return
+     */
+    List<CustomerInfoDO> selectAll();
 }

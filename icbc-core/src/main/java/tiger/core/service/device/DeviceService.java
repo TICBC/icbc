@@ -9,4 +9,6 @@ import java.util.List;
  */
 public interface DeviceService {
     List<EquipmentInfoDomain> getAll();
+    //获取所有本地设备
+    List<EquipmentInfoDomain> getAllEqu();
 }

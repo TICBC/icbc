@@ -28,4 +28,10 @@ public class CustomerInfoServiceImpl implements CustomerInfoService {
     public Boolean insert(CustomerInfoDO customerInfoDO) {
         return customerInfoDOMapper.insert(customerInfoDO) > 0;
     }
+
+    @Override
+    public List<CustomerInfoDomain> getAll() {
+        List<CustomerInfoDO> DOs = customerInfoDOMapper.selectAll();
+        return CustomerInfoConvert.convert2Domains(DOs);
+    }
 }

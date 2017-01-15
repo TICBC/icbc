@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import tiger.biz.transactioninfo.support.TransactionInfoManager;
 import tiger.core.basic.BaseResult;
 import tiger.core.domain.TransactionInfo.TransactionInfoDomain;
+import tiger.core.domain.TransactionInfo.convert.TransactionInfoConvert;
 import tiger.web.api.constants.APIConstants;
 import tiger.web.api.controller.BaseController;
 
@@ -26,6 +27,7 @@ public class TransactionInfoController extends BaseController{
     public BaseResult<TransactionInfoDomain> getTransactionInfoDomain(@RequestParam("id") Integer id){
         System.out.println(transactionInfoManager.selectByPrimaryKey(id).getId());
         TransactionInfoDomain transactionInfoDomain = transactionInfoManager.selectByPrimaryKey(id);
+        final Boolean aBoolean = transactionInfoManager.updateByPrimaryKey(TransactionInfoConvert.convertDomaintoDo(transactionInfoDomain));
         return new BaseResult<>(transactionInfoDomain);
         //System.out.println("shuchu ");
     }
@@ -37,5 +39,17 @@ public class TransactionInfoController extends BaseController{
     public BaseResult<List<TransactionInfoDomain>> getAll(){
         List<TransactionInfoDomain> transactionInfoDomainList = transactionInfoManager.selectAll();
         return new BaseResult<>(transactionInfoDomainList);
+    }
+    /**
+     *  只根据id查找
+     */
+    @RequestMapping(value = "/Select", method = RequestMethod.GET)
+    @ResponseBody
+    public BaseResult<TransactionInfoDomain> getOnlyTransactionInfoDomain(@RequestParam("id") Integer id){
+        System.out.println(transactionInfoManager.selectByPrimaryKey(id).getId());
+        TransactionInfoDomain transactionInfoDomain = transactionInfoManager.selectByPrimaryKey(id);
+        //transactionInfoManager.updateByPrimaryKey(TransactionInfoConvert.convertDomaintoDo(transactionInfoDomain));
+        return new BaseResult<>(transactionInfoDomain);
+        //System.out.println("shuchu ");
     }
 }

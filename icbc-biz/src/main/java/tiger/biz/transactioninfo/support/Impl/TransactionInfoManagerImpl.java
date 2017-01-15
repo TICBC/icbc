@@ -7,6 +7,7 @@ import org.springframework.web.client.RestTemplate;
 import tiger.biz.device.support.DeviceManager;
 import tiger.biz.transactioninfo.support.TransactionInfoManager;
 import tiger.common.dal.persistence.icbc.SelectedSocialNet;
+import tiger.common.dal.persistence.icbc.TransactionInfoDO;
 import tiger.core.basic.PageResult;
 import tiger.core.domain.TransactionInfo.TransactionInfoDomain;
 import tiger.core.domain.materials.MaterialsDomain;
@@ -48,16 +49,11 @@ public class TransactionInfoManagerImpl implements TransactionInfoManager{
         /**
          * 信任关系判定
         */
+        /**
         SelectedSocialNet selectedSocialNet = new SelectedSocialNet();
         selectedSocialNet.setUser1(transactionInfoDomain.getTranOutCardNum());
         selectedSocialNet.setUser2(transactionInfoDomain.getTranInCardNum());
         //System.out.println(" Userq信息："+selectedSocialNet.getUser1()+" Userq信息："+selectedSocialNet.getUser2());
-
-        //数据不对应
-        /**
-        selectedSocialNet.setTime(transactionInfoDomain.getEventDt().toString());
-        selectedSocialNet.setMoney(transactionInfoDomain.getTxAmt().toString());
-         */
         //写死在对象里面
 
         selectedSocialNet.setTime("12");
@@ -79,7 +75,10 @@ public class TransactionInfoManagerImpl implements TransactionInfoManager{
             TraInt=0;
         }
         transactionInfoDomain.setTruSign(TraInt);
-
+        */
+        transactionInfoDomain.setTruSign(1);
+        transactionInfoDomain.setEquSign(1);
+        transactionInfoDomain.setActSign(1);
 
         return transactionInfoDomain;
     }
@@ -87,5 +86,17 @@ public class TransactionInfoManagerImpl implements TransactionInfoManager{
     @Override
     public List<TransactionInfoDomain> selectAll(){
         return transactionInfoService.selectAll();
+    }
+    @Override
+    public Boolean updateByPrimaryKey(TransactionInfoDO transactionInfoDO){
+        if(transactionInfoDO==null){
+            return false;
+        }
+        return transactionInfoService.updateByPrimaryKey(transactionInfoDO);
+    }
+    @Override
+    public TransactionInfoDomain selectOnlyByPrimaryKey(Integer id){
+        TransactionInfoDomain transactionInfoDomain = transactionInfoService.selectByPrimaryKey(id);
+        return  transactionInfoDomain;
     }
 }

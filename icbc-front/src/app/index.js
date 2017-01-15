@@ -22,6 +22,7 @@ import deviceRes from './resources/device-res';
 import TransactionRes from './resources/transaction-res';
 
 import customerInfoRes from './resources/customerInfo-res';
+import trustRes from './resources/trust-res';
 
 // directive
 import headerDirect from './common/header/headerDirect';
@@ -70,6 +71,7 @@ angular.module('soraka',
   .factory('resultsRes', resultsRes)
 
   .factory('customerInfoRes', customerInfoRes)
+  .factory('trustRes', trustRes)
 
   .factory('TransactionRes',TransactionRes)
   .factory('deviceRes', deviceRes)

@@ -3,12 +3,16 @@ package tiger.biz.CustomerInfo.support.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tiger.biz.CustomerInfo.support.CustomerInfoManager;
+import tiger.common.dal.persistence.icbc.CustomerInfoDO;
 import tiger.core.basic.BaseResult;
+import tiger.core.basic.PageResult;
 import tiger.core.basic.enums.ErrorCodeEnum;
 import tiger.core.basic.exception.TigerException;
 import tiger.core.domain.CustomerInfo.CustomerInfoDomain;
 import tiger.core.domain.CustomerInfo.convert.CustomerInfoConvert;
 import tiger.core.service.CustomerInfo.CustomerInfoService;
+
+import java.util.List;
 
 /**
  * Created by AUSA on 2017/1/10.
@@ -42,5 +46,10 @@ public class CustomerInfoManagerImpl implements CustomerInfoManager {
         }
 
         return new BaseResult<>(message);
+    }
+
+    @Override
+    public PageResult<List<CustomerInfoDomain>> getAll() {
+        return new PageResult<List<CustomerInfoDomain>>(customerInfoService.getAll());
     }
 }

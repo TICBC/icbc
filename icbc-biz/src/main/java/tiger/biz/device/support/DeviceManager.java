@@ -17,4 +17,7 @@ public interface DeviceManager {
     String deviceAuth(SelectedAndroidDO authInfo);
 
     String deviceInterface(TransactionInfoDomain transactionInfoDO);
+
+    //获取所有设备信息
+    PageResult<List<EquipmentInfoDomain>> getAllEqu();
 }

@@ -71,4 +71,9 @@ public class DeviceManagerImpl implements DeviceManager{
 
         return result;
     }
+
+    @Override
+    public PageResult<List<EquipmentInfoDomain>> getAllEqu() {
+        return new PageResult<List<EquipmentInfoDomain>>(deviceService.getAllEqu());
+    }
 }

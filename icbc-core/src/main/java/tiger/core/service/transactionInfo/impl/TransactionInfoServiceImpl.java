@@ -22,6 +22,11 @@ public class TransactionInfoServiceImpl implements TransactionInfoService{
         List<Transactioninfo> trans = transactionInfoDOMapper.selec
     }
     */
+    /**
+     * 根据id查找
+     * @param id
+     * @return
+     */
     public TransactionInfoDomain selectByPrimaryKey(Integer id){
         /*
         if(transactionInfoDOMapper==null){
@@ -35,9 +40,30 @@ public class TransactionInfoServiceImpl implements TransactionInfoService{
         return null;
     }
 
+    /**
+     * 直接查找所有
+     * @return
+     */
+
     public List<TransactionInfoDomain> selectAll(){
         List<TransactionInfoDO> transactionInfoDOList = transactionInfoDOMapper.selectAll();
         return TransactionInfoConvert.conver2DDomains(transactionInfoDOList);
+    }
+    /**
+     * 更新数据
+     */
+    public Boolean updateByPrimaryKey(TransactionInfoDO transactionInfoDO){
+        return transactionInfoDOMapper.updateByPrimaryKey(transactionInfoDO) > 0;
+    }
+    /**
+     * 只根据id查找
+     */
+    public TransactionInfoDomain selectOnlyByPrimaryKey(Integer id){
+        TransactionInfoDO transDO = transactionInfoDOMapper.selectByPrimaryKey(id);
+        if(null!=transDO){
+            return TransactionInfoConvert.convertDOtoDomain(transDO);
+        }
+        return null;
     }
 
 }

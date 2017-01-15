@@ -1,5 +1,6 @@
 package tiger.core.service.transactionInfo;
 
+import tiger.common.dal.persistence.icbc.TransactionInfoDO;
 import tiger.core.domain.TransactionInfo.TransactionInfoDomain;
 
 import java.util.List;
@@ -14,7 +15,7 @@ public interface TransactionInfoService {
      */
     //List<TransactionInfoDomain> getAll();
     /**
-     *  根据id查找
+     *  根据id查找，访问三个后台，打标签
      */
 
     TransactionInfoDomain selectByPrimaryKey(Integer id);
@@ -23,6 +24,13 @@ public interface TransactionInfoService {
      * find ALL查找所有
      */
     List<TransactionInfoDomain> selectAll();
-
+    /**
+     * 更新数据
+     */
+    Boolean updateByPrimaryKey(TransactionInfoDO transactionInfoDO);
+    /**
+     * 只根据id查找
+     */
+    TransactionInfoDomain selectOnlyByPrimaryKey(Integer id);
 
 }

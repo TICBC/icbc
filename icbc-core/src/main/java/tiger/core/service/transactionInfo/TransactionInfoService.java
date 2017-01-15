@@ -3,6 +3,7 @@ package tiger.core.service.transactionInfo;
 import tiger.common.dal.persistence.icbc.TransactionInfoDO;
 import tiger.core.domain.TransactionInfo.TransactionInfoDomain;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -33,4 +34,13 @@ public interface TransactionInfoService {
      */
     TransactionInfoDomain selectOnlyByPrimaryKey(Integer id);
 
+    /**
+     * 查找某个时间段内的交易记录
+     */
+    List<TransactionInfoDomain> selectPeriod(Date begintime, Date endtime);
+
+    /**
+     * 查找某个用户的转出交易记录
+     */
+    List<TransactionInfoDomain> selectOutCardNum(String outCardNum);
 }

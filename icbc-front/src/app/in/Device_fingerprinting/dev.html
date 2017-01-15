@@ -5,7 +5,7 @@
  -->    <li id="ip">IP：&nbsp;&nbsp;<span>10.20.25.28</span></li>
     <li id="location">地址：&nbsp;&nbsp;<span>上海市</span></li>     
   </ul>
-  <button type="button" ng-click="getAll()">登录</button>
+  <button type="button" ng-click="findInMap(items)">登录</button>
 </div>
 
 <div class="mid_dev">
@@ -21,19 +21,22 @@
 
 <div class="right_dev">
   <!-- 显示最近登陆记录 -->
-  <div style="overflow-y:scroll">
+  <div class="right_dev_table" style="overflow-y:scroll">
     <table class="table">
       <tr>
         <th colspan="2">登陆设备列表</th>
       </tr>
       <tr>
         <th>序号</th>
-        <th>IP</th>
+        <th>卡号</th>
+        <th>登录时间</th>
         <th>登录地点</th>
       </tr>
-      <tr ng-repeat="item in items" >
+      <tr ng-repeat="item in items">
         <td>{{item.id}}</td>
+        <td>{{item.tranOutCardNum}}</td>
         <td>{{item.eventDt|date:'y-M-d'}}</td>
+        <td>{{item.tranOutAcctZoneNum}}</td>
       </tr>
     </table>
   </div>

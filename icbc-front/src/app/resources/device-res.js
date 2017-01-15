@@ -11,6 +11,23 @@ export default ($resource, BASE_URL) => {
 			});
 		},
 		
+		DevicePeriod: (headers) => {
+			return $resource(BASE_URL+'/TransactionInfo/period', {}, {
+				get: {
+					method: 'GET',
+					headers: headers,
+				}
+			});
+		},
+
+		DeviceOutCard: (headers) => {
+			return $resource(BASE_URL+'/TransactionInfo/outcardnum', {}, {
+				get: {
+					method: 'GET',
+					headers: headers,
+				}
+			});
+		},
 		// Device: (headers) => {
 		// 	return $resource(BASE_URL+'/materials', {}, {
 		// 		post: {

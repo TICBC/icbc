@@ -3,11 +3,14 @@ package tiger.core.service.transactionInfo.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tiger.common.dal.persistence.icbc.TransactionInfoDO;
+import tiger.common.dal.persistence.icbc.TransactionInfoDOExample;
 import tiger.common.dal.persistence.mapper.TransactionInfoDOMapper;
+import tiger.common.dal.persistence.materials.MaterialsExample;
 import tiger.core.domain.TransactionInfo.TransactionInfoDomain;
 import tiger.core.domain.TransactionInfo.convert.TransactionInfoConvert;
 import tiger.core.service.transactionInfo.TransactionInfoService;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -66,4 +69,17 @@ public class TransactionInfoServiceImpl implements TransactionInfoService{
         return null;
     }
 
+    public List<TransactionInfoDomain> selectPeriod(Date begintime, Date endtime){
+        TransactionInfoDOExample example = new TransactionInfoDOExample();
+        TransactionInfoDOExample.Criteria criteria = example.createCriteria();
+
+        criteria.andEventDtLessThan(endtime);
+        criteria.andEventDtGreaterThanOrEqualTo(begintime);
+
+        return TransactionInfoConvert.conver2DDomains(transactionInfoDOMapper.selectByExample(example));
+    }
+
+    public List<TransactionInfoDomain> selectOutCardNum(String outCardNum){
+        return TransactionInfoConvert.conver2DDomains(transactionInfoDOMapper.selectByOutCardNum(outCardNum));
+    }
 }

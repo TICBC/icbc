@@ -5,8 +5,8 @@ export default($scope, $rootScope, AuthTool, $state, qService, deviceRes, Toaste
 		qService.httpGetWithToken(deviceRes.DeviceAll, {}, {}).then((data) => {
 	        if (data.success) {
 	        	ToasterTool.success("查找成功");
-	            $scope.items = data.data;
-	            $scope.BJ
+	          $scope.items = data.data;
+            // findInMap();
 	        } else {
 	        	$scope.items = null;
 	        }
@@ -17,26 +17,38 @@ export default($scope, $rootScope, AuthTool, $state, qService, deviceRes, Toaste
 	        $rootScope.loading = false;
 	    });
 	};
-	$scope.findInMap = (item) => {
+	$scope.findInMap = (items) => {
 		// alert(item);
 		//console.log(item);
-		var BJData = [
-			  [{
-			      name: item.tranOutAcctZoneNum
-			  }, {
-			      name: item.tranOutAcctZoneNum,
-			      value: 5
-			  }],
-			  [{
-			      name: item.tranOutAcctZoneNum
-			  }, {
-			      name: item.tranInAcctZoneNum,
-			      value: item.txAmt
-			  }]
+    var BJData = [
+    [{
+      name: items[0].tranOutAcctZoneNum
+    }, {
+      name: items[0].tranOutAcctZoneNum,
+      value: items[0].Euq_Sign
+    }]
+    ];
 
-			];
-		    console.log(BJData);
-			paint(BJData);
+
+//    angular.forEach(items, function(data, index, array){
+
+    for (var i = 1; i<17; i++){
+      var Data = 
+        [{
+            name: items[i].tranOutAcctZoneNum
+        }, {
+            name: items[i].tranOutAcctZoneNum,
+            value: 1
+        }]
+      BJData.push(Data);
+    }
+//    });
+
+
+    if (BJData.length > 1)
+  		paint(BJData);
+    else
+      paint(null);
 	}
 
 	$(function(){
@@ -74,7 +86,7 @@ function paint(BJData){
       '福建省': [119.18, 26.05],
       '甘肃省': [103.51, 36.04],
       '广东省': [113.14, 23.08],
-      '广西壮族自治区': [108.19, 22.48],
+      '广西壮族自治': [108.19, 22.48],
       '贵州省': [106.42, 26.35],
       '海南省': [110.20, 20.02],
       '河北省': [114.30, 38.02],
@@ -182,20 +194,22 @@ function paint(BJData){
           }
         },
         symbolSize: function(val) {
-          if(val[3] <= 10)
-            return 10;
-          else
-            return 20;
+          return 10;
+          // if(val[3] <= 10)
+          //   return 10;
+          // else
+          //   return 20;
         },
         itemStyle: {
           normal: {
             color: function(params) {
-              var tmp = params.data.value[3]
-              if (tmp < 10) {
-                return 'green';
-              } else {
-                return 'red'
-              }
+              return 'green';
+              // var tmp = params.data.value[3]
+              // if (tmp < 10) {
+              //   return 'green';
+              // } else {
+              //   return 'red'
+              // }
             }
           }
         },

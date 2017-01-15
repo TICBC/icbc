@@ -3,7 +3,7 @@ export default ($resource, BASE_URL) => {
 	return {
 		
 		DeviceAll: (headers) => {
-			return $resource(BASE_URL+'/device/all', {}, {
+			return $resource(BASE_URL+'/TransactionInfo/all', {}, {
 				get: {
 					method: 'GET',
 					headers: headers,

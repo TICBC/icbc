@@ -1,3 +1,4 @@
+
 <!--
 <div class="left_dev">
   <ul class="list-group">
@@ -10,64 +11,58 @@
 
 <div class="">
   <!-- 为我要显示的内容准备一个具备大小（宽高）的Dom -->
-<div id="container" style="width: 100%;height:100%;"></div>
-</div>
+	<div id="container" style="float: left;">
+		
+	</div>
+	<div style="float: right;">
+		<div class="transac_show">
+	        <table class="table table-hover">
+	            <tr class="info">
+	                <td>交易ID</td>
+	                <td>交易时间</td>
+	                <td>转账用户id</td>
+	                <td>收款用户id</td>
+	                <td>交易金额</td>
+	            </tr>
+	            <tr class="info">
+	                <td>123</td>
+	                <td><input type="text" id ="time" ng-model = "time"></td>
+	                <td><input type="text" id ="user1" ng-model = "user1"></td>
+	                <td><input type="text" id ="user2" ng-model = "user2"></td>
+	                <td><input type="text" id ="money" ng-model = "money"></td>
+	            </tr>
+	            <button type="button" class="btn btn-default lichao-find" ng-click="getSome()">查询信任值</button>
+	        </table>
+		</div>
+		<div style="clear: both;"></div>
+		<div class="trust_show" style="width: 100%">
+			<table class="table table-hover">
+			    <tr class = "info">
+			        <td>user1</td>
+			        <td>user2</td>
+			        <td>信任值</td>
+			        <td>是否通过</td>
+			    </tr>
+			    <tr class = "info">
+			        <td>{{data[0].user1}}</td>
+			        <td>{{data[0].user2}}</td>
+			        <td>{{data[0].trust}}</td>
+			        <td>{{data[0].pass}}</td>
 
-
-
-<div class="transac_show">
-        <table class="table table-hover">
-            <tr class="info">
-                <td>交易ID</td>
-                <td>交易时间</td>
-                <td>转账用户id</td>
-                <td>收款用户id</td>
-                <td>交易金额</td>
-            </tr>
-            <tr class="info">
-                <td>123</td>
-                <td><input type="text" id ="time" ng-model = "time"></td>
-                <td><input type="text" id ="user1" ng-model = "user1"></td>
-                <td><input type="text" id ="user2" ng-model = "user2"></td>
-                <td><input type="text" id ="money" ng-model = "money"></td>
-            </tr>
-            <button type="button" class="btn btn-default lichao-find" ng-click="getSome()">查询信任值</button>
-        </table>
-</div>
-
-
-
-<div class="trust_show">
-<table class="table table-hover">
-    <tr class = "info">
-        <td>user1</td>
-        <td>user2</td>
-        <td>信任值</td>
-        <td>是否通过</td>
-    </tr>
-    <tr class = "info">
-        <td>{{data[0].user1}}</td>
-        <td>{{data[0].user2}}</td>
-        <td>{{data[0].trust}}</td>
-        <td>{{data[0].pass}}</td>
-
-    </tr>
-</table>
-
-<table class="table table-hover">
-    
-	<tr>
-		<td>
-            <!--
-			<span>告诉我两个用户</span>
-			<input type="text" name="user_name" class="form-control" placeholder="用户1的id" ng-model="params.value">
-            <input type="text" name="user_name" class="form-control" placeholder="用户2的id" ng-model="params.value">
-            -->
-			
-		</td>
-	</tr>
-
-
-  </table>
-   
+			    </tr>
+			</table>
+			<table class="table table-hover"> 
+				<tr>
+					<td>
+			            <!--
+						<span>告诉我两个用户</span>
+						<input type="text" name="user_name" class="form-control" placeholder="用户1的id" ng-model="params.value">
+			            <input type="text" name="user_name" class="form-control" placeholder="用户2的id" ng-model="params.value">
+			            -->
+						
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
 </div>

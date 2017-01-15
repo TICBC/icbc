@@ -49,4 +49,15 @@ public class TransactionInfoConvert {
         source.forEach(TransactionInfoDomain -> target.add(convertDOtoDomain(TransactionInfoDomain)));
         return target;
     }
+    /**Domain to Do
+     *
+     */
+    public static TransactionInfoDO convertDomaintoDo(TransactionInfoDomain transactionInfoDomain){
+        if(null==transactionInfoDomain){
+            return null;
+        }
+        TransactionInfoDO transactionInfoDO = new TransactionInfoDO();
+        BeanUtil.copyPropertiesWithIgnores(transactionInfoDomain,transactionInfoDO);
+        return transactionInfoDO;
+    }
 }

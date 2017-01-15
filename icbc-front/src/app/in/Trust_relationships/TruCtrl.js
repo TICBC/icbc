@@ -103,5 +103,6 @@ export default ($scope, $rootScope, qService, trustRes, ToasterTool, resultsRes,
  //            myChart1.setOption(option);
  //        }, 'xml');
 	// });
+
 	
 };

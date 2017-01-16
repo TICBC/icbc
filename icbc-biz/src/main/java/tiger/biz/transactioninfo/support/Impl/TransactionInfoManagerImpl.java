@@ -40,14 +40,18 @@ public class TransactionInfoManagerImpl implements TransactionInfoManager{
 
         String dev = deviceManager.deviceInterface(transactionInfoDomain);
         int devInt;
-        if(dev=="true"){
+        if(dev.equals("true")){
             devInt=1;
+        }
+        else if(dev.equals("false")){
+            devInt=0;
         }
         else{
             devInt=0;
         }
         transactionInfoDomain.setEquSign(devInt);
-
+        System.out.println("devInt"+devInt);
+        System.out.println("dev"+dev);
         /**
          * 信任关系判定
         */
@@ -68,10 +72,13 @@ public class TransactionInfoManagerImpl implements TransactionInfoManager{
         String TraStr = entity.getBody();
         //String TraStr = result.getPass();
         //System.out.println(result);
-        System.out.println("返回值："+TraStr);
+        System.out.println("TraStr返回值："+TraStr);
         int TraInt;
-        if(TraStr=="1"){
+        if(TraStr.equals("1")){
             TraInt=1;
+        }
+        else if(TraStr.equals("0")){
+            TraInt=0;
         }
         else{
             TraInt=0;

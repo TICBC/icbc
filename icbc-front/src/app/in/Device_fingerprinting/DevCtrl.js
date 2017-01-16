@@ -6,7 +6,6 @@ export default($scope, $rootScope, AuthTool, $state, qService, deviceRes, Toaste
 	        if (data.success) {
 	        	ToasterTool.success("查找成功");
 	          $scope.items = data.data;
-            // findInMap();
 	        } else {
 	        	$scope.items = null;
 	        }
@@ -17,9 +16,75 @@ export default($scope, $rootScope, AuthTool, $state, qService, deviceRes, Toaste
 	        $rootScope.loading = false;
 	    });
 	};
+
+  //获取某个时间端内的拦截次数,供findPeroid函数调用
+  var ValueArray=[0,0,0,0,0,0,0];
+  function findByPeriod(datebegin, dateend, index){
+    const params = {
+      "FromDate" : datebegin,
+      "ToDate" : dateend
+    }
+    qService.httpGet(deviceRes.DevicePeriod, params, {}).then((data) => {
+      if (data.success) {
+//            ToasterTool.success("查找成功");
+            var count = data.data.length;
+            for (var i = 0, len = data.data.length; i< len; i++){
+              if (data.data[i].Euq_Sign == 1)
+                count--;
+            }
+            ValueArray[index] = count;
+          } else {
+//            ToasterTool.error("无结果");
+          }
+      }, (err) => {
+//        ToasterTool.error("网络错误");
+      }).finally(() => {
+          $rootScope.loading = false;
+    });
+  }
+
+  //获取某个时间段内的拦截次数,供页面中的“显示统计图”按键调用
+  $scope.findPeriod = () => {
+    var DateArray=[];
+      var result;
+
+      //统计图的计算x坐标,为最近几天
+      var datenow = new Date('2015-01-10');
+      var datebefore = new Date('2015-01-09');
+      for (var i=0;i <7; i++){
+        datebefore.setDate(datenow.getDate()-1);
+        var dateend = datenow.getFullYear() + "-" + (datenow.getMonth() + 1) + "-" + datenow.getDate();
+        var datebegin = datebefore.getFullYear() + "-" + (datebefore.getMonth() + 1) + "-" + datebefore.getDate();
+        findByPeriod(datebegin, dateend, 6-i);
+        DateArray.unshift(dateend);
+        datenow.setDate(datenow.getDate()-1);
+      }
+      // 基于准备好的dom，初始化echarts实例
+      var myChart = echarts.init(document.getElementById('chart'));
+
+      // 指定图表的配置项和数据
+      var option = {
+        title: {
+          text: '风险设备统计图(不可信登录次数)'
+        },
+        tooltip: {},
+          xAxis: {
+            data: DateArray
+          },
+          yAxis: {},
+          series: [{
+            name: '数量',
+            type: 'bar',
+            data: ValueArray
+          }]
+      };
+
+        // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
+  }
+
+  //将交易记录中的信息绘制在土地上,调用paint()函数
 	$scope.findInMap = (items) => {
-		// alert(item);
-		//console.log(item);
     var BJData = [
     [{
       name: items[0].tranOutAcctZoneNum
@@ -29,10 +94,7 @@ export default($scope, $rootScope, AuthTool, $state, qService, deviceRes, Toaste
     }]
     ];
 
-
-//    angular.forEach(items, function(data, index, array){
-
-    for (var i = 1; i<17; i++){
+    for (var i = 1; i<items.length; i++){
       var Data = 
         [{
             name: items[i].tranOutAcctZoneNum
@@ -42,8 +104,6 @@ export default($scope, $rootScope, AuthTool, $state, qService, deviceRes, Toaste
         }]
       BJData.push(Data);
     }
-//    });
-
 
     if (BJData.length > 1)
   		paint(BJData);
@@ -51,11 +111,13 @@ export default($scope, $rootScope, AuthTool, $state, qService, deviceRes, Toaste
       paint(null);
 	}
 
+  //页面切换时自启动,获取记录
 	$(function(){
 		getRecords();
     paint(null);
 	});
 
+  //获取交易记录
 	function getRecords(){
 		$rootScope.loading = true;
 		qService.httpGetWithToken(deviceRes.DeviceAll, {}, {}).then((data) => {
@@ -75,6 +137,7 @@ export default($scope, $rootScope, AuthTool, $state, qService, deviceRes, Toaste
 	}
 };
 
+//绘制地图
 function paint(BJData){
     var myChart = echarts.init(document.getElementById('map'));
     var myHosName;                
@@ -115,46 +178,33 @@ function paint(BJData){
       '澳门': [115.07, 21.33],
       '台湾省': [121.21, 23.53]
     };
-
-    // var loc = document.getElementById("location");
-
-    // myHosName = loc.innerHTML;
-    // var BJData = [
-    //   [{
-    //       name: loc.innerHTML
-    //   }, {
-    //       name: loc.innerHTML,
-    //       value: 100,
-    //       ip: ip.innerHTML,
-    //       time: time.innerHTML
-    //   }]
-   
-    // ];
+    var loc = document.getElementById("location");
 
     var BJData_init = [
     [{
-      name: '北京市'
+      name: loc.innerHTML
     }, {
-      name: '北京市',
-      value: 5
+      name: loc.innerHTML,
+      value: 1
     }],
     [{
-      name: '北京市'
+      name: loc.innerHTML
     }, {
-      name: '上海市',
-      value: 9
+      name: loc.innerHTML,
+      value: 1
     }],
     [{
-      name: '上海市'
+      name: loc.innerHTML
     }, {
-      name: '广东省',
-      value: 90
+      name: loc.innerHTML,
+      value: 1
     }]
 
     ];
+
     if(BJData == null){
-	  BJData = BJData_init;
-	}
+	    BJData = BJData_init;
+	  }
     var convertData = function(data) {
       var res = [];
       for (var i = 0; i < data.length; i++) {
@@ -194,22 +244,22 @@ function paint(BJData){
           }
         },
         symbolSize: function(val) {
-          return 10;
-          // if(val[3] <= 10)
-          //   return 10;
-          // else
-          //   return 20;
+//          return 10;
+          if(val[3] == 1)
+            return 10;
+          else
+            return 20;
         },
         itemStyle: {
           normal: {
             color: function(params) {
-              return 'green';
-              // var tmp = params.data.value[3]
-              // if (tmp < 10) {
-              //   return 'green';
-              // } else {
-              //   return 'red'
-              // }
+//              return 'green';
+              var tmp = params.data.value[3]
+              if (tmp == 1) {
+                return 'green';
+              } else {
+                return 'red'
+              }
             }
           }
         },

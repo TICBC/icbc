@@ -73,7 +73,7 @@ export default ($scope, $rootScope, qService, TransactionRes, ToasterTool, BASE_
 	            arrayItem.push(data.data);
 				$scope.items= angular.copy(arrayItem);
 				console.log($scope.items);
-	            ToasterTool.success(data.data);
+	            // ToasterTool.success(data.data);
 	           }
 	    } else {
 	    	ToasterTool.error("无结果");

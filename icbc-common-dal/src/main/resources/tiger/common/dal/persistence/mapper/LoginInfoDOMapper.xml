@@ -112,11 +112,6 @@
     Webbank_Rgst_Zone_Num, App_Serv_Ip, Cust_Ip, Webbank_Rgst_Org_Num, Memo, Ipad_Ind, 
     Android_Sys_Pad_Ind, Prod_Id, Session_Id, Stat_Prod_Idtfy
   </sql>
-  <select id="selectAll" resultMap="BaseResultMap" >
-    select
-    *
-    from logininfo
-  </select>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="tiger.common.dal.persistence.icbc.LoginInfoDOExample" >
     <!--
       WARNING - @mbggenerated

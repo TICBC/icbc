@@ -91,11 +91,13 @@
     id, Equ_Serial_Num, CPU_Num, Memory_Size, OS_Versions, Browser_Versions, Browser_Language, 
     Screen_Resolution, APP_Versions, Factory_Info
   </sql>
+
   <select id="selectAll" resultMap="BaseResultMap" >
     select
     *
     from equipmentinfo
   </select>
+
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="tiger.common.dal.persistence.icbc.EquipmentInfoDOExample" >
     <!--
       WARNING - @mbggenerated

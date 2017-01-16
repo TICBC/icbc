@@ -1,8 +1,8 @@
-export default ($scope, $rootScope, qService, TransactionRes,customerInfoRes,deviceRes,loginRes, ToasterTool, BASE_URL) => {
+export default ($scope, $rootScope, qService, TransactionRes, ToasterTool, BASE_URL) => {
 	'ngInject';
 	const isNull = (value) => {
     	return typeof(value) == undefined || value == null;
-	};
+};
 	$scope.getById = () => {
 		// if (isNull($scope.params.value)) {
 		// 	ToasterTool.warning("输入不能为空");
@@ -34,6 +34,7 @@ export default ($scope, $rootScope, qService, TransactionRes,customerInfoRes,dev
 	    }).finally(() => {
 	        $rootScope.loading = false;
 	    });
+
 	};
 	
 
@@ -218,4 +219,5 @@ export default ($scope, $rootScope, qService, TransactionRes,customerInfoRes,dev
 
 	
 	
+
 }

@@ -2,7 +2,8 @@
 <div class="left_dev">
   <ul class="list-group">
     <li class="list-group-item"><a href="#">交易监控</a></li>
-    <li class="list-group-item"><a href="#">行为认证</a></li>   
+    <li class="list-group-item"><a href="#">行为认证</a></li>
+    
   </ul>
 </div>
 <div class="mid_dev">
@@ -412,8 +413,9 @@ var convertData = function (data) {
 option = {
     backgroundColor: '#404a59',
     title: {
-        text: '行为认证',
-
+        text: '全国主要城市空气质量',
+        subtext: 'data from PM25.in',
+        sublink: 'http://www.pm25.in',
         left: 'center',
         textStyle: {
             color: '#fff'
@@ -426,7 +428,7 @@ option = {
         orient: 'vertical',
         y: 'bottom',
         x:'right',
-        data:[''],
+        data:['pm2.5'],
         textStyle: {
             color: '#fff'
         }
@@ -451,7 +453,7 @@ option = {
     },
     series : [
         {
-            name: '',
+            name: 'pm2.5',
             type: 'scatter',
             coordinateSystem: 'geo',
             data: convertData(data),

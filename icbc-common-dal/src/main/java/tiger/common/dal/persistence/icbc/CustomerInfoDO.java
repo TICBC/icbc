@@ -2083,6 +2083,4 @@ public class CustomerInfoDO {
     public void setNoremoteMgerBelongOrgNum(String noremoteMgerBelongOrgNum) {
         this.noremoteMgerBelongOrgNum = noremoteMgerBelongOrgNum == null ? null : noremoteMgerBelongOrgNum.trim();
     }
-
-
 }

@@ -37,7 +37,7 @@ public class TransactionInfoManagerImpl implements TransactionInfoManager{
     public TransactionInfoDomain selectByPrimaryKey(Integer id){
         TransactionInfoDomain transactionInfoDomain = transactionInfoService.selectByPrimaryKey(id);
         //暂时分开测试
-        /**
+
         String dev = deviceManager.deviceInterface(transactionInfoDomain);
         int devInt;
         if(dev=="true"){
@@ -47,15 +47,15 @@ public class TransactionInfoManagerImpl implements TransactionInfoManager{
             devInt=0;
         }
         transactionInfoDomain.setEquSign(devInt);
-        */
+
         /**
          * 信任关系判定
         */
-        /**
+
         SelectedSocialNet selectedSocialNet = new SelectedSocialNet();
         selectedSocialNet.setUser1(transactionInfoDomain.getTranOutCardNum());
         selectedSocialNet.setUser2(transactionInfoDomain.getTranInCardNum());
-        //System.out.println(" Userq信息："+selectedSocialNet.getUser1()+" Userq信息："+selectedSocialNet.getUser2());
+        System.out.println(" Userq信息："+selectedSocialNet.getUser1()+" Userq信息："+selectedSocialNet.getUser2());
         //写死在对象里面
 
         selectedSocialNet.setTime("12");
@@ -64,7 +64,7 @@ public class TransactionInfoManagerImpl implements TransactionInfoManager{
         //发送http请求到远程服务器
         RestTemplate restTemplate = new RestTemplate();
         //ResponseEntity<SelectedSocialNet> entity = restTemplate.postForEntity("http://11.0.1.77:8080/api/socialnet/all", selectedSocialNet, SelectedSocialNet.class);
-        ResponseEntity<String> entity = restTemplate.postForEntity("http://11.0.1.77:8080/api/socialnet/pass", selectedSocialNet, String.class);
+        ResponseEntity<String> entity = restTemplate.postForEntity("http://10.60.150.105:8080/Socialnet/api/socialnet/pass", selectedSocialNet, String.class);
         String TraStr = entity.getBody();
         //String TraStr = result.getPass();
         //System.out.println(result);
@@ -77,10 +77,11 @@ public class TransactionInfoManagerImpl implements TransactionInfoManager{
             TraInt=0;
         }
         transactionInfoDomain.setTruSign(TraInt);
-        */
+
         /**
          * 行为组后端联调
          */
+        /*
         SelectActDO selectActDO = new SelectActDO();
         //selectActDO.setTimeStamp(transactionInfoDomain.getEventDt().toString());
         selectActDO.setTimeStamp("2015-01-01 03:17:52");
@@ -97,9 +98,9 @@ public class TransactionInfoManagerImpl implements TransactionInfoManager{
         else{
             ActInt=0;
         }
-
-        transactionInfoDomain.setTruSign(1);
-        transactionInfoDomain.setEquSign(1);
+*/
+        //transactionInfoDomain.setTruSign(1);
+        //transactionInfoDomain.setEquSign(1);
         transactionInfoDomain.setActSign(1);
 
         return transactionInfoDomain;

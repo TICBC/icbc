@@ -66,7 +66,7 @@ public class DeviceManagerImpl implements DeviceManager{
         RestTemplate restTemplate = new RestTemplate();
 
         //10.60.150.192
-        ResponseEntity<String> entity = restTemplate.postForEntity("http://localhost:8080/api/device/auth", selectedAndroidDO, String.class);
+        ResponseEntity<String> entity = restTemplate.postForEntity("http://10.60.150.253:8080/api/device/auth", selectedAndroidDO, String.class);
         String result = entity.getBody();
 
         return result;

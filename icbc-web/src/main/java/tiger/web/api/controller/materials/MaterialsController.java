@@ -27,7 +27,8 @@ import java.util.List;
 @RestController
 @ResponseBody
 @RequestMapping(APIConstants.BASE_API_URL + "/materials")
-public class MaterialsController extends BaseController{
+public class
+MaterialsController extends BaseController{
 
     @Autowired
     MaterialsManager materialsManager;
@@ -61,7 +62,7 @@ public class MaterialsController extends BaseController{
     /**
      * 更新一条物料信息
      *
-     * @param materialsUpdateForm
+     * @param ma terialsUpdateForm
      * @param bindingResult
      * @return
      */

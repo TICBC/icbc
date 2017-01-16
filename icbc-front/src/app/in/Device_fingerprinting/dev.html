@@ -2,59 +2,15 @@
   <ul class="list-group">
 <!--     <li id="time">&nbsp;&nbsp;<span>2017-01-08 20:17:14</span></li>
     <li class="list-group-item">设备信息</a></li>
- -->    
-    <li>当前登录地点</li>
-    <li id="ip">IP：&nbsp;&nbsp;<span>10.20.25.28</span></li>
+ -->    <li id="ip">IP：&nbsp;&nbsp;<span>10.20.25.28</span></li>
     <li id="location">地址：&nbsp;&nbsp;<span>上海市</span></li>     
   </ul>
+  <button type="button" ng-click="getAll()">登录</button>
 </div>
-
 <div class="mid_dev">
   <!-- 根据ip地址确定设备地理位置 -->
   <script type="text/javascript" src="http://pv.sohu.com/cityjson?ie=utf-8"></script> 
-
-  <!-- 将登陆地理位置显示在地图上 -->  
-  <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-  <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
-  <div id="map" style="width: 100%;height:100%;"></div>
-  
-</div>
-
-<div class="right_dev">
-  <!-- 显示最近登陆记录 -->
-  <div class="right_dev_table" style="overflow-y:scroll">
-    <table class="table">
-      <tr>
-        <th colspan="2">登陆设备列表</th>
-      </tr>
-      <tr>
-        <th>序号</th>
-        <th>卡号</th>
-        <th>登录时间</th>
-        <th>登录地点</th>
-      </tr>
-      <tr ng-repeat="item in items">
-        <td>{{item.id}}</td>
-        <td>{{item.tranOutCardNum}}</td>
-        <td>{{item.eventDt|date:'y-M-d'}}</td>
-        <td>{{item.tranOutAcctZoneNum}}</td>
-      </tr>
-    </table>
-  </div>
-
-
-  <!--风险设备统计图 -->
-  <button type="button" ng-click="findInMap(items)">显示地图</button>
-  <button type="button" ng-click="findPeriod()">显示统计图</button>
-  <div id="chart" style="width: 100%;height: 50%;"></div>
-    <script type="text/javascript">
-    </script>
-  </div>
-</div>
-
-
-<!-- 根据ip地址确定设备地理位置 -->
-<script type="text/javascript">
+  <script type="text/javascript">
     (function ip() {
       var str=returnCitySN["cip"];
       var _result=document.getElementById("ip");
@@ -63,5 +19,318 @@
       _result = document.getElementById("location");
       _result.innerHTML = str;
     })();
-</script>
+  </script>
+  <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+  <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+  <div id="main" style="width: 100%;height:100%;"></div>
+  <script type="text/javascript">
+    var myChart = echarts.init(document.getElementById('main'));
+    var myHosName;                
+    option = null;
+    <!-- 各省份的经纬度 -->
+    var geoCoordMap = {
+      '安徽省': [117.17, 31.52],
+      '北京市': [116.24, 39.55],
+      '重庆市': [106.54, 29.59],
+      '福建省': [119.18, 26.05],
+      '甘肃省': [103.51, 36.04],
+      '广东省': [113.14, 23.08],
+      '广西壮族自治区': [108.19, 22.48],
+      '贵州省': [106.42, 26.35],
+      '海南省': [110.20, 20.02],
+      '河北省': [114.30, 38.02],
+      '河南省': [113.40, 34.46],
+      '黑龙江省': [128.36, 45.44],
+      '湖北省': [112.27, 30.15],
+      '湖南省': [112.59, 28.12],
+      '吉林省': [125.19, 43.54],
+      '江苏省': [118.46, 32.03],
+      '江西省': [115.55, 28.40],
+      '辽宁省': [123.25, 41.48],
+      '内蒙古': [108.41, 40.48],
+      '宁夏回族自治区': [106.16, 38.27],
+      '青海省': [101.48, 36.38],
+      '山东省': [118.00, 36.40],
+      '山西省': [112.33, 37.54],
+      '陕西省': [108.57, 34.17],
+      '上海市': [121.29, 31.14],
+      '海南': [108.77, 19.10],
+      '四川省': [104.04, 30.40],
+      '天津市': [117.12, 39.02],
+      '西藏自治区': [91.08, 29.39],
+      '新疆维吾尔自治区': [87.36, 43.45],
+      '云南省': [102.42, 25.04],
+      '浙江省': [120.10, 30.16],
+      '澳门': [115.07, 21.33],
+      '台湾省': [121.21, 23.53]
+    };
 
+    // var loc = document.getElementById("location");
+
+    // myHosName = loc.innerHTML;
+    // var BJData = [
+    //   [{
+    //       name: loc.innerHTML
+    //   }, {
+    //       name: loc.innerHTML,
+    //       value: 100,
+    //       ip: ip.innerHTML,
+    //       time: time.innerHTML
+    //   }]
+   
+    // ];
+
+    var BJData = [
+  [{
+      name: '北京市'
+  }, {
+      name: '北京市',
+      value: 5
+  }],
+  [{
+      name: '北京市'
+  }, {
+      name: '上海市',
+      value: 9
+  }],
+  [{
+      name: '上海市'
+  }, {
+      name: '广东省',
+      value: 90
+  }]
+
+];
+
+    var convertData = function(data) {
+      var res = [];
+      for (var i = 0; i < data.length; i++) {
+        var dataItem = data[i];
+        var fromCoord = geoCoordMap[dataItem[0].name];
+        var toCoord = geoCoordMap[dataItem[1].name];
+        if (fromCoord && toCoord) {
+            res.push({
+              fromName: dataItem[0].name,
+              toName: dataItem[1].name,
+              coords: [fromCoord, toCoord]
+            });
+        }
+      }
+    return res;
+    };
+
+    var color = ['#a6c84c', '#ffa022', '#46bee9'];
+    var mySeries = [];
+    [
+      [myHosName, BJData]
+    ].forEach(function(item, i) {
+      mySeries.push({ //线
+        name: item[0],
+        type: 'lines',
+        zlevel: 1,
+        effect: {
+          show: true,
+          period: 2,
+          trailLength: 2,
+          color: '#fff',
+          symbolSize: 3
+        },
+        lineStyle: {
+          normal: {
+            color: color[0],
+            width: 0,
+            curveness: 0.2
+          }
+        },
+        data: convertData(item[1])
+      }, 
+      { //移动 点
+        name: item[0],
+        type: 'lines',
+        zlevel: 2,
+        effect: {
+          show: true,
+          period: 2,
+          trailLength: 0,
+          symbolSize: 15
+        },
+        lineStyle: {
+          normal: {
+            color: color[1],
+            width: 1,
+            opacity: 0.4,
+            curveness: 0.2
+          }
+        },
+        data: convertData(item[1])
+      }, 
+      { //省份圆点
+        name: item[0],
+        type: 'effectScatter',
+        coordinateSystem: 'geo',
+        zlevel: 2,
+        rippleEffect: {
+          brushType: 'stroke'
+        },
+        label: {
+          normal: {
+            show: true,
+            position: 'right',
+            formatter: '{b}'
+          }
+        },
+        symbolSize: function(val) {
+          if(val[3] <= 10)
+            return 10;
+          else
+            return 20;
+        },
+        itemStyle: {
+          normal: {
+            color: function(params) {
+              var tmp = params.data.value[3]
+              if (tmp < 10) {
+                return 'green';
+              } else {
+                return 'red'
+              }
+            }
+          }
+        },
+        data: item[1].map(function(dataItem) {
+          return {
+            name: dataItem[1].name,
+            value: geoCoordMap[dataItem[1].name].concat("</br>登陆次数").concat([dataItem[1].value])
+                .concat("</br>登录IP").concat([dataItem[1].ip])
+                .concat("</br>最近登录时间").concat([dataItem[1].time])
+            };
+        })
+      });
+    });
+
+    option = {
+      backgroundColor: 'white',
+      title: {
+        text: '',
+        subtext: '',
+        left: 'center',
+        textStyle: {
+          color: 'blue'
+        },
+        subtextStyle: {
+          color: 'yellow',
+          fontWeight: 'bold'
+        }
+      },
+      tooltip: {
+        trigger: 'item',  
+      },
+      geo: {
+        map: 'china',
+        label: {
+          emphasis: {
+            show: false
+          }
+        },
+        roam: true,
+        itemStyle: {
+          normal: {
+            areaColor: '#cccccc',
+            borderColor: '#404a59'
+          },
+          emphasis: {
+            areaColor: '#2a333d'
+          }
+        }
+      },
+      series: mySeries
+    };
+
+
+    if (option && typeof option === "object") {
+      myChart.setOption(option, true);
+    }
+
+    window.onresize = function() {
+      myChart.resize();
+    }
+  </script>
+</div>
+
+<div class="right_dev">
+  <div>
+    <table class="table">
+      <tr>
+        <th colspan="2">风险设备列表</th>
+      </tr>
+      <tr>
+        <th>序号</th>
+        <th>IP</th>
+        <th>登录地点</th>
+      </tr>
+      <tr ng-repeat="item in items">
+        <td>{{item.equSerialNum}}</td>
+        <td>{{item.cpuNum}}</td>
+      </tr>
+<!--       <tr>
+        <td>1</td>
+        <td>11.11.11.11</td>
+        <td>北京</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>10.11.12.13</td>
+        <td>上海</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>10.11.12.13</td>
+        <td>上海</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>10.11.12.13</td>
+        <td>上海</td>
+      </tr>
+ -->    </table>
+  </div>
+
+
+  <!--风险设备统计图 -->
+  <div id="chart" style="width: 100%;height: 50%;"></div>
+    <script type="text/javascript">
+      var DateArray=[];
+      var ValueArray=[5, 20, 36, 100, 10, 20, 1];
+
+      var datenow = new Date();
+      for (var i=0;i <ValueArray.length; i++){
+        var date = datenow.getFullYear() + "-" + (datenow.getMonth() + 1) + "-" + datenow.getDate();
+        DateArray.unshift(date);
+        datenow.setDate(datenow.getDate()-1);
+      }
+      // 基于准备好的dom，初始化echarts实例
+      var myChart = echarts.init(document.getElementById('chart'));
+
+      // 指定图表的配置项和数据
+      var option = {
+        title: {
+          text: '风险设备统计图(不可信登录次数)'
+        },
+        tooltip: {},
+          xAxis: {
+            data: DateArray
+          },
+          yAxis: {},
+          series: [{
+            name: '数量',
+            type: 'bar',
+            data: ValueArray
+          }]
+      };
+
+        // 使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
+    </script>
+
+  </div>
+</div>

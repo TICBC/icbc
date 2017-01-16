@@ -24,10 +24,4 @@ public class DeviceServiceImpl implements DeviceService {
         List<EquipmentInfoDO> DOs = equipmentInfoDOMapper.selectAll();
         return EquipmentInfoConvert.convert2Domains(DOs);
     }
-
-    @Override
-    public List<EquipmentInfoDomain> getAllEqu() {
-        List<EquipmentInfoDO> DOs = equipmentInfoDOMapper.selectAll();
-        return EquipmentInfoConvert.convert2Domains(DOs);
-    }
 }

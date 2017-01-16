@@ -15,13 +15,5 @@ export default ($resource, BASE_URL) => {
 				}
 			});
 		},
-		ResultsAll: (headers) => {
-			return $resource(BASE_URL+'/TransactionInfo/all', {}, {
-				get: {
-					method: 'GET',
-					headers: headers,
-				}
-			});
-		},
 	};
 };

@@ -48,7 +48,7 @@ public class DeviceManagerImpl implements DeviceManager{
         ResponseEntity<SelectedAndroidDO> entity = restTemplate.postForEntity("http://10.60.150.192:8081/devices", authInfo, SelectedAndroidDO.class);
         SelectedAndroidDO result = entity.getBody();
 
-        if (result.getLabel()==1)
+        if (result.getLabel()==0)
             return "false";
 
         return "true";
@@ -66,8 +66,10 @@ public class DeviceManagerImpl implements DeviceManager{
         RestTemplate restTemplate = new RestTemplate();
 
         //10.60.150.192
-        ResponseEntity<String> entity = restTemplate.postForEntity("http://localhost:8080/api/device/auth", selectedAndroidDO, String.class);
+        ResponseEntity<String> entity = restTemplate.postForEntity("http://10.60.150.253:8080/api/device/auth", selectedAndroidDO, String.class);
         String result = entity.getBody();
+
+        System.out.println("Interface:"+result);
 
         return result;
     }

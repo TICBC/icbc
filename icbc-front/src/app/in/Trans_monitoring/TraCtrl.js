@@ -73,7 +73,8 @@ export default ($scope, $rootScope, qService, TransactionRes, ToasterTool, BASE_
 				// [data.data];
 	            arrayItem.push(data.data);
 				$scope.items= angular.copy(arrayItem);
-				console.log(data.data);
+
+
 				
 				//画统计图
 					
@@ -130,7 +131,7 @@ export default ($scope, $rootScope, qService, TransactionRes, ToasterTool, BASE_
 						};
 						var picture1 = echarts.init(document.getElementById('main2'));
 						picture1.setOption(option);
-				//////////
+
 	           }
 	    } else {
 	    	ToasterTool.error("无结果");

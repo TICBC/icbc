@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import tiger.biz.device.support.DeviceManager;
 import tiger.biz.transactioninfo.support.TransactionInfoManager;
+import tiger.common.dal.persistence.icbc.SelectActDO;
 import tiger.common.dal.persistence.icbc.SelectedSocialNet;
 import tiger.common.dal.persistence.icbc.TransactionInfoDO;
 import tiger.core.basic.PageResult;
@@ -37,25 +38,29 @@ public class TransactionInfoManagerImpl implements TransactionInfoManager{
     public TransactionInfoDomain selectByPrimaryKey(Integer id){
         TransactionInfoDomain transactionInfoDomain = transactionInfoService.selectByPrimaryKey(id);
         //暂时分开测试
-        /**
+
         String dev = deviceManager.deviceInterface(transactionInfoDomain);
         int devInt;
-        if(dev=="true"){
+        if(dev.equals("true")){
             devInt=1;
+        }
+        else if(dev.equals("false")){
+            devInt=0;
         }
         else{
             devInt=0;
         }
         transactionInfoDomain.setEquSign(devInt);
-        */
+        System.out.println("devInt"+devInt);
+        System.out.println("dev"+dev);
         /**
          * 信任关系判定
         */
-        /**
+
         SelectedSocialNet selectedSocialNet = new SelectedSocialNet();
         selectedSocialNet.setUser1(transactionInfoDomain.getTranOutCardNum());
         selectedSocialNet.setUser2(transactionInfoDomain.getTranInCardNum());
-        //System.out.println(" Userq信息："+selectedSocialNet.getUser1()+" Userq信息："+selectedSocialNet.getUser2());
+        System.out.println(" Userq信息："+selectedSocialNet.getUser1()+" Userq信息："+selectedSocialNet.getUser2());
         //写死在对象里面
 
         selectedSocialNet.setTime("12");
@@ -64,25 +69,49 @@ public class TransactionInfoManagerImpl implements TransactionInfoManager{
         //发送http请求到远程服务器
         RestTemplate restTemplate = new RestTemplate();
         //ResponseEntity<SelectedSocialNet> entity = restTemplate.postForEntity("http://11.0.1.77:8080/api/socialnet/all", selectedSocialNet, SelectedSocialNet.class);
-        ResponseEntity<String> entity = restTemplate.postForEntity("http://11.0.1.77:8080/api/socialnet/pass", selectedSocialNet, String.class);
+        ResponseEntity<String> entity = restTemplate.postForEntity("http://10.60.150.105:8080/Socialnet/api/socialnet/pass", selectedSocialNet, String.class);
         String TraStr = entity.getBody();
         //String TraStr = result.getPass();
         //System.out.println(result);
-        System.out.println("返回值："+TraStr);
+        System.out.println("TraStr返回值："+TraStr);
         int TraInt;
-        if(TraStr=="1"){
+        if(TraStr.equals("1")){
             TraInt=1;
+        }
+        else if(TraStr.equals("0")){
+            TraInt=0;
         }
         else{
             TraInt=0;
         }
         transactionInfoDomain.setTruSign(TraInt);
-        */
-        Random random=new Random();
-        System.out.println(random.nextInt(3));
-        transactionInfoDomain.setTruSign(random.nextInt(2));
-        transactionInfoDomain.setEquSign(random.nextInt(2));
-        transactionInfoDomain.setActSign(random.nextInt(2));
+
+
+        /**
+         * 行为组后端联调
+         */
+        /*
+        SelectActDO selectActDO = new SelectActDO();
+        //selectActDO.setTimeStamp(transactionInfoDomain.getEventDt().toString());
+        selectActDO.setTimeStamp("2015-01-01 03:17:52");
+        selectActDO.setUser("1");
+        RestTemplate restTemplate3 = new RestTemplate();
+        ResponseEntity<Boolean> entity3 = restTemplate3.postForEntity("http://11.0.17.79:8080/api/BehaviourCertification/judge", selectActDO, Boolean.class);
+        Boolean ActStr = entity3.getBody();
+        System.out.println("ActStr");
+        System.out.println(ActStr);
+        int ActInt;
+        if(ActStr==true){
+            ActInt=1;
+        }
+        else{
+            ActInt=0;
+        }
+*/
+        //transactionInfoDomain.setTruSign(1);
+        //transactionInfoDomain.setEquSign(1);
+        transactionInfoDomain.setActSign(1);
+
 
         return transactionInfoDomain;
     }

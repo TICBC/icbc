@@ -9,7 +9,7 @@ export default ($scope, $rootScope, qService, trustRes, ToasterTool, resultsRes,
 
 	$scope.getSome = () => {
 		qService.httpPost(trustRes.trustAll, {},{}, {"user1":$scope.user1,
-            "user2":$scope.user2,"time":$scope.time,"money":$scope.money}).then((data) => {
+            "user2":$scope.user2,"time":"123","money":"123"}).then((data) => {
 	        if (data.success) {
 	           $scope.data = data.data;
                console.log($scope.data);
@@ -25,18 +25,22 @@ export default ($scope, $rootScope, qService, trustRes, ToasterTool, resultsRes,
 	}
 
 
+
 	// //////  画图
-	var nodes = [ { name: "用户1"    }, { name: "用户2" },
-					  { name: "用户3"    }, { name: "用户4"   },
-					  { name: "用户5"   }, { name: "用户6"    },
-					  { name: "用户7"    } ];
+	var nodes = [ { name: "用户1  " }, { name: "用户2"  },
+				  { name: "用户3"   }, { name: "用户4"   },
+				  { name: "用户5"   }, { name: "用户6"   },
+			      { name: "用户7"   }, { name: "用户8"   },
+				  { name: "用户9"   }, { name: "用户10"   }];
 					 
-		var edges = [  { source : 0  , target: 1 } , { source : 0  , target: 2 } ,
-					   { source : 0  , target: 3 } , { source : 1  , target: 4 } ,
-					   { source : 1  , target: 5 } , { source : 1  , target: 6 }  ];	
+		var edges = [  { source : 0  , target: 1 } , { source : 1  , target: 2 } ,
+					   { source : 0  , target: 2 } , { source : 3  , target: 4 } ,
+					   { source : 4  , target: 5 } , { source : 6  , target: 7 } ,
+					   { source : 6  , target: 8 } , { source : 6  , target: 9 } ,
+					   { source : 0  , target: 5 }];	
 		
-		var width = 330;
-		var height = 330;
+		var width = 450;
+		var height = 450;
 		
 		
 		var svg = d3.select("#container")
@@ -48,8 +52,8 @@ export default ($scope, $rootScope, qService, trustRes, ToasterTool, resultsRes,
 				.nodes(nodes)		//指定节点数组
 				.links(edges)		//指定连线数组
 				.size([width,height])	//指定范围
-				.linkDistance(150)	//指定连线长度
-				.charge(-400);	//相互之间的作用力
+				.linkDistance(90)	//指定连线长度
+				.charge(-600);	//相互之间的作用力
 
 		force.start();	//开始作用
 
@@ -61,19 +65,52 @@ export default ($scope, $rootScope, qService, trustRes, ToasterTool, resultsRes,
 							.data(edges)
 							.enter()
 							.append("line")
-							.style("stroke","#ccc")
-							.style("stroke-width",1);
+							.style("stroke","#333")
+							.style("stroke-width",function(d,i){
+								switch (i)
+								{
+									default: return 1;break;
+									case 0: return 4;break;
+									case 1: return 1;break;
+									case 2: return 1;break;
+									case 3: return 2;break;
+									case 4: return 3;break;
+									case 5: return 2;break;
+									case 6: return 1;break;
+									case 7: return 3;break;
+									case 8: return 2;break;
+									case 9: return 1;break;
+								}
+
+							});
+
 		
-		var color = d3.scale.category20();
+
 				
 		//添加节点			
 		var svg_nodes = svg.selectAll("circle")
-							.data(nodes)
+							.data(nodes)					
 							.enter()
 							.append("circle")
-							.attr("r",20)
+							.attr("r",10)
 							.style("fill",function(d,i){
-								return color(i);
+								if(i < 3)
+								{
+									return "red";
+								}
+								else if (i < 5) 
+								{
+									return "blue";
+								}
+								else if (i == 5) 
+								{
+									return "purple";
+								}
+								else
+								{
+									return "orange";
+								}
+
 							})
 							.call(force.drag);	//使得节点能够拖动
 

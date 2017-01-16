@@ -18,6 +18,7 @@ import tiger.core.service.transactionInfo.TransactionInfoService;
 import javax.transaction.TransactionManager;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by Jian on 2017/1/10.
@@ -85,6 +86,7 @@ public class TransactionInfoManagerImpl implements TransactionInfoManager{
         }
         transactionInfoDomain.setTruSign(TraInt);
 
+
         /**
          * 行为组后端联调
          */
@@ -110,6 +112,7 @@ public class TransactionInfoManagerImpl implements TransactionInfoManager{
         //transactionInfoDomain.setEquSign(1);
         transactionInfoDomain.setActSign(1);
 
+
         return transactionInfoDomain;
     }
 
@@ -122,6 +125,7 @@ public class TransactionInfoManagerImpl implements TransactionInfoManager{
         if(transactionInfoDO==null){
             return false;
         }
+        System.out.println(transactionInfoDO.getEventDt().getTime());
         return transactionInfoService.updateByPrimaryKey(transactionInfoDO);
     }
     @Override

@@ -1,6 +1,7 @@
 package tiger.web.api.controller.TransactionInfo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 import tiger.biz.transactioninfo.support.TransactionInfoManager;
 import tiger.core.basic.BaseResult;
@@ -9,6 +10,7 @@ import tiger.core.domain.TransactionInfo.convert.TransactionInfoConvert;
 import tiger.web.api.constants.APIConstants;
 import tiger.web.api.controller.BaseController;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -51,5 +53,25 @@ public class TransactionInfoController extends BaseController{
         //transactionInfoManager.updateByPrimaryKey(TransactionInfoConvert.convertDomaintoDo(transactionInfoDomain));
         return new BaseResult<>(transactionInfoDomain);
         //System.out.println("shuchu ");
+    }
+
+    /**
+     * 查找某个时间段内的交易记录
+     */
+    @RequestMapping(value = "/period", method = RequestMethod.GET)
+    @ResponseBody
+    public BaseResult<List<TransactionInfoDomain>> getTransactionPeriod(@RequestParam("FromDate") @DateTimeFormat(pattern="yyyy-MM-dd") Date begintime,
+                                                                        @RequestParam("ToDate") @DateTimeFormat(pattern="yyyy-MM-dd") Date endtime){
+        List<TransactionInfoDomain> transactionInfoDomainList = transactionInfoManager.selectByPeriod(begintime, endtime);
+        return new BaseResult<>(transactionInfoDomainList);
+    }
+
+    /**
+     * 查找某个卡号的转出交易记录
+     */
+    @RequestMapping(value = "/outcardnum", method = RequestMethod.GET)
+    @ResponseBody
+    public BaseResult<List<TransactionInfoDomain>> getTransactionOutCardNum(@RequestParam("outcardnum") String outcardnum){
+        return new BaseResult<>(transactionInfoManager.selectByOutCardNum(outcardnum));
     }
 }

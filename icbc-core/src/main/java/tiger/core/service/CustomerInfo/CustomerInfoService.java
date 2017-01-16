@@ -24,5 +24,10 @@ public interface CustomerInfoService {
      */
     Boolean insert(CustomerInfoDO customerInfoDO);
 
-
+    /**
+     * 获取所有的客户信息
+     *
+     * @return
+     */
+    List<CustomerInfoDomain> getAll();
 }

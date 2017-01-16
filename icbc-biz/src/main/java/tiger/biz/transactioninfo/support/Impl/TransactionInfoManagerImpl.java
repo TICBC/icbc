@@ -16,6 +16,7 @@ import tiger.core.service.materials.MaterialsService;
 import tiger.core.service.transactionInfo.TransactionInfoService;
 
 import javax.transaction.TransactionManager;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -101,5 +102,15 @@ public class TransactionInfoManagerImpl implements TransactionInfoManager{
     public TransactionInfoDomain selectOnlyByPrimaryKey(Integer id){
         TransactionInfoDomain transactionInfoDomain = transactionInfoService.selectByPrimaryKey(id);
         return  transactionInfoDomain;
+    }
+
+    @Override
+    public List<TransactionInfoDomain> selectByPeriod(Date begintime, Date endtime){
+        return transactionInfoService.selectPeriod(begintime, endtime);
+    }
+
+    @Override
+    public List<TransactionInfoDomain> selectByOutCardNum(String outCardNum) {
+        return transactionInfoService.selectOutCardNum(outCardNum);
     }
 }

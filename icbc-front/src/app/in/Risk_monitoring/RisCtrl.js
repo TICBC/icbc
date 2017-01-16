@@ -1,4 +1,4 @@
-export default ($scope, $rootScope, qService, TransactionRes, ToasterTool, BASE_URL) => {
+export default ($scope, $rootScope, qService, TransactionRes,customerInfoRes,deviceRes,loginRes, ToasterTool, BASE_URL) => {
 	'ngInject';
 	const isNull = (value) => {
     	return typeof(value) == undefined || value == null;
@@ -36,6 +36,89 @@ export default ($scope, $rootScope, qService, TransactionRes, ToasterTool, BASE_
 	    });
 	};
 	
+
+
+	//交易信息 查看全部
+	$scope.getTransactionAll = () => {
+		$rootScope.loading = true;
+		qService.httpGet(TransactionRes.ResultsAll, {}, {}).then((data) => {
+	        if (data.success) {
+	        	ToasterTool.success("查找成功");
+	            $scope.transactionItems = data.data;
+	            console.log(data.data);
+	        } else {
+	        	$scope.transactionItems = null;
+	        }
+	    }, (err) => {
+	    	ToasterTool.error("网络错误");
+	    	$scope.transactionItems = null;
+	    }).finally(() => {
+	        $rootScope.loading = false;
+	    });
+	};
+
+	//登陆信息 查看全部
+	$scope.getLoginAll = () => {
+		$rootScope.loading = true;
+		qService.httpGet(loginRes.ResultsAll, {}, {}).then((data) => {
+	        if (data.success) {
+	        	ToasterTool.success("查找成功");
+	            $scope.LoginItems = data.data;
+	        } else {
+	        	$scope.LoginItems = null;
+	        }
+	    }, (err) => {
+	    	ToasterTool.error("网络错误");
+	    	$scope.LoginItems = null;
+	    }).finally(() => {
+	        $rootScope.loading = false;
+	    });
+	};
+
+	//客户信息 查看全部
+	$scope.getCustomerAll = () => {
+		$rootScope.loading = true;
+		qService.httpGet(customerInfoRes.customerinfoAll, {}, {}).then((data) => {
+			// console.log(data);
+	        if (data.success) {
+	        	ToasterTool.success("查找成功");
+	            $scope.CustomerItems = data.data;
+				// console.log($scope.CustomerItems);
+	        } else {
+	        	$scope.CustomerItems = null;
+	        }
+	    }, (err) => {
+	    	ToasterTool.error("网络错误");
+	    	$scope.CustomerItems = null;
+	    }).finally(() => {
+	        $rootScope.loading = false;
+	    });
+	};
+
+	//设备信息
+	$scope.getDeviceAll = () => {
+		$rootScope.loading = true;
+		qService.httpGet(deviceRes.DeviceAllEqu, {}, {}).then((data) => {
+			// console.log(data);
+	        if (data.success) {
+	        	ToasterTool.success("查找成功");
+	        	// console.log(data);
+	            $scope.Deviceitems = data.data;
+	        } else {
+	        	$scope.Deviceitems = null;
+	        }
+	    }, (err) => {
+	    	ToasterTool.error("网络错误");
+	    	$scope.Deviceitems = null;
+	    }).finally(() => {
+	        $rootScope.loading = false;
+	    });
+	};
+
+	$scope.getTransactionAll();
+	$scope.getLoginAll();
+	$scope.getCustomerAll();
+	$scope.getDeviceAll();
 	function showTab() {
 		$(".tab-nav li").click(function(){
 

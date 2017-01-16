@@ -72,6 +72,7 @@
     <result column="REMOTE_Cust_Src_Org" property="remoteCustSrcOrg" jdbcType="VARCHAR" />
     <result column="NoREMOTE_Mger_Belong_Org_Num" property="noremoteMgerBelongOrgNum" jdbcType="VARCHAR" />
   </resultMap>
+
   <sql id="Example_Where_Clause" >
     <!--
       WARNING - @mbggenerated
@@ -156,6 +157,13 @@
     Valid_Cust_Ind_Sign, Moneylink_Cust_Ind, Etime_Cust_Ind, Deflt_Cust_Ind, Valid_Cust_Ind, 
     REMOTE_Cust_Src_Org, NoREMOTE_Mger_Belong_Org_Num
   </sql>
+
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select
+    *
+    from customerinfo
+  </select>
+
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="tiger.common.dal.persistence.icbc.CustomerInfoDOExample" >
     <!--
       WARNING - @mbggenerated

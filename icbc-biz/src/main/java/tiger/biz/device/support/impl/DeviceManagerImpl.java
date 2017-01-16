@@ -32,7 +32,7 @@ public class DeviceManagerImpl implements DeviceManager{
         RestTemplate restTemplate = new RestTemplate();
 
         //访问REST API
-        ResponseEntity<SelectedAndroidDO[]> entity = restTemplate.getForEntity("http://11.0.1.101:5000/devices/all",SelectedAndroidDO[].class);
+        ResponseEntity<SelectedAndroidDO[]> entity = restTemplate.getForEntity("http://10.60.150.192:8081/devices/all",SelectedAndroidDO[].class);
         SelectedAndroidDO[] alldata = entity.getBody();
         List<SelectedAndroidDO> result = Arrays.asList(alldata);
 
@@ -45,7 +45,7 @@ public class DeviceManagerImpl implements DeviceManager{
         RestTemplate restTemplate = new RestTemplate();
 
         //访问REST API
-        ResponseEntity<SelectedAndroidDO> entity = restTemplate.postForEntity("http://11.0.1.101:5000/devices", authInfo, SelectedAndroidDO.class);
+        ResponseEntity<SelectedAndroidDO> entity = restTemplate.postForEntity("http://10.60.150.192:8081/devices", authInfo, SelectedAndroidDO.class);
         SelectedAndroidDO result = entity.getBody();
 
         if (result.getLabel()==1)
@@ -70,5 +70,10 @@ public class DeviceManagerImpl implements DeviceManager{
         String result = entity.getBody();
 
         return result;
+    }
+
+    @Override
+    public PageResult<List<EquipmentInfoDomain>> getAllEqu() {
+        return new PageResult<List<EquipmentInfoDomain>>(deviceService.getAllEqu());
     }
 }

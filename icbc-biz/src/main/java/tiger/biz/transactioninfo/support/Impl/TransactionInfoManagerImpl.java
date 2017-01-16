@@ -78,7 +78,25 @@ public class TransactionInfoManagerImpl implements TransactionInfoManager{
         }
         transactionInfoDomain.setTruSign(TraInt);
         */
+        /**
+         * 行为组后端联调
+         */
         SelectActDO selectActDO = new SelectActDO();
+        //selectActDO.setTimeStamp(transactionInfoDomain.getEventDt().toString());
+        selectActDO.setTimeStamp("2015-01-01 03:17:52");
+        selectActDO.setUser("1");
+        RestTemplate restTemplate3 = new RestTemplate();
+        ResponseEntity<Boolean> entity3 = restTemplate3.postForEntity("http://11.0.17.79:8080/api/BehaviourCertification/judge", selectActDO, Boolean.class);
+        Boolean ActStr = entity3.getBody();
+        System.out.println("ActStr");
+        System.out.println(ActStr);
+        int ActInt;
+        if(ActStr==true){
+            ActInt=1;
+        }
+        else{
+            ActInt=0;
+        }
 
         transactionInfoDomain.setTruSign(1);
         transactionInfoDomain.setEquSign(1);

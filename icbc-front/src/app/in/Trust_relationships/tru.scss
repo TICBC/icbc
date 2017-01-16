@@ -1,15 +1,32 @@
-.trust_show {
-  float: left;
+.transac_show{
+  float: right;
+  height: 40%;
+  width : 100%;
+}
+.trust_show{
+  float: right;
   height: 30%;
-  /*width: 100%;*/
-  margin-top: 2px;
+  width: 100%;
+  margin-top: 1px;
+}
+.all_things{
+  height: 100%;
+  width: 100%;
+  margin-top: 10px;
   border: 1px solid black;
 }
 
-.transac_show{
+.graph{
   float: left;
-  height: 30%;
-  width : 100%;
-  margin-top: 2px;
-  border: 1px solid red;
+}
+.leftdev{
+  margin-left: 5px;
+  margin-top: 10px;
+  width: 37%;
+  float:left;
+}
+.rightdev{
+  margin-top: 10px;
+  width: 60%;
+  float: right;
 }

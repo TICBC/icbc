@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import tiger.biz.device.support.DeviceManager;
 import tiger.biz.transactioninfo.support.TransactionInfoManager;
+import tiger.common.dal.persistence.icbc.SelectActDO;
 import tiger.common.dal.persistence.icbc.SelectedSocialNet;
 import tiger.common.dal.persistence.icbc.TransactionInfoDO;
 import tiger.core.basic.PageResult;
@@ -76,6 +77,8 @@ public class TransactionInfoManagerImpl implements TransactionInfoManager{
         }
         transactionInfoDomain.setTruSign(TraInt);
         */
+        SelectActDO selectActDO = new SelectActDO();
+
         transactionInfoDomain.setTruSign(1);
         transactionInfoDomain.setEquSign(1);
         transactionInfoDomain.setActSign(1);

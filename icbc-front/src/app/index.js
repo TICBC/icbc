@@ -51,7 +51,7 @@ angular.module('soraka',
   .constant('lcConfig', config)
   .constant('moment', window.moment)
   .constant('BASE_URL', 'http://localhost:8080/api') // 测试
-  // .constant('BASE_URL', '/api') // 发布
+  //.constant('BASE_URL', '/api') // 发布
 
   // 基础配置
   .config(httpConfig)

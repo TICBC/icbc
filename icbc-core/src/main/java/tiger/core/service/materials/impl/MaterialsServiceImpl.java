@@ -135,10 +135,11 @@ public class MaterialsServiceImpl implements MaterialsService {
     public static void main(String[] args) {
         String test = " abc 123  ddd lkjhppp    ";
 
-        String [] temp = mySplit(test);
-        for (String string : temp) {
-            System.out.println(string);
-        }
+//        String [] temp = mySplit(test);
+//        for (String string : temp) {
+//            System.out.println(string);
+//        }
+
     }
 
 }

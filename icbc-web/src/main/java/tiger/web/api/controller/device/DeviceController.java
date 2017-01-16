@@ -1,9 +1,11 @@
 package tiger.web.api.controller.device;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import tiger.biz.device.support.DeviceManager;
-import tiger.common.dal.persistence.icbc.SelectedAndroidDO;
 import tiger.core.basic.PageResult;
 import tiger.core.domain.device.EquipmentInfoDomain;
 import tiger.web.api.constants.APIConstants;
@@ -29,31 +31,8 @@ public class DeviceController extends BaseController {
      */
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     @ResponseBody
-    public PageResult<List<SelectedAndroidDO>> getAll() {
+    public PageResult<List<EquipmentInfoDomain>> getAll() {
 
         return deviceManager.getAll();
-    }
-    /**
-     * 设备信任计算的入口
-     *
-     * @return
-     */
-    @RequestMapping(value = "/auth", method = RequestMethod.POST)
-    @ResponseBody
-    public String deviceAuth(@RequestBody SelectedAndroidDO newdevice) {
-
-        return deviceManager.deviceAuth(newdevice);
-    }
-
-    /**
-     * 获取所有的设备信息(本地数据库)
-     *
-     * @return
-     */
-    @RequestMapping(value = "/allequ", method = RequestMethod.GET)
-    @ResponseBody
-    public PageResult<List<EquipmentInfoDomain>> getAllEqu() {
-
-        return deviceManager.getAllEqu();
     }
 }

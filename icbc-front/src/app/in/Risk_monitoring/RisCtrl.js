@@ -67,9 +67,9 @@ export default ($scope, $rootScope, qService, TransactionRes,customerInfoRes,dev
 						flag_tru = 1;
 					}
 					if(flag_act==0 && flag_equ==0 && flag_tru==0){
-						$scope.passArray.push(dataArray[t]);
-					}else{
 						$scope.rejectArray.push(dataArray[t]);
+					}else{
+						$scope.passArray.push(dataArray[t]);
 					}
 					flag_act = 0;
 					flag_equ = 0;

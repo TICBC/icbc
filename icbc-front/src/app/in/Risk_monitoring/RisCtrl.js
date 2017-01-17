@@ -20,7 +20,7 @@ export default ($scope, $rootScope, qService, TransactionRes,customerInfoRes,dev
 	            ToasterTool.error("无结果");
 	            $scope.items = null;
 	        } else {
-	            ToasterTool.success("查找成功");
+	            
 	            $scope.items = data.data;
 	            ToasterTool.success(data.data);
 	           }
@@ -43,9 +43,82 @@ export default ($scope, $rootScope, qService, TransactionRes,customerInfoRes,dev
 		$rootScope.loading = true;
 		qService.httpGet(TransactionRes.ResultsAll, {}, {}).then((data) => {
 	        if (data.success) {
-	        	ToasterTool.success("查找成功");
+	        	
 	            $scope.transactionItems = data.data;
-	            console.log(data.data);
+
+				var dataArray = data.data;
+	            var total = dataArray.length;
+				var equ=0,act=0,tru=0;
+				var flag_equ=0,flag_act=0,flag_tru=0;
+				$scope.passArray = new Array;
+				$scope.rejectArray = new Array;
+				for(var t in dataArray){
+					
+					if(dataArray[t].actSign == 1){
+						act++;
+						flag_act = 1;
+					}
+					if(dataArray[t].equSign == 1){
+						equ++;
+						flag_equ = 1;
+					}
+					if(dataArray[t].truSign == 1){
+						tru++;
+						flag_tru = 1;
+					}
+					if(flag_act==0 && flag_equ==0 && flag_tru==0){
+						$scope.rejectArray.push(dataArray[t]);
+					}else{
+						$scope.passArray.push(dataArray[t]);
+					}
+					flag_act = 0;
+					flag_equ = 0;
+					flag_tru = 0;
+				}
+				console.log($scope.passArray);
+				// dataArray.forEach();
+				
+				//画统计图
+					var option = {
+							color: ['#3398DB'],
+							tooltip : {
+								trigger: 'axis',
+								axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+									type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+								}
+							},
+							grid: {
+								left: '3%',
+								right: '4%',
+								bottom: '3%',
+								containLabel: true
+							},
+							xAxis : [
+								{
+									type : 'category',
+									data : ['设备指纹', '行为认证', '信任关系'],
+									axisTick: {
+										alignWithLabel: true
+									}
+								}
+							],
+							yAxis : [
+								{
+									type : 'value'
+								}
+							],
+							series : [
+								{
+									name:'直接访问',
+									type:'bar',
+									barWidth: '60%',
+									data:[equ, act, tru]
+								}
+							]
+						};
+						var picture1 = echarts.init(document.getElementById('pic1'));
+						picture1.setOption(option);
+				//////////
 	        } else {
 	        	$scope.transactionItems = null;
 	        }
@@ -62,7 +135,7 @@ export default ($scope, $rootScope, qService, TransactionRes,customerInfoRes,dev
 		$rootScope.loading = true;
 		qService.httpGet(loginRes.ResultsAll, {}, {}).then((data) => {
 	        if (data.success) {
-	        	ToasterTool.success("查找成功");
+	        	
 	            $scope.LoginItems = data.data;
 	        } else {
 	        	$scope.LoginItems = null;
@@ -81,7 +154,7 @@ export default ($scope, $rootScope, qService, TransactionRes,customerInfoRes,dev
 		qService.httpGet(customerInfoRes.customerinfoAll, {}, {}).then((data) => {
 			// console.log(data);
 	        if (data.success) {
-	        	ToasterTool.success("查找成功");
+	        	
 	            $scope.CustomerItems = data.data;
 				// console.log($scope.CustomerItems);
 	        } else {
@@ -101,7 +174,7 @@ export default ($scope, $rootScope, qService, TransactionRes,customerInfoRes,dev
 		qService.httpGet(deviceRes.DeviceAllEqu, {}, {}).then((data) => {
 			// console.log(data);
 	        if (data.success) {
-	        	ToasterTool.success("查找成功");
+	        	
 	        	// console.log(data);
 	            $scope.Deviceitems = data.data;
 	        } else {
@@ -137,6 +210,12 @@ export default ($scope, $rootScope, qService, TransactionRes,customerInfoRes,dev
 		showTab();
 		
 	 });
+	 
+	 
+	 
+	
+	
+
 	
 	
 }

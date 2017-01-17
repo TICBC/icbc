@@ -41,17 +41,19 @@ export default ($scope, $rootScope, qService, TransactionRes, ToasterTool, BASE_
 	
 	
 	// 定时查询ById   -- start
-	var ids = [1,2,3,4,5,6,7,8,9,10,11,12];
+	// var ids = [1,2,3,4,5,6,7,8,9,10,11,12];
 	var id_cur,i=0,n=0;
+	var equ=0,act=0,tru=0;
 	var arrayItem = new Array();
-	$interval(function () {
+	var timer = $interval(function () {
 		// i = n%5;
 		
 		n++;
-		id_cur = ids[i];
-		getByIdLoop(id_cur);
+		if(n<=120){
+			getByIdLoop(n);
+		}
 		i++;
-	}, 5000,12);
+	}, 5000);
 	function getByIdLoop(id) {
 		// if (isNull($scope.params.value)) {
 		// 	ToasterTool.warning("输入不能为空");
@@ -68,12 +70,68 @@ export default ($scope, $rootScope, qService, TransactionRes, ToasterTool, BASE_
 	            ToasterTool.error("无结果");
 	            // $scope.items = null;
 	        } else {
-	            ToasterTool.success("查找成功");
 				// [data.data];
 	            arrayItem.push(data.data);
 				$scope.items= angular.copy(arrayItem);
-				console.log($scope.items);
-	            // ToasterTool.success(data.data);
+
+
+				
+				//画统计图
+					
+					if(data.data.actSign == 1){
+						act++;
+
+					}
+					if(data.data.equSign == 1){
+						equ++;
+
+					}
+					if(data.data.truSign == 1){
+						tru++;
+
+					}
+
+				
+					var option = {
+							color: ['#3398DB'],
+							tooltip : {
+								trigger: 'axis',
+								axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+									type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+								}
+							},
+							grid: {
+								left: '3%',
+								right: '4%',
+								bottom: '3%',
+								containLabel: true
+							},
+							xAxis : [
+								{
+									type : 'category',
+									data : ['设备指纹', '行为认证', '信任关系'],
+									axisTick: {
+										alignWithLabel: true
+									}
+								}
+							],
+							yAxis : [
+								{
+									type : 'value'
+								}
+							],
+							series : [
+								{
+									name:'直接访问',
+									type:'bar',
+									barWidth: '60%',
+									data:[equ, act, tru]
+								}
+							]
+						};
+						var picture1 = echarts.init(document.getElementById('main2'));
+						picture1.setOption(option);
+
 	           }
 	    } else {
 	    	ToasterTool.error("无结果");
@@ -87,6 +145,11 @@ export default ($scope, $rootScope, qService, TransactionRes, ToasterTool, BASE_
 	        $rootScope.loading = false;
 	    });
 	};
+	
+	$scope.$on('$destroy',function(){
+		$interval.cancel(timer);
+	})
+	
 
 	/////////// 定时查询ById  --end
 	
@@ -122,7 +185,7 @@ export default ($scope, $rootScope, qService, TransactionRes, ToasterTool, BASE_
 	
 	
 	paint();
-	tongjitu();
+	//tongjitu();
 	function tongjitu(){
 		var myChart = echarts.init(document.getElementById('main2'));
 		var option = {

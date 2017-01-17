@@ -124,7 +124,8 @@ export default($scope, $rootScope, AuthTool, $state, qService, deviceRes, Toaste
 	        if (data.success) {
 	        	ToasterTool.success("查找成功");
 	            $scope.items = data.data;
-	            $scope.BJ
+	            $scope.findInMap(data.data);
+				$scope.findPeriod();
 	        } else {
 	        	$scope.items = null;
 	        }

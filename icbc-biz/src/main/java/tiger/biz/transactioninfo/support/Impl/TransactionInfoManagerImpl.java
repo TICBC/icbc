@@ -62,7 +62,7 @@ public class TransactionInfoManagerImpl implements TransactionInfoManager{
         selectedSocialNet.setUser2(transactionInfoDomain.getTranInCardNum());
         System.out.println(" Userq信息："+selectedSocialNet.getUser1()+" Userq信息："+selectedSocialNet.getUser2());
         //写死在对象里面
-
+        System.out.println(transactionInfoDomain.getEventDt());
         selectedSocialNet.setTime("12");
         selectedSocialNet.setMoney("12");
         //System.out.println("所有User信息"+selectedSocialNet);
@@ -90,13 +90,13 @@ public class TransactionInfoManagerImpl implements TransactionInfoManager{
         /**
          * 行为组后端联调
          */
-        /*
+
         SelectActDO selectActDO = new SelectActDO();
         //selectActDO.setTimeStamp(transactionInfoDomain.getEventDt().toString());
         selectActDO.setTimeStamp("2015-01-01 03:17:52");
         selectActDO.setUser("1");
         RestTemplate restTemplate3 = new RestTemplate();
-        ResponseEntity<Boolean> entity3 = restTemplate3.postForEntity("http://11.0.17.79:8080/api/BehaviourCertification/judge", selectActDO, Boolean.class);
+        ResponseEntity<Boolean> entity3 = restTemplate3.postForEntity("http://10.60.150.238:8080/api/BehaviourCertification/judge", selectActDO, Boolean.class);
         Boolean ActStr = entity3.getBody();
         System.out.println("ActStr");
         System.out.println(ActStr);
@@ -107,10 +107,10 @@ public class TransactionInfoManagerImpl implements TransactionInfoManager{
         else{
             ActInt=0;
         }
-*/
+
         //transactionInfoDomain.setTruSign(1);
         //transactionInfoDomain.setEquSign(1);
-        transactionInfoDomain.setActSign(1);
+        transactionInfoDomain.setActSign(ActInt);
 
 
         return transactionInfoDomain;

@@ -27,11 +27,11 @@ export default ($scope, $rootScope, qService, trustRes, ToasterTool, resultsRes,
 
 
 	// //////  画图
-	var nodes = [ { name: "用户1  " }, { name: "用户2"  },
-				  { name: "用户3"   }, { name: "用户4"   },
-				  { name: "用户5"   }, { name: "用户6"   },
-			      { name: "用户7"   }, { name: "用户8"   },
-				  { name: "用户9"   }, { name: "用户10"   }];
+	var nodes = [ { name: "1  " }, { name: "2"  },
+				  { name: "3"   }, { name: "4"   },
+				  { name: "5"   }, { name: "6"   },
+			      { name: "7"   }, { name: "8"   },
+				  { name: "9"   }, { name: "10"   }];
 					 
 		var edges = [  { source : 0  , target: 1 } , { source : 1  , target: 2 } ,
 					   { source : 0  , target: 2 } , { source : 3  , target: 4 } ,
@@ -94,17 +94,9 @@ export default ($scope, $rootScope, qService, trustRes, ToasterTool, resultsRes,
 							.append("circle")
 							.attr("r",10)
 							.style("fill",function(d,i){
-								if(i < 3)
-								{
-									return "red";
-								}
-								else if (i < 5) 
+								if(i < 6)
 								{
 									return "blue";
-								}
-								else if (i == 5) 
-								{
-									return "purple";
 								}
 								else
 								{
@@ -144,7 +136,37 @@ export default ($scope, $rootScope, qService, trustRes, ToasterTool, resultsRes,
 			 	.attr("y", function(d){ return d.y; });
 		});
 		  
+	$scope.getAll = () => {
+		// if (isNull($scope.params.value)) {
+		// 	ToasterTool.warning("输入不能为空");
+		// 	return;
+		// }
+		$rootScope.loading = false;
+		
+		qService.httpGet(TransactionRes.ResultsAll, {}, {}).then((data) => {
+	    if (data.success) {
+	        	//console.log("hehe");
+	        if (data.data == null) {
+	            ToasterTool.error("无结果");
+	            $scope.items = null;
+	        } else {
+	            ToasterTool.success("查找成功");
+	            $scope.items = data.data;
+	            // ToasterTool.success(data.data);
+	           }
+	    } else {
+	    	ToasterTool.error("无结果");
+	        $scope.items = null;
+	    }
+	    }, (err) => {
+	    	ToasterTool.error("网络错误");
+	    	$scope.items = null;
+	    }).finally(() => {
+	        $rootScope.loading = false;
+	    });
 
+	}
+	$scope.getAll();
 
 	
 };

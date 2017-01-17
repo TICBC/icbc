@@ -27,11 +27,14 @@ export default ($scope, $rootScope, qService, trustRes, ToasterTool, resultsRes,
 
 
 	// //////  画图
+
 	var nodes = [ { name: "1  " }, { name: "2"  },
 				  { name: "3"   }, { name: "4"   },
 				  { name: "5"   }, { name: "6"   },
 			      { name: "7"   }, { name: "8"   },
 				  { name: "9"   }, { name: "10"   }];
+	
+
 					 
 		var edges = [  { source : 0  , target: 1 } , { source : 1  , target: 2 } ,
 					   { source : 0  , target: 2 } , { source : 3  , target: 4 } ,
@@ -94,10 +97,12 @@ export default ($scope, $rootScope, qService, trustRes, ToasterTool, resultsRes,
 							.append("circle")
 							.attr("r",10)
 							.style("fill",function(d,i){
+
 								if(i < 6)
 								{
 									return "blue";
 								}
+
 								else
 								{
 									return "orange";

@@ -8,7 +8,7 @@
     -->
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="Jnl_Seq_Num" property="jnlSeqNum" jdbcType="VARCHAR" />
-    <result column="Event_Dt" property="eventDt" jdbcType="DATE" />
+    <result column="Event_Dt" property="eventDt" jdbcType="TIMESTAMP" />
     <result column="Chan_Idtfy_Id" property="chanIdtfyId" jdbcType="VARCHAR" />
     <result column="Webbank_Tx_Cd" property="webbankTxCd" jdbcType="CHAR" />
     <result column="Dttm" property="dttm" jdbcType="VARCHAR" />
@@ -601,7 +601,7 @@
         Jnl_Seq_Num = #{jnlSeqNum,jdbcType=VARCHAR},
       </if>
       <if test="eventDt != null" >
-        Event_Dt = #{eventDt,jdbcType=DATE},
+        Event_Dt = #{eventDt,jdbcType=TIMESTAMP},
       </if>
       <if test="chanIdtfyId != null" >
         Chan_Idtfy_Id = #{chanIdtfyId,jdbcType=VARCHAR},
@@ -709,7 +709,7 @@
     -->
     update transactioninfo
     set Jnl_Seq_Num = #{jnlSeqNum,jdbcType=VARCHAR},
-      Event_Dt = #{eventDt,jdbcType=DATE},
+      Event_Dt = #{eventDt,jdbcType=TIMESTAMP},
       Chan_Idtfy_Id = #{chanIdtfyId,jdbcType=VARCHAR},
       Webbank_Tx_Cd = #{webbankTxCd,jdbcType=CHAR},
       Dttm = #{dttm,jdbcType=VARCHAR},

@@ -6,12 +6,14 @@
 		<h3>
 			信任社区
 		</h3>
+
 		<li>
 			互相信任的用户呈现出群落分布的特性
 		</li>
 		<li>
 			双方互相信任并且值大于阈值，才会构成信任社区中的一条边，边的粗细表示相互信任程度的大小
 		</li>
+
 		<div class = "graph" id="container" >		
 		</div>	
 	</div>
@@ -20,6 +22,7 @@
 			<h3>
 				信任关系
 			</h3>
+
 			<li>
 				信任关系是通过两名用户的历史交易来评估的
 			</li>
@@ -30,28 +33,35 @@
 				可以通过两名用户的id查询他们的信任值
 			</li>
 
+
 	        <table class="table table-hover">
 	            <tr class="info">
 	                <th>付款用户id</th>
 	                <th>收款用户id</th>
+
 	                <th></th>
+
 	            </tr>
 	            <tr class="info">
 	                <td><input type="text" id ="user1" ng-model = "user1"></td>
 	                <td><input type="text" id ="user2" ng-model = "user2"></td>
+
 	                <td><button type="button" class="btn btn-default lichao-find"  ng-click="getSome()">查询信任值</button></td>
+
 	            </tr>
 	            
 	        </table>
 		</div>
 
 		<div class="trust_show">
+
 			
 			<table class="table table-hover">
 			    <tr class = "info">
 			        <th>付款方id</th>
 			        <th>收款方id</th>
 			        <th>信任值</th>
+
 			    </tr>
 			    <tr class = "info">
 			        <td>{{data[0].user1}}</td>

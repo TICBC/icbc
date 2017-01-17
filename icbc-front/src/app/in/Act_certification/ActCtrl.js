@@ -15,7 +15,7 @@ export default ($scope, $rootScope, qService, TransactionRes, ToasterTool, BASE_
 	            ToasterTool.error("无结果");
 	            $scope.items = null;
 	        } else {
-	            ToasterTool.success("查找成功");
+	            // ToasterTool.success("查找成功");
 	            $scope.items = data.data;
 	            // ToasterTool.success(data.data);
 	           }

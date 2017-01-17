@@ -4,7 +4,7 @@ export default($scope, $rootScope, AuthTool, $state, qService, deviceRes, Toaste
 		$rootScope.loading = true;
 		qService.httpGetWithToken(deviceRes.DeviceAll, {}, {}).then((data) => {
 	        if (data.success) {
-	        	ToasterTool.success("查找成功");
+	        	// ToasterTool.success("查找成功");
 	          $scope.items = data.data;
 	        } else {
 	        	$scope.items = null;
@@ -122,7 +122,7 @@ export default($scope, $rootScope, AuthTool, $state, qService, deviceRes, Toaste
 		$rootScope.loading = true;
 		qService.httpGetWithToken(deviceRes.DeviceAll, {}, {}).then((data) => {
 	        if (data.success) {
-	        	ToasterTool.success("查找成功");
+	        	// ToasterTool.success("查找成功");
 	            $scope.items = data.data;
 	            $scope.findInMap(data.data);
 				$scope.findPeriod();

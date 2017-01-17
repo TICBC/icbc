@@ -18,7 +18,7 @@ export default ($scope, $rootScope, qService, TransactionRes, ToasterTool, BASE_
 	            ToasterTool.error("无结果");
 	            $scope.items = null;
 	        } else {
-	            ToasterTool.success("查找成功");
+	            // ToasterTool.success("查找成功");
 	            $scope.items = data.data;
 	            ToasterTool.success(data.data);
 	           }
@@ -77,16 +77,16 @@ export default ($scope, $rootScope, qService, TransactionRes, ToasterTool, BASE_
 
 				
 				//画统计图
-					
-					if(data.data.actSign == 1){
+					//1-过，0-不过
+					if(data.data.actSign == 0){
 						act++;
 
 					}
-					if(data.data.equSign == 1){
+					if(data.data.equSign == 0){
 						equ++;
 
 					}
-					if(data.data.truSign == 1){
+					if(data.data.truSign == 0){
 						tru++;
 
 					}

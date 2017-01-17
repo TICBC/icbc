@@ -1,12 +1,4 @@
-
-<div class="left_dev">
-  <ul class="list-group">
-    <li class="list-group-item"><a href="#">交易监控</a></li>
-    <li class="list-group-item"><a href="#">行为认证</a></li>
-    
-  </ul>
-</div>
-<div class="mid_dev">
+<div class="mid_act">
   <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
 <div id="main" style="width: 100%;height:100%;"></div>
     <script type="text/javascript">
@@ -413,9 +405,8 @@ var convertData = function (data) {
 option = {
     backgroundColor: '#404a59',
     title: {
-        text: '全国主要城市空气质量',
-        subtext: 'data from PM25.in',
-        sublink: 'http://www.pm25.in',
+        text: '行为认证',
+
         left: 'center',
         textStyle: {
             color: '#fff'
@@ -428,7 +419,7 @@ option = {
         orient: 'vertical',
         y: 'bottom',
         x:'right',
-        data:['pm2.5'],
+        data:[''],
         textStyle: {
             color: '#fff'
         }
@@ -453,7 +444,7 @@ option = {
     },
     series : [
         {
-            name: 'pm2.5',
+            name: '',
             type: 'scatter',
             coordinateSystem: 'geo',
             data: convertData(data),
@@ -514,48 +505,26 @@ myChart.setOption(option, true);
     
     </script>
 </div>
-<div class="right_dev">
-  <table class="table table-hover">
-    <tr class="active">
-        <td>Column content</td>
-        <td>Column content</td>
-        <td>Column content</td>
-        <td>Column content</td>
-        <td>Column content</td>
-        <td>Column content</td>
-    </tr>
-    <tr class="success">
-        <td>Column content</td>
-        <td>Column content</td>
-        <td>Column content</td>
-        <td>Column content</td>
-        <td>Column content</td>
-        <td>Column content</td>
-    </tr>
-    <tr class="warning">
-        <td>{{test}}</td>
-        <td>Column content</td>
-        <td>Column content</td>
-        <td>Column content</td>
-        <td>Column content</td>
-        <td>Column content</td>
-    </tr>
-    <tr class="danger">
-        <td>Column content</td>
-        <td>Column content</td>
-        <td>Column content</td>
-        <td>Column content</td>
-        <td>Column content</td>
-        <td>Column content</td>
-    </tr>
-    <tr class="info">
-        <td>Column content</td>
-        <td>Column content</td>
-        <td>Column content</td>
-        <td>Column content</td>
-        <td>Column content</td>
-        <td>Column content</td>
-    </tr>
-
-  </table>
+<div class="right_act">
+  <div class="right_up_actt" style="overflow-y:scroll;height: 400px;">
+        <table class="table table-hover" >
+            <tr class="info" id="showTransTableTitle">
+                <td>交易ID</td>
+                <td>事件日期</td>
+                <!-- <td>转入卡号</td> -->
+                <td>转出卡号</td>
+                <td>交易金额</td>
+                <td>行为认证</td>
+            </tr>
+            <tr class="info" ng-repeat="item in items">
+                <td>{{item.id}}</td>
+                <td>{{item.eventDt|date:'M-d'}}</td>
+                <!-- <td>{{item.tranInCardNum}}</td> -->
+                <td>{{item.tranOutCardNum}}</td>
+                <td>{{item.txAmt}}</td>
+                <td>{{item.equSign}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="rigth_down_act"></div>
 </div>

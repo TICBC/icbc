@@ -10,17 +10,22 @@
   float: left;
   width: 40%;
   height: 100%;
-  background: green;
+  /*background: green;*/
 }
 .right_up_tra{
 	float: left;
 	width: 100%;
 	height: 30%;
-	background: blue;
+	/*background: blue;*/
 }
 .rigth_down_tra{
 	float: left;
 	width: 100%;
 	height: 70%;
-	background: gray;
+	/*background: gray;*/
+}
+
+.tab-pane li {
+	line-height:35px;
+	
 }

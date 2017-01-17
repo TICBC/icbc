@@ -1,26 +1,32 @@
-.tru .left_tru {
-  float: left;
-  width: 10%;
+.transac_show{
+  float: right;
+  height: 40%;
+  width : 100%;
+}
+.trust_show{
+  float: right;
+  height: 30%;
+  width: 100%;
+  margin-top: 1px;
+}
+.all_things{
   height: 100%;
-  margin-top: 2px;
-   border: 1px solid black;
-   border-right: none;
-}
-.tru .left_tru>div:last-child{
-  border: none;
-}
-.tru .mid_tru{
-  float: left;
-  width: 65%;
-  height: 100%;
-   margin-top: 2px;
-   border: 1px solid black;
-   border-right:none;
-}
-.tru .right_tru{
-  float: left;
-  width: 25%;  
-  height:  100%;
-  margin-top: 2px;
+  width: 100%;
+  margin-top: 10px;
   border: 1px solid black;
+}
+
+.graph{
+  float: left;
+}
+.leftdev{
+  margin-left: 5px;
+  margin-top: 10px;
+  width: 37%;
+  float:left;
+}
+.rightdev{
+  margin-top: 10px;
+  width: 60%;
+  float: right;
 }

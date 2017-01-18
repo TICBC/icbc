@@ -122,7 +122,7 @@ export default ($scope, $rootScope, qService, TransactionRes, ToasterTool, BASE_
 							],
 							series : [
 								{
-									name:'直接访问',
+									name:'拦截记录',
 									type:'bar',
 									barWidth: '60%',
 									data:[equ, act, tru]

@@ -17,8 +17,7 @@ export default ($scope, $rootScope, qService, TransactionRes,customerInfoRes,dev
 	            var total = dataArray.length;
 				var equ=0,act=0,tru=0;
 				var flag_equ=0,flag_act=0,flag_tru=0;
-				$scope.passArray = new Array;
-				$scope.rejectArray = new Array;
+				
 				for(var t in dataArray){
 					
 					if(dataArray[t].actSign == 0){
@@ -33,11 +32,7 @@ export default ($scope, $rootScope, qService, TransactionRes,customerInfoRes,dev
 						tru++;
 						flag_tru = 1;
 					}
-					if(flag_act==1 && flag_equ==1 && flag_tru==1){
-						$scope.rejectArray.push(dataArray[t]);
-					}else{
-						$scope.passArray.push(dataArray[t]);
-					}
+					
 					flag_act = 0;
 					flag_equ = 0;
 					flag_tru = 0;
@@ -91,7 +86,7 @@ export default ($scope, $rootScope, qService, TransactionRes,customerInfoRes,dev
 							]
 						};
 						var picture1 = echarts.init(document.getElementById('pic1'));
-						picture1.setOption(option);
+						// picture1.setOption(option);
 				//////////
 	        } else {
 	        	$scope.transactionItems = null;
@@ -191,9 +186,11 @@ export default ($scope, $rootScope, qService, TransactionRes,customerInfoRes,dev
 	
 	// 定时查询ById   -- start
 	// var ids = [1,2,3,4,5,6,7,8,9,10,11,12];
-	var id_cur,i=0,n=0;
+	var id_cur,i=0,n=0,total=0;
 	var equ=0,act=0,tru=0;
 	var arrayItem = new Array();
+	$scope.passArray = new Array;
+	$scope.rejectArray = new Array;
 	var timer = $interval(function () {
 		// i = n%5;
 		i++;
@@ -223,24 +220,28 @@ export default ($scope, $rootScope, qService, TransactionRes,customerInfoRes,dev
 	            arrayItem.push(data.data);
 				$scope.items= angular.copy(arrayItem);
 
-
+				total++;
 				
 				//画统计图
 					//1-过，0-不过
+					var flag_equ=0,flag_act=0,flag_tru=0;
 					if(data.data.actSign == 0){
 						act++;
-
+						flag_act = 1;
 					}
 					if(data.data.equSign == 0){
 						equ++;
-
+						flag_equ = 1;
 					}
 					if(data.data.truSign == 0){
 						tru++;
-
+						flag_tru = 1;
 					}
-
-				
+					if(flag_act==1 && flag_equ==1 && flag_tru==1){
+						$scope.rejectArray.push(data.data);
+					}else{
+						$scope.passArray.push(data.data);
+					}
 					var option = {
 							color: ['#3398DB'],
 							tooltip : {

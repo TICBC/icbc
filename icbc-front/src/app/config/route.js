@@ -11,8 +11,10 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
     //   controller: 'portalCtrl'
     // })
     // 首页
+
+	
     .state('in', {
-      // abstract: true,
+       // abstract: true,
       url: '/',
       templateUrl: 'app/in/in.html', 
       controller: 'inCtrl'

@@ -6,12 +6,7 @@
 		<h3>
 			信任社区
 		</h3>
-		<li>
-			互相信任的用户呈现出群落分布的特性
-		</li>
-		<li>
-			双方互相信任并且值大于阈值，才会构成信任社区中的一条边，边的粗细表示相互信任程度的大小
-		</li>
+		
 		<div class = "graph" id="container" >		
 		</div>	
 	</div>
@@ -20,15 +15,7 @@
 			<h3>
 				信任关系
 			</h3>
-			<li>
-				信任关系是通过两名用户的历史交易来评估的
-			</li>
-			<li>
-				信任关系是单向的，信任值小于阈值的交易会在风控平台被拦截
-			</li>
-			<li>
-				可以通过两名用户的id查询他们的信任值
-			</li>
+			
 
 	        <table class="table table-hover">
 	            <tr class="info">
@@ -39,7 +26,7 @@
 	            <tr class="info">
 	                <td><input type="text" id ="user1" ng-model = "user1"></td>
 	                <td><input type="text" id ="user2" ng-model = "user2"></td>
-	                <td><button type="button" class="btn btn-default lichao-find"  ng-click="getSome()">查询信任值</button></td>
+	                <td><button type="button" class="btn btn-default"  ng-click="getSome()">查询信任值</button></td>
 	            </tr>
 	            
 	        </table>
@@ -72,16 +59,17 @@
 			            <!-- <td>转入卡号</td> -->
 			            <td>交易时间</td>
 			            <td>交易金额</td>
-			            <td>信任值</td>
+			            
 			            <td>是否通过</td>
 	            	</tr>
 	            	<tr class="info" ng-repeat="item in items">
-		                <td>{{item.id}}</td>
+		                <td>{{item.tranInCardNum}}</td>
+						<td>{{item.tranOutCardNum}}</td>
 		                <td>{{item.eventDt|date:'M-d'}}</td>
 		                <!-- <td>{{item.tranInCardNum}}</td> -->
-		                <td>{{item.tranOutCardNum}}</td>
+		                
 		                <td>{{item.txAmt}}</td>
-		                <td>{{item.equSign}}</td>
+		                <td>{{item.truSign}}</td>
 	            	</tr>
 	        	</table>
 	    	</div>

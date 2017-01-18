@@ -47,13 +47,13 @@ export default ($scope, $rootScope, qService, TransactionRes, ToasterTool, BASE_
 	var arrayItem = new Array();
 	var timer = $interval(function () {
 		// i = n%5;
-		
-		n++;
-		if(n<=120){
-			getByIdLoop(n);
-		}
 		i++;
-	}, 5000);
+		n = i%120;
+
+		getByIdLoop(n);
+		
+		
+	}, 3000);
 	function getByIdLoop(id) {
 		// if (isNull($scope.params.value)) {
 		// 	ToasterTool.warning("输入不能为空");

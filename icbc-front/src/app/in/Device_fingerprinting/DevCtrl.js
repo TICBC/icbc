@@ -27,17 +27,22 @@ export default($scope, $rootScope, AuthTool, $state, qService, deviceRes, Toaste
     qService.httpGet(deviceRes.DevicePeriod, params, {}).then((data) => {
       if (data.success) {
 //            ToasterTool.success("查找成功");
+
+            if (data.data!=null){
             var count = data.data.length;
             for (var i = 0, len = data.data.length; i< len; i++){
               if (data.data[i].Euq_Sign == 1)
                 count--;
             }
             ValueArray[index] = count;
+			}
+			else
+				ValueArray[index] = 0;
           } else {
-//            ToasterTool.error("无结果");
+            ToasterTool.error("无结果");
           }
       }, (err) => {
-//        ToasterTool.error("网络错误");
+        ToasterTool.error("网络错误");
       }).finally(() => {
           $rootScope.loading = false;
     });

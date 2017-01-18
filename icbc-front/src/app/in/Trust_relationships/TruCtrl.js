@@ -1,4 +1,4 @@
-export default ($scope, $rootScope, qService, trustRes, ToasterTool, resultsRes, BASE_URL) => {
+export default ($scope, $rootScope, qService, trustRes,TransactionRes, ToasterTool) => {
 	
 
 	const isNull = (value) => {
@@ -150,9 +150,9 @@ export default ($scope, $rootScope, qService, trustRes, ToasterTool, resultsRes,
 	            ToasterTool.error("无结果");
 	            $scope.items = null;
 	        } else {
-	            ToasterTool.success("查找成功");
+	            // ToasterTool.success("查找成功");
 	            $scope.items = data.data;
-	            // ToasterTool.success(data.data);
+	            console.log(data.data);
 	           }
 	    } else {
 	    	ToasterTool.error("无结果");

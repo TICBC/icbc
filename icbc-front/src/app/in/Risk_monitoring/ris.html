@@ -16,9 +16,9 @@
 			<input type="text" ng-model="params.value"/>
 			<input type="submit" ng-click="getById()"/>
 		</form>
-		<button ng-click="getById()">123</button> -->
+		<button ng-click="getById()">123</button>
 		
-		<h2>{{items}}</h2>
+		<h2>{{items}}</h2> -->
 </div>
 <div class="mid_ris">
 		<div class="tab-wrap">
@@ -110,7 +110,7 @@
     </div>
 
     <div class="right_ris">
-		<div style="height:300px">
+		<div style="height:300px;overflow-y:scroll;">
 			<!-- tab*2 -->
 			<div class="tab-wrap">
 				<div class="tab-nav nav nav-tabs nav-justified"  role="tablist">
@@ -128,7 +128,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr ng-repeat='item in rejectArray|limitTo:5'>
+								<tr ng-repeat="item in rejectArray| orderBy:'-id'">
 									<td>{{item.tranOutAcctZoneNum}}</td>
 									<td>{{item.tranInAcctZoneNum}}</td>
 									<td>{{item.eventDt|date:'y-MM-dd HH:mm'}}</td>
@@ -146,7 +146,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr ng-repeat='item in passArray|limitTo:5'>
+								<tr ng-repeat="item in passArray|orderBy:'-id'">
 									<td>{{item.tranOutAcctZoneNum}}</td>
 									<td>{{item.tranInAcctZoneNum}}</td>
 									<td>{{item.eventDt|date:'y-MM-dd HH:mm'}}</td>

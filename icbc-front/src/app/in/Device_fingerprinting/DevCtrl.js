@@ -31,7 +31,7 @@ export default($scope, $rootScope, AuthTool, $state, qService, deviceRes, Toaste
             if (data.data!=null){
             var count = data.data.length;
             for (var i = 0, len = data.data.length; i< len; i++){
-              if (data.data[i].Euq_Sign == 1)
+              if (data.data[i].equSign == 1)
                 count--;
             }
             ValueArray[index] = count;

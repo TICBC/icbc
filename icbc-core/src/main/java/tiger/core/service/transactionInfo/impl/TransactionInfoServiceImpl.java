@@ -1,5 +1,4 @@
 package tiger.core.service.transactionInfo.impl;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,10 +25,10 @@ public class TransactionInfoServiceImpl implements TransactionInfoService{
     @Autowired
     TransactionInfoDOMapper transactionInfoDOMapper;
     /**
-    public List<TransactionInfoDomain> getAll(){
-        List<Transactioninfo> trans = transactionInfoDOMapper.selec
-    }
-    */
+     public List<TransactionInfoDomain> getAll(){
+     List<Transactioninfo> trans = transactionInfoDOMapper.selec
+     }
+     */
     /**
      * 根据id查找
      * @param id
@@ -97,6 +96,7 @@ public class TransactionInfoServiceImpl implements TransactionInfoService{
         //TransactionInfoDO transactionInfoDO = TransactionInfoConvert.convertDomaintoDo(transactionInfoDomain);
         return transactionInfoDOMapper.insert(transactionInfoDO);
     }
+<<<<<<< HEAD
 
     public TransactionInfoCountDomain countAllServer(){
         TransactioninfocountDO t = new TransactioninfocountDO();
@@ -105,3 +105,6 @@ public class TransactionInfoServiceImpl implements TransactionInfoService{
         return TransactionInfoCountConvert.convertDOtoDomain(t);
     }
 }
+=======
+}
+>>>>>>> d6de59c2b92170d6b5f4eefe066350c9eacd8321

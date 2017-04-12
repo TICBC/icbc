@@ -70,8 +70,9 @@ public class TransactionInfoManagerImpl implements TransactionInfoManager{
         //发送http请求到远程服务器
         RestTemplate restTemplate = new RestTemplate();
         //ResponseEntity<SelectedSocialNet> entity = restTemplate.postForEntity("http://11.0.1.77:8080/api/socialnet/all", selectedSocialNet, SelectedSocialNet.class);
-        ResponseEntity<String> entity = restTemplate.postForEntity("http://10.60.150.105:8080/Socialnet/api/socialnet/pass", selectedSocialNet, String.class);
-        String TraStr = entity.getBody();
+        //ResponseEntity<String> entity = restTemplate.postForEntity("http://10.60.150.105:8080/Socialnet/api/socialnet/pass", selectedSocialNet, String.class);
+        //String TraStr = entity.getBody();
+        String TraStr = "1";
         //String TraStr = result.getPass();
         //System.out.println(result);
         System.out.println("TraStr返回值："+TraStr);

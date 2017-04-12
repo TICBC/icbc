@@ -2788,6 +2788,66 @@ public class TransactionInfoDOExample {
             addCriterion("Tru_Sign not between", value1, value2, "truSign");
             return (Criteria) this;
         }
+
+        public Criteria andDataSignIsNull() {
+            addCriterion("Data_Sign is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataSignIsNotNull() {
+            addCriterion("Data_Sign is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataSignEqualTo(Integer value) {
+            addCriterion("Data_Sign =", value, "dataSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataSignNotEqualTo(Integer value) {
+            addCriterion("Data_Sign <>", value, "dataSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataSignGreaterThan(Integer value) {
+            addCriterion("Data_Sign >", value, "dataSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataSignGreaterThanOrEqualTo(Integer value) {
+            addCriterion("Data_Sign >=", value, "dataSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataSignLessThan(Integer value) {
+            addCriterion("Data_Sign <", value, "dataSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataSignLessThanOrEqualTo(Integer value) {
+            addCriterion("Data_Sign <=", value, "dataSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataSignIn(List<Integer> values) {
+            addCriterion("Data_Sign in", values, "dataSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataSignNotIn(List<Integer> values) {
+            addCriterion("Data_Sign not in", values, "dataSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataSignBetween(Integer value1, Integer value2) {
+            addCriterion("Data_Sign between", value1, value2, "dataSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andDataSignNotBetween(Integer value1, Integer value2) {
+            addCriterion("Data_Sign not between", value1, value2, "dataSign");
+            return (Criteria) this;
+        }
     }
 
     /**

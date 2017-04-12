@@ -1,6 +1,8 @@
 package tiger.common.dal.persistence.icbc;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 public class EquipmentInfoDOExample {
@@ -188,6 +190,32 @@ public class EquipmentInfoDOExample {
                 throw new RuntimeException("Between values for " + property + " cannot be null");
             }
             criteria.add(new Criterion(condition, value1, value2));
+        }
+
+        protected void addCriterionForJDBCDate(String condition, Date value, String property) {
+            if (value == null) {
+                throw new RuntimeException("Value for " + property + " cannot be null");
+            }
+            addCriterion(condition, new java.sql.Date(value.getTime()), property);
+        }
+
+        protected void addCriterionForJDBCDate(String condition, List<Date> values, String property) {
+            if (values == null || values.size() == 0) {
+                throw new RuntimeException("Value list for " + property + " cannot be null or empty");
+            }
+            List<java.sql.Date> dateList = new ArrayList<java.sql.Date>();
+            Iterator<Date> iter = values.iterator();
+            while (iter.hasNext()) {
+                dateList.add(new java.sql.Date(iter.next().getTime()));
+            }
+            addCriterion(condition, dateList, property);
+        }
+
+        protected void addCriterionForJDBCDate(String condition, Date value1, Date value2, String property) {
+            if (value1 == null || value2 == null) {
+                throw new RuntimeException("Between values for " + property + " cannot be null");
+            }
+            addCriterion(condition, new java.sql.Date(value1.getTime()), new java.sql.Date(value2.getTime()), property);
         }
 
         public Criteria andIdIsNull() {
@@ -877,6 +905,206 @@ public class EquipmentInfoDOExample {
 
         public Criteria andFactoryInfoNotBetween(String value1, String value2) {
             addCriterion("Factory_Info not between", value1, value2, "factoryInfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andPartyIdIsNull() {
+            addCriterion("Party_Id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPartyIdIsNotNull() {
+            addCriterion("Party_Id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPartyIdEqualTo(String value) {
+            addCriterion("Party_Id =", value, "partyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPartyIdNotEqualTo(String value) {
+            addCriterion("Party_Id <>", value, "partyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPartyIdGreaterThan(String value) {
+            addCriterion("Party_Id >", value, "partyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPartyIdGreaterThanOrEqualTo(String value) {
+            addCriterion("Party_Id >=", value, "partyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPartyIdLessThan(String value) {
+            addCriterion("Party_Id <", value, "partyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPartyIdLessThanOrEqualTo(String value) {
+            addCriterion("Party_Id <=", value, "partyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPartyIdLike(String value) {
+            addCriterion("Party_Id like", value, "partyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPartyIdNotLike(String value) {
+            addCriterion("Party_Id not like", value, "partyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPartyIdIn(List<String> values) {
+            addCriterion("Party_Id in", values, "partyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPartyIdNotIn(List<String> values) {
+            addCriterion("Party_Id not in", values, "partyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPartyIdBetween(String value1, String value2) {
+            addCriterion("Party_Id between", value1, value2, "partyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPartyIdNotBetween(String value1, String value2) {
+            addCriterion("Party_Id not between", value1, value2, "partyId");
+            return (Criteria) this;
+        }
+
+        public Criteria andJnlDtIsNull() {
+            addCriterion("Jnl_Dt is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andJnlDtIsNotNull() {
+            addCriterion("Jnl_Dt is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andJnlDtEqualTo(Date value) {
+            addCriterionForJDBCDate("Jnl_Dt =", value, "jnlDt");
+            return (Criteria) this;
+        }
+
+        public Criteria andJnlDtNotEqualTo(Date value) {
+            addCriterionForJDBCDate("Jnl_Dt <>", value, "jnlDt");
+            return (Criteria) this;
+        }
+
+        public Criteria andJnlDtGreaterThan(Date value) {
+            addCriterionForJDBCDate("Jnl_Dt >", value, "jnlDt");
+            return (Criteria) this;
+        }
+
+        public Criteria andJnlDtGreaterThanOrEqualTo(Date value) {
+            addCriterionForJDBCDate("Jnl_Dt >=", value, "jnlDt");
+            return (Criteria) this;
+        }
+
+        public Criteria andJnlDtLessThan(Date value) {
+            addCriterionForJDBCDate("Jnl_Dt <", value, "jnlDt");
+            return (Criteria) this;
+        }
+
+        public Criteria andJnlDtLessThanOrEqualTo(Date value) {
+            addCriterionForJDBCDate("Jnl_Dt <=", value, "jnlDt");
+            return (Criteria) this;
+        }
+
+        public Criteria andJnlDtIn(List<Date> values) {
+            addCriterionForJDBCDate("Jnl_Dt in", values, "jnlDt");
+            return (Criteria) this;
+        }
+
+        public Criteria andJnlDtNotIn(List<Date> values) {
+            addCriterionForJDBCDate("Jnl_Dt not in", values, "jnlDt");
+            return (Criteria) this;
+        }
+
+        public Criteria andJnlDtBetween(Date value1, Date value2) {
+            addCriterionForJDBCDate("Jnl_Dt between", value1, value2, "jnlDt");
+            return (Criteria) this;
+        }
+
+        public Criteria andJnlDtNotBetween(Date value1, Date value2) {
+            addCriterionForJDBCDate("Jnl_Dt not between", value1, value2, "jnlDt");
+            return (Criteria) this;
+        }
+
+        public Criteria andJnlTmIsNull() {
+            addCriterion("Jnl_Tm is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andJnlTmIsNotNull() {
+            addCriterion("Jnl_Tm is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andJnlTmEqualTo(String value) {
+            addCriterion("Jnl_Tm =", value, "jnlTm");
+            return (Criteria) this;
+        }
+
+        public Criteria andJnlTmNotEqualTo(String value) {
+            addCriterion("Jnl_Tm <>", value, "jnlTm");
+            return (Criteria) this;
+        }
+
+        public Criteria andJnlTmGreaterThan(String value) {
+            addCriterion("Jnl_Tm >", value, "jnlTm");
+            return (Criteria) this;
+        }
+
+        public Criteria andJnlTmGreaterThanOrEqualTo(String value) {
+            addCriterion("Jnl_Tm >=", value, "jnlTm");
+            return (Criteria) this;
+        }
+
+        public Criteria andJnlTmLessThan(String value) {
+            addCriterion("Jnl_Tm <", value, "jnlTm");
+            return (Criteria) this;
+        }
+
+        public Criteria andJnlTmLessThanOrEqualTo(String value) {
+            addCriterion("Jnl_Tm <=", value, "jnlTm");
+            return (Criteria) this;
+        }
+
+        public Criteria andJnlTmLike(String value) {
+            addCriterion("Jnl_Tm like", value, "jnlTm");
+            return (Criteria) this;
+        }
+
+        public Criteria andJnlTmNotLike(String value) {
+            addCriterion("Jnl_Tm not like", value, "jnlTm");
+            return (Criteria) this;
+        }
+
+        public Criteria andJnlTmIn(List<String> values) {
+            addCriterion("Jnl_Tm in", values, "jnlTm");
+            return (Criteria) this;
+        }
+
+        public Criteria andJnlTmNotIn(List<String> values) {
+            addCriterion("Jnl_Tm not in", values, "jnlTm");
+            return (Criteria) this;
+        }
+
+        public Criteria andJnlTmBetween(String value1, String value2) {
+            addCriterion("Jnl_Tm between", value1, value2, "jnlTm");
+            return (Criteria) this;
+        }
+
+        public Criteria andJnlTmNotBetween(String value1, String value2) {
+            addCriterion("Jnl_Tm not between", value1, value2, "jnlTm");
             return (Criteria) this;
         }
     }

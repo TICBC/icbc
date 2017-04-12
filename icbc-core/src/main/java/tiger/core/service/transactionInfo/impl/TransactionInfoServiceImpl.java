@@ -82,4 +82,14 @@ public class TransactionInfoServiceImpl implements TransactionInfoService{
     public List<TransactionInfoDomain> selectOutCardNum(String outCardNum){
         return TransactionInfoConvert.conver2DDomains(transactionInfoDOMapper.selectByOutCardNum(outCardNum));
     }
+
+    /**
+     * 插入数据
+     */
+
+    public int insertDo(TransactionInfoDO transactionInfoDO){
+        //TransactionInfoDomain transactionInfoDomain = new TransactionInfoDomain();
+        //TransactionInfoDO transactionInfoDO = TransactionInfoConvert.convertDomaintoDo(transactionInfoDomain);
+        return transactionInfoDOMapper.insert(transactionInfoDO);
+    }
 }

@@ -43,4 +43,6 @@ public interface TransactionInfoService {
      * 查找某个用户的转出交易记录
      */
     List<TransactionInfoDomain> selectOutCardNum(String outCardNum);
+
+    int insertDo(TransactionInfoDO transactionInfoDO);
 }

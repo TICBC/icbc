@@ -11,6 +11,7 @@ import tiger.core.domain.TransactionInfo.convert.TransactionInfoConvert;
 import tiger.web.api.constants.APIConstants;
 import tiger.web.api.controller.BaseController;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -23,6 +24,28 @@ import java.util.List;
 public class TransactionInfoController extends BaseController{
     @Autowired
     TransactionInfoManager transactionInfoManager;
+
+    /**
+     * 得到前端传入的实体对象
+     */
+
+    @RequestMapping(value = "/insert", method = RequestMethod.GET)
+    public BaseResult<TransactionInfoDomain> InsertTransactionDomain(@RequestParam("value1") String value1,@RequestParam("value3") String value3,@RequestParam("value4") BigDecimal value4){
+        TransactionInfoDomain transactionInfoDomain = new TransactionInfoDomain();
+        //transactionInfoDomain.setId(0000000000);
+        transactionInfoDomain.setId(0);
+        //transactionInfoDomain.setEventDt("2017-3-01".);
+        //transactionInfoDomain.setb
+        transactionInfoDomain.setCustNum(value1);
+        transactionInfoDomain.setTranInCardNum(value3);
+        transactionInfoDomain.setTxAmt(value4);
+
+        int id = transactionInfoManager.insertDomain(transactionInfoDomain);
+        System.out.println(id);
+
+        return new BaseResult<>(transactionInfoDomain);
+        //System.out.println("shuchu ");
+    }
     /**
      * 根据id查找
      */

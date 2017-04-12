@@ -5,6 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 import tiger.biz.transactioninfo.support.TransactionInfoManager;
 import tiger.core.basic.BaseResult;
+import tiger.core.domain.TransactionInfo.TransactionInfoCountDomain;
 import tiger.core.domain.TransactionInfo.TransactionInfoDomain;
 import tiger.core.domain.TransactionInfo.convert.TransactionInfoConvert;
 import tiger.web.api.constants.APIConstants;
@@ -29,6 +30,19 @@ public class TransactionInfoController extends BaseController{
     public BaseResult<TransactionInfoDomain> getTransactionInfoDomain(@RequestParam("id") Integer id){
         System.out.println(transactionInfoManager.selectByPrimaryKey(id).getId());
         TransactionInfoDomain transactionInfoDomain = transactionInfoManager.selectByPrimaryKey(id);
+        final Boolean aBoolean = transactionInfoManager.updateByPrimaryKey(TransactionInfoConvert.convertDomaintoDo(transactionInfoDomain));
+        return new BaseResult<>(transactionInfoDomain);
+        //System.out.println("shuchu ");
+    }
+    /**
+     * 返回当前时间，当天的统计分析
+     */
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    public BaseResult<TransactionInfoDomain> getTransactionInfoDomainCount(){
+        TransactionInfoCountDomain count ;
+
+
+        TransactionInfoDomain transactionInfoDomain = transactionInfoManager.
         final Boolean aBoolean = transactionInfoManager.updateByPrimaryKey(TransactionInfoConvert.convertDomaintoDo(transactionInfoDomain));
         return new BaseResult<>(transactionInfoDomain);
         //System.out.println("shuchu ");

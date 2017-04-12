@@ -51,6 +51,12 @@ public class BaseResult<T> implements Serializable {
     /**
      * @param data
      */
+//    public BaseResult(String id){
+//        super();
+//        this.code = ErrorCodeEnum.NO_ERROR.getCode();
+//        this.message = ErrorCodeEnum.NO_ERROR.getDefaultMessage();
+//        this.data = (T)(id);
+//    }
     public BaseResult(T data) {
         super();
         this.code = ErrorCodeEnum.NO_ERROR.getCode();

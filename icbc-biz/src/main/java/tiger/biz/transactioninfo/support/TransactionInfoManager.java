@@ -17,4 +17,5 @@ public interface TransactionInfoManager {
     TransactionInfoDomain selectOnlyByPrimaryKey(Integer id);
     List<TransactionInfoDomain> selectByPeriod(Date begintime, Date endtime);
     List<TransactionInfoDomain> selectByOutCardNum(String outCardNum);
+    int insertDomain(TransactionInfoDomain transactionInfoDomain);
 }

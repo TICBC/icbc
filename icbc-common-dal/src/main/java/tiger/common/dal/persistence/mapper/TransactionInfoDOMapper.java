@@ -3,14 +3,17 @@ package tiger.common.dal.persistence.mapper;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import tiger.common.dal.persistence.icbc.TransactionInfoDO;
+
+
 import tiger.common.dal.persistence.icbc.TransactionInfoDOExample;
+import tiger.common.dal.persistence.icbc.TransactioninfocountDO;
 
 public interface TransactionInfoDOMapper {
     List<TransactionInfoDO> selectAll();
 
     List<TransactionInfoDO> selectByOutCardNum(String outCardNum);
 
-//    TransactionInfoCountDomain  countAll();
+    TransactioninfocountDO countAll();
 
 
     /**

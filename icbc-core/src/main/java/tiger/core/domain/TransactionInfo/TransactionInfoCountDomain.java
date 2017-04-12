@@ -15,6 +15,12 @@ public class TransactionInfoCountDomain {
     private Integer lastId;
 
     /**
+     * 交易 总数
+     * @mbggenerated
+     */
+    private Integer total;
+
+    /**
      * 总交易额
      * @mbggenerated
      */
@@ -77,6 +83,14 @@ public class TransactionInfoCountDomain {
 
     public Integer getTruSignCount() {
         return truSignCount;
+    }
+
+    public Integer getTotal() {
+        return total;
+    }
+
+    public void setTotal(Integer total) {
+        this.total = total;
     }
 
 

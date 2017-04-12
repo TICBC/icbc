@@ -2,6 +2,7 @@ package tiger.biz.transactioninfo.support;
 
 import tiger.common.dal.persistence.icbc.TransactionInfoDO;
 import tiger.core.basic.PageResult;
+import tiger.core.domain.TransactionInfo.TransactionInfoCountDomain;
 import tiger.core.domain.TransactionInfo.TransactionInfoDomain;
 
 import java.util.Date;
@@ -18,4 +19,5 @@ public interface TransactionInfoManager {
     List<TransactionInfoDomain> selectByPeriod(Date begintime, Date endtime);
     List<TransactionInfoDomain> selectByOutCardNum(String outCardNum);
     int insertDomain(TransactionInfoDomain transactionInfoDomain);
+    TransactionInfoCountDomain countAll();
 }

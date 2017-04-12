@@ -10,6 +10,7 @@ import tiger.common.dal.persistence.icbc.SelectActDO;
 import tiger.common.dal.persistence.icbc.SelectedSocialNet;
 import tiger.common.dal.persistence.icbc.TransactionInfoDO;
 import tiger.core.basic.PageResult;
+import tiger.core.domain.TransactionInfo.TransactionInfoCountDomain;
 import tiger.core.domain.TransactionInfo.TransactionInfoDomain;
 import tiger.core.domain.TransactionInfo.convert.TransactionInfoConvert;
 import tiger.core.domain.materials.MaterialsDomain;
@@ -173,5 +174,10 @@ public class TransactionInfoManagerImpl implements TransactionInfoManager{
     public int insertDomain(TransactionInfoDomain transactionInfoDomain){
         TransactionInfoDO transactionInfoDO = TransactionInfoConvert.convertDomaintoDo(transactionInfoDomain);
         return transactionInfoService.insertDo(transactionInfoDO);
+    }
+
+    @Override
+    public TransactionInfoCountDomain countAll(){
+        return transactionInfoService.countAllServer();
     }
 }

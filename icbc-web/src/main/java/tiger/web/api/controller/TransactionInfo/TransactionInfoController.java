@@ -65,11 +65,12 @@ public class TransactionInfoController extends BaseController{
 //        TransactionInfoCountDomain count ;
 
 
-        TransactionInfoCountDomain countDomain = new TransactionInfoCountDomain();
+//        TransactionInfoCountDomain countDomain = new TransactionInfoCountDomain();
+//        countDomain.setActSignCount(5);
 //        final Boolean aBoolean = transactionInfoManager.updateByPrimaryKey(TransactionInfoConvert.convertDomaintoDo(transactionInfoDomain));
 //        return new BaseResult<>(transactionInfoDomain);
         //System.out.println("shuchu ");
-        return countDomain;
+        return new BaseResult<TransactionInfoCountDomain>(transactionInfoManager.countAll());
     }
     /**
      * 查找所有交易信息

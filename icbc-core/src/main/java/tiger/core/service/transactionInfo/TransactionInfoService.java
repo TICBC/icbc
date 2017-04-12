@@ -1,6 +1,7 @@
 package tiger.core.service.transactionInfo;
 
 import tiger.common.dal.persistence.icbc.TransactionInfoDO;
+import tiger.core.domain.TransactionInfo.TransactionInfoCountDomain;
 import tiger.core.domain.TransactionInfo.TransactionInfoDomain;
 
 import java.util.Date;
@@ -45,4 +46,6 @@ public interface TransactionInfoService {
     List<TransactionInfoDomain> selectOutCardNum(String outCardNum);
 
     int insertDo(TransactionInfoDO transactionInfoDO);
+
+    TransactionInfoCountDomain countAllServer();
 }

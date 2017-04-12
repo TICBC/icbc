@@ -2,12 +2,17 @@ package tiger.core.service.transactionInfo.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import tiger.common.dal.persistence.icbc.TransactionInfoDO;
 import tiger.common.dal.persistence.icbc.TransactionInfoDOExample;
+import tiger.common.dal.persistence.icbc.TransactioninfocountDO;
+import tiger.common.dal.persistence.mapper.SystemParamsMapper;
 import tiger.common.dal.persistence.mapper.TransactionInfoDOMapper;
 import tiger.common.dal.persistence.materials.MaterialsExample;
+import tiger.core.domain.TransactionInfo.TransactionInfoCountDomain;
 import tiger.core.domain.TransactionInfo.TransactionInfoDomain;
 import tiger.core.domain.TransactionInfo.convert.TransactionInfoConvert;
+import tiger.core.domain.TransactionInfo.convert.TransactionInfoCountConvert;
 import tiger.core.service.transactionInfo.TransactionInfoService;
 
 import java.util.Date;
@@ -91,5 +96,12 @@ public class TransactionInfoServiceImpl implements TransactionInfoService{
         //TransactionInfoDomain transactionInfoDomain = new TransactionInfoDomain();
         //TransactionInfoDO transactionInfoDO = TransactionInfoConvert.convertDomaintoDo(transactionInfoDomain);
         return transactionInfoDOMapper.insert(transactionInfoDO);
+    }
+
+    public TransactionInfoCountDomain countAllServer(){
+        TransactioninfocountDO t = new TransactioninfocountDO();
+        t     =   transactionInfoDOMapper.countAll();
+        System.out.print(t.getLastId());
+        return TransactionInfoCountConvert.convertDOtoDomain(t);
     }
 }

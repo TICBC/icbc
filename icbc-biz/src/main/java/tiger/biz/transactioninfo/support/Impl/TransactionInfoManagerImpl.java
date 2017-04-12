@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import tiger.biz.device.support.DeviceManager;
 import tiger.biz.transactioninfo.support.TransactionInfoManager;
+import tiger.common.dal.persistence.icbc.RulesDO;
 import tiger.common.dal.persistence.icbc.SelectActDO;
 import tiger.common.dal.persistence.icbc.SelectedSocialNet;
 import tiger.common.dal.persistence.icbc.TransactionInfoDO;
@@ -13,10 +14,12 @@ import tiger.core.basic.PageResult;
 import tiger.core.domain.TransactionInfo.TransactionInfoDomain;
 import tiger.core.domain.TransactionInfo.convert.TransactionInfoConvert;
 import tiger.core.domain.materials.MaterialsDomain;
+import tiger.core.service.Rules.RulseService;
 import tiger.core.service.materials.MaterialsService;
 import tiger.core.service.transactionInfo.TransactionInfoService;
 
 import javax.transaction.TransactionManager;
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -30,14 +33,14 @@ public class TransactionInfoManagerImpl implements TransactionInfoManager{
     @Autowired
     //MaterialsService materialsService;
     TransactionInfoService transactionInfoService;
-
+    RulseService rulseService;
     @Autowired
     DeviceManager deviceManager;
 
 
     @Override
     public TransactionInfoDomain selectByPrimaryKey(Integer id){
-        TransactionInfoDomain transactionInfoDomain = transactionInfoService.selectByPrimaryKey(id);
+
 
 
 //        //暂时分开测试
@@ -139,6 +142,23 @@ public class TransactionInfoManagerImpl implements TransactionInfoManager{
 //        //transactionInfoDomain.setTruSign(1);
 //        //transactionInfoDomain.setEquSign(1);
 //        //transactionInfoDomain.setActSign(1);
+          TransactionInfoDomain transactionInfoDomain = transactionInfoService.selectByPrimaryKey(id);
+//        int TruSign;
+//        int EquSign;
+//        int ActSign;
+//        transactionInfoDomain.setTruSign(1);
+//        transactionInfoDomain.setEquSign(1);
+//        transactionInfoDomain.setActSign(1);
+//        String custnum = transactionInfoDomain.getCustNum();
+//        BigDecimal TxAmt = transactionInfoDomain.getTxAmt();
+//        RulesDO rulesDO = rulseService.selectByPrimaryKey(id);
+//        BigDecimal num = new BigDecimal('2');
+//        if(TxAmt.compareTo(rulesDO.getTxAmt().subtract(num)) ==1 )
+//            system.out.print('一次性大额交易');
+//        else if(fabs(TxAmt.subtract(rulesDO.getTxAmt()))>500 )
+//            system.out.print("");
+
+
 
         return transactionInfoDomain;
     }

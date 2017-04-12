@@ -61,14 +61,15 @@ public class TransactionInfoController extends BaseController{
      * 返回当前时间，当天的统计分析
      */
     @RequestMapping(value = "/count", method = RequestMethod.GET)
-    public BaseResult<TransactionInfoDomain> getTransactionInfoDomainCount(){
-        TransactionInfoCountDomain count ;
+    public BaseResult<TransactionInfoCountDomain> getTransactionInfoDomainCount(){
+//        TransactionInfoCountDomain count ;
 
 
-        TransactionInfoDomain transactionInfoDomain = transactionInfoManager.
-        final Boolean aBoolean = transactionInfoManager.updateByPrimaryKey(TransactionInfoConvert.convertDomaintoDo(transactionInfoDomain));
-        return new BaseResult<>(transactionInfoDomain);
+        TransactionInfoCountDomain countDomain = new TransactionInfoCountDomain();
+//        final Boolean aBoolean = transactionInfoManager.updateByPrimaryKey(TransactionInfoConvert.convertDomaintoDo(transactionInfoDomain));
+//        return new BaseResult<>(transactionInfoDomain);
         //System.out.println("shuchu ");
+        return countDomain;
     }
     /**
      * 查找所有交易信息

@@ -10,7 +10,7 @@ public interface TransactionInfoDOMapper {
 
     List<TransactionInfoDO> selectByOutCardNum(String outCardNum);
 
-    TransactionInfoCountDomain  countAll();
+//    TransactionInfoCountDomain  countAll();
 
 
     /**

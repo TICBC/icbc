@@ -58,16 +58,6 @@ public class TransactionInfoController extends BaseController{
         //System.out.println("shuchu ");
     }
 
-<<<<<<< HEAD
-//        TransactionInfoCountDomain countDomain = new TransactionInfoCountDomain();
-//        countDomain.setActSignCount(5);
-//        final Boolean aBoolean = transactionInfoManager.updateByPrimaryKey(TransactionInfoConvert.convertDomaintoDo(transactionInfoDomain));
-//        return new BaseResult<>(transactionInfoDomain);
-        //System.out.println("shuchu ");
-        return new BaseResult<TransactionInfoCountDomain>(transactionInfoManager.countAll());
-    }
-=======
->>>>>>> d6de59c2b92170d6b5f4eefe066350c9eacd8321
     /**
      * 查找所有交易信息
      */
@@ -108,5 +98,15 @@ public class TransactionInfoController extends BaseController{
     @ResponseBody
     public BaseResult<List<TransactionInfoDomain>> getTransactionOutCardNum(@RequestParam("outcardnum") String outcardnum){
         return new BaseResult<>(transactionInfoManager.selectByOutCardNum(outcardnum));
+    }
+
+    /**
+     * 统计当天交易情况
+     */
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    @ResponseBody
+    public BaseResult<TransactionInfoCountDomain> countAll(){
+
+        return new BaseResult<TransactionInfoCountDomain>(transactionInfoManager.countAll());
     }
 }

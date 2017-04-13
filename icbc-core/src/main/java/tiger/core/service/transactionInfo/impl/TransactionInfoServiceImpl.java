@@ -96,7 +96,7 @@ public class TransactionInfoServiceImpl implements TransactionInfoService{
         //TransactionInfoDO transactionInfoDO = TransactionInfoConvert.convertDomaintoDo(transactionInfoDomain);
         return transactionInfoDOMapper.insert(transactionInfoDO);
     }
-<<<<<<< HEAD
+
 
     public TransactionInfoCountDomain countAllServer(){
         TransactioninfocountDO t = new TransactioninfocountDO();
@@ -105,6 +105,4 @@ public class TransactionInfoServiceImpl implements TransactionInfoService{
         return TransactionInfoCountConvert.convertDOtoDomain(t);
     }
 }
-=======
-}
->>>>>>> d6de59c2b92170d6b5f4eefe066350c9eacd8321
+

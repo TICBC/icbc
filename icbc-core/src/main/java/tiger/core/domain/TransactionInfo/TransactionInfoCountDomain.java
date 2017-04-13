@@ -44,6 +44,8 @@ public class TransactionInfoCountDomain {
      */
     private Integer truSignCount;
 
+    private Integer dataSignCount;
+
 
     public void setLastId(Integer lastId) {
         this.lastId = lastId;
@@ -93,5 +95,11 @@ public class TransactionInfoCountDomain {
         this.total = total;
     }
 
+    public Integer getDataSignCount() {
+        return dataSignCount;
+    }
 
+    public void setDataSignCount(Integer dataSignCount) {
+        this.dataSignCount = dataSignCount;
+    }
 }

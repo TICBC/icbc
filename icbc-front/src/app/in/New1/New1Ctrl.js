@@ -247,7 +247,7 @@ export default ($scope, $rootScope, qService, TransactionRes, ToasterTool,$inter
 							"textStyle": {
 								"color": "#fff"
 							},
-							"position": "insideTop",
+							"position": "insideBottom",
 							formatter: function(p) {
 								return p.value > 0 ? (p.value) : '';
 							}
@@ -325,52 +325,7 @@ export default ($scope, $rootScope, qService, TransactionRes, ToasterTool,$inter
                 381,
                 220
 				]
-			}, {
-				"name": "总数",
-				"type": "line",
-				"stack": "总量",
-				symbolSize:10,
-				symbol:'circle',
-				"itemStyle": {
-					"normal": {
-						"color": "rgba(252,230,48,1)",
-						"barBorderRadius": 0,
-						"label": {
-							"show": true,
-							"position": "top",
-							formatter: function(p) {
-								return p.value > 0 ? (p.value) : '';
-							}
-						}
-					}
-				},
-				"data": [
-				1036,
-				3693,
-				2962,
-				3810,
-				2519,
-				1915,
-				1748,
-				4675,
-				6209,
-				4323,
-				2865,
-				4298,
-                1036,
-                3693,
-                2962,
-                3810,
-                2519,
-                1915,
-                1748,
-                4675,
-                6209,
-                4323,
-                2865,
-                4298
-				]
-			},
+			}, 
 			]
 		}
 		// 为echarts对象加载数据 

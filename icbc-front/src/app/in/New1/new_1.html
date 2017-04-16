@@ -9,11 +9,61 @@
 </div>
 
 <div class="col-md-7" style="height: 50%">
-	<div id="pie" style="width: 500px;height:300px;float: left;"></div>
+    <!-- 暂时不用的仪表图 -->
+	<!-- <div id="pie" style="width: 500px;height:300px;float: left;"></div>
     <div id="pie4" style="width: 200px;height:300px;float: left;"></div>
     <div id="pie3" style="width: 200px;height:300px;float: left;"></div>
-	<div id="pie2" style="width: 200px;height:300px;float: left;"></div>
+	<div id="pie2" style="width: 200px;height:300px;float: left;"></div> -->
+    <div class="row">
+        <div class="am-u-lg-2 am-u-md-1 am-u-sm-8">
+            <div class="dashboard-stat blue">
+                <div class="visual">
+                    <i class="am-icon-comments-o"></i>
+                </div>
+                <div class="desc" style="color: white"> 总放行量</div>
+                <div class="details">
+                    <div class="number"> </div>
+                </div>
+            </div>
+        </div>
+        <div class="am-u-lg-2 am-u-md-1 am-u-sm-8">
+            <div class="dashboard-stat purple">
+                <div class="visual">
+                    <i class="am-icon-comments-o"></i>
+                </div>
+                <div class="desc" style="color: white"> 设备指纹识别放行量 </div>
+                <div class="details">
+                    <div class="number"> </div>
 
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1>{{time}}</h1>
+    <div class="row">
+        <div class="am-u-lg-2 am-u-md-1 am-u-sm-8">
+            <div class="dashboard-stat red">
+                <div class="visual">
+                    <i class="am-icon-bar-chart-o"></i>
+                </div>
+                <div class="desc"style="color: white"> 行为认证识别放行量 </div>
+                <div class="details">
+                    <div class="number"> </div>
+                </div>
+            </div>
+        </div>
+        <div class="am-u-lg-2 am-u-md-1 am-u-sm-8">
+            <div class="dashboard-stat green">
+                <div class="visual">
+                    <i class="am-icon-comments-o"></i>
+                </div>
+                <div class="desc" style="color: white"> 信任关系识别放行量 </div>
+                <div class="details">
+                    <div class="number"> </div>
+                </div>
+            </div>
+        </div>
+    </div>
 	<table class="am-table tpl-table" style="font-size: 20px">
             <tr class="tpl-table-uppercase">
                 <td>交易ID</td>

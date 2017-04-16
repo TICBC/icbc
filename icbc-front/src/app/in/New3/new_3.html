@@ -1,0 +1,126 @@
+<div  class="col-md-5" style="margin-top: 25px">
+	<div class="row">
+		<div class="am-u-lg-2 am-u-md-1 am-u-sm-8">
+			<div class="dashboard-stat blue">
+				<div class="visual">
+					<i class="am-icon-comments-o"></i>
+				</div>
+				<div class="desc" style="color: white"> 交易总额 </div>
+				<div class="details">
+					<div class="number"> {{Tmoney | number:2}}</div>
+				</div>
+			</div>
+		</div>
+		<div class="am-u-lg-2 am-u-md-1 am-u-sm-8">
+			<div class="dashboard-stat purple">
+				<div class="visual">
+					<i class="am-icon-comments-o"></i>
+				</div>
+				<div class="desc" style="color: white"> 单笔最大交易总额 </div>
+				<div class="details">
+					<div class="number"> {{MaxN | number:2}}</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<h1>{{time}}</h1>
+	<div class="row">
+		<div class="am-u-lg-2 am-u-md-1 am-u-sm-8">
+			<div class="dashboard-stat red">
+				<div class="visual">
+					<i class="am-icon-bar-chart-o"></i>
+				</div>
+				<div class="desc"style="color: white"> 交易笔数 </div>
+				<div class="details">
+					<div class="number"> {{Ttimes}}</div>
+				</div>
+			</div>
+		</div>
+		<div class="am-u-lg-2 am-u-md-1 am-u-sm-8">
+			<div class="dashboard-stat green">
+				<div class="visual">
+					<i class="am-icon-comments-o"></i>
+				</div>
+				<div class="desc" style="color: white"> 单笔交易额 </div>
+				<div class="details">
+					<div class="number"> {{dan}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="col-md-7" style=";">
+	<div id="container"></div>
+</div>
+<div class="col-md-12" style="height:50%;">
+	<div class="row">
+		<div class="am-u-sm-12 row-mb">
+			<div class="tpl-portlet">
+				<!-- <div class="tpl-portlet-title">
+					<div class="tpl-caption font-red ">
+						<i class="am-icon-bar-chart"></i>
+						<span>拦截与放行</span>
+					</div>
+					<div class="actions">
+					<ul class="actions-btn">
+					<li class="purple-on">昨天</li>
+					<li class="green">前天</li>
+					<li class="dark">本周</li>
+					</ul>
+					</div>
+				</div> -->
+				<div class="tpl-scrollable">
+					<!-- <div class="number-stats">
+						<div class="stat-number am-fl am-u-md-6">
+							<div class="title am-text-right"> 总交易数 </div>
+							<div class="number am-text-right am-text-warning"> 2460 </div>
+						</div>
+						<div class="stat-number am-fr am-u-md-6">
+							<div class="title"> 拦截交易数 </div>
+							<div class="number am-text-success"> 1234 </div>
+						</div>
+
+					</div> -->
+					<table class="am-table tpl-table" style="font-size: 20px">
+						<thead>
+							<tr class="tpl-table-uppercase">
+								<td>交易时间</td>
+								<td>客户编号</td>
+								<td>转入卡号</td>
+								<td>转出卡号</td>
+								<td>交易金额</td>
+								<td>转出账户地区号</td>
+								<td>转入账户地区号</td>
+								<td>客户IP地址</td>
+								<td>客户端</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="item in items | orderBy:'-id'">
+								
+								
+								<!-- <td>{{item.eventDt|date:'y-M-d HH:mm:ss'}}</td> -->
+								<!-- <td>{{item.eventDt|date:'HH:mm:ss'}}</td> -->
+								<td>{{item.dttm}}</td>
+								<td>{{item.custNum}}</td>
+								<td>{{item.tranInCardNum}}</td>
+								<td>{{item.tranOutCardNum}}</td>
+								<td>{{item.txAmt}}</td>
+								<td>{{item.tranOutAcctZoneNum}}</td>
+								<td>{{item.tranInAcctZoneNum}}</td>
+								<td>{{item.custIpAddr}}</td>
+								<td>
+									<div ng-if="item.androidSysPadInd == 0">未知</div>
+									<div ng-if="item.androidSysPadInd == 1">移动端</div>
+									<div ng-if="item.androidSysPadInd == 2">PC端</div>
+<!-- 								{{item.androidSysPadInd}} -->
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

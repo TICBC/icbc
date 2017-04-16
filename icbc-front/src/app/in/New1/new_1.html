@@ -1,0 +1,41 @@
+<div class="col-md-5" style="height:100%;">
+	<!-- <img src="../img/d.png" width="600px" alt=""> -->
+	<!-- <div id="main" style="width: 400px;height:400px;"></div> -->
+	<div id="main" style="width: 100%;height:100%;"></div>
+
+    <script type="text/javascript">
+    
+  </script>
+</div>
+
+<div class="col-md-7" style="height: 50%">
+	<div id="pie" style="width: 500px;height:300px;float: left;"></div>
+    <div id="pie4" style="width: 200px;height:300px;float: left;"></div>
+    <div id="pie3" style="width: 200px;height:300px;float: left;"></div>
+	<div id="pie2" style="width: 200px;height:300px;float: left;"></div>
+
+	<table class="am-table tpl-table" style="font-size: 20px">
+            <tr class="tpl-table-uppercase">
+                <td>交易ID</td>
+                <td>事件日期</td>
+                <td>转入卡号</td>
+                <td>转出卡号</td>
+                <td>交易金额</td>
+                <td>拦截</td>
+            </tr>
+            <tr class="info" ng-repeat="item in items | orderBy:'-id'">
+                <td>{{item.id}}</td>
+                <!-- <td>{{item.eventDt|date:'HH:mm:ss'}}</td> -->
+                <td>{{item.dttm}}</td>
+                <td>{{item.tranInCardNum}}</td>
+                <td>{{item.tranOutCardNum}}</td>
+                <td>{{item.txAmt}}</td>
+                <td>
+                    <div ng-if="item.dataSign == 0">否</div>
+                    <div ng-if="item.dataSign == 1" class="bg_f" style="color: #ea0c0c;"><h5>是</h5></div>
+                </td>
+            </tr>
+    </table>
+	
+	
+</div>

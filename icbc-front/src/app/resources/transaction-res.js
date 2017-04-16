@@ -23,5 +23,13 @@ export default ($resource, BASE_URL) => {
 				}
 			});
 		},
+		CountAll: (headers) => {
+			return $resource(BASE_URL+'/TransactionInfo/count', {}, {
+				get: {
+					method: 'GET',
+					headers: headers,
+				}
+			});
+		},
 	};
 };

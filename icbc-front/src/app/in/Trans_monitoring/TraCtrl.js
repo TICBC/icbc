@@ -37,7 +37,15 @@ export default ($scope, $rootScope, qService, TransactionRes, ToasterTool, BASE_
 	$scope.getById = () => {
 
 	};
-	
+	//获取当前时间
+	var today = new Date();
+	var hh = today.getHours();
+	var mm = today.getMinutes();
+	var ss = today.getSeconds();
+	h = checkTime(hh);
+	m = checkTime(mm);
+	s = checkTime(ss);
+	$scope.time = h+":"+m+":"+s;
 	
 	
 	// 定时查询ById   -- start

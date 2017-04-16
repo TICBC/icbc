@@ -43,6 +43,12 @@ import RisCtrl from './in/Risk_monitoring/RisCtrl';
 import TruCtrl from './in/Trust_relationships/TruCtrl';
 import TraCtrl from './in/Trans_monitoring/TraCtrl';
 
+//根据章老师要求新改三个界面
+import New1Ctrl from './in/New1/New1Ctrl';
+import New2Ctrl from './in/New2/New2Ctrl';
+import New3Ctrl from './in/New3/New3Ctrl';
+
+
 //import Transaction from 'in/';
 angular.module('soraka',
   ['ngAnimate', 'ngCookies', 'ngSanitize', 'ui.router', 'ngResource', 'ngStorage', 'toaster'])
@@ -50,9 +56,9 @@ angular.module('soraka',
   // 配置全局常量
   .constant('lcConfig', config)
   .constant('moment', window.moment)
-  //.constant('BASE_URL', 'http://10.60.150.252:8080/api') // 测试
+  // .constant('BASE_URL', 'http://10.60.150.252:8080/api') // 测试
   .constant('BASE_URL', '/api') // 发布
-
+  
   // 基础配置
   .config(httpConfig)
   .config(routerConfig)
@@ -95,4 +101,8 @@ angular.module('soraka',
   .controller('RisCtrl',RisCtrl)
   .controller('TruCtrl',TruCtrl)
   .controller('TraCtrl',TraCtrl)
+
+  .controller('New1Ctrl',New1Ctrl)
+  .controller('New2Ctrl',New2Ctrl)
+  .controller('New3Ctrl',New3Ctrl) 
   ;

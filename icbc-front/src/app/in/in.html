@@ -5,14 +5,71 @@
     		<span>——工商银行</span>
     	</div>    	
 	</div>
-	<div class="menu">
+	<!-- <div class="menu">
 		<ul class="nav nav-tabs nav-justified" role="tablist">
 			<li role="presentation"><a ui-sref="in.Risk_monitoring" href="javascript:void(0)">风险全流程监控</a></li>
 			<li role="presentation"><a ui-sref="in.Device_fingerprinting" href="javascript:void(0)">设备指纹</a></li>
 			<li role="presentation"><a ui-sref="in.Act_certification" href="javascript:void(0)">行为认证</a></li>
 			<li role="presentation"><a ui-sref="in.Trust_relationships" href="javascript:void(0)">信任关系</a></li>
 			<li role="presentation"><a ui-sref="in.Trans_monitoring" href="javascript:void(0)">交易监控</a></li>
+			<li role="presentation"><a ui-sref="in.New2" href="javascript:void(0)">交易实时监控</a></li>
+			<li role="presentation"><a ui-sref="in.New1" href="javascript:void(0)">风险实时监控</a></li>
+			<li role="presentation"><a ui-sref="in.New3" href="javascript:void(0)">风险大数据分析</a></li>
+			<li role="presentation"><a ui-sref="" href="javascript:void(0)">行为分析</a></li>
 		</ul>
-	</div>
+	</div> -->
+
+	<div class="layout-container">
+      <div class="index-page">
+        <div data-am-widget="tabs" class="am-tabs am-tabs-default">
+          <ul class="am-tabs-nav am-cf index-tab">
+            <li>
+              <a ui-sref="in.New3" href="javascript:void(0)">
+                <div class="am-u-md-3 am-u-sm-3 am-padding-right-0">
+                  <i class="am-icon-cog"></i>
+                </div>
+                <div class="school-item-right am-u-md-9 am-u-sm-9 am-text-left">
+                  <strong class="promo_slider_nav--item_title">交易实时监控</strong>
+                  <p class="promo_slider_nav--item_description">Transaction monitor</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a ui-sref="in.New1" href="javascript:void(0)">
+                <div class="am-u-md-3 am-u-sm-3 am-padding-right-0">
+                  <i class="am-icon-lightbulb-o"></i>
+                </div>
+                <div class="school-item-right am-u-md-9 am-u-sm-9 am-text-left">
+                  <strong class="promo_slider_nav--item_title">风险实时监控</strong>
+                  <p class="promo_slider_nav--item_description">Risk Monitoring</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a ui-sref="in.New2" href="javascript:void(0)">
+                <div class="am-u-md-3 am-u-sm-3 am-padding-right-0">
+                  <i class="am-icon-line-chart"></i>
+                </div>
+                <div class="school-item-right am-u-md-9 am-u-sm-9 am-text-left">
+                  <strong class="promo_slider_nav--item_title">风险大数据分析</strong>
+                  <p class="promo_slider_nav--item_description">Risk analysis of Big Data</p>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <div class="am-u-md-3 am-u-sm-3 am-padding-right-0">
+                  <i class="am-icon-hourglass-end"></i>
+                </div>
+                <div class="school-item-right am-u-md-9 am-u-sm-9 am-text-left">
+                  <strong class="promo_slider_nav--item_title">行为分析</strong>
+                  <p class="promo_slider_nav--item_description">Behavior analysis</p>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 	<div ui-view class="full_content"></div>
 </div>
